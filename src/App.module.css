@@ -1,0 +1,33 @@
+.page {
+  --ink: #121212;
+  --paper: #f5f1e8;
+  --white: #fffdf7;
+  --acid: #d7ff3f;
+  --coral: #ff675d;
+  --blue: #7892ff;
+  --yellow: #ffd84d;
+  min-height: 100vh;
+  overflow: clip;
+  color: var(--ink);
+  background-color: var(--paper);
+  background-image: radial-gradient(#c8c2b5 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+.skipLink {
+  position: fixed;
+  z-index: 100;
+  top: .75rem;
+  left: .75rem;
+  padding: .8rem 1rem;
+  border: 3px solid var(--ink);
+  background: var(--acid);
+  font-weight: 900;
+  transform: translateY(-160%);
+}
+
+.skipLink:focus { transform: translateY(0); }
+
+@media (prefers-reduced-motion: reduce) {
+  .page { scroll-behavior: auto; }
+}

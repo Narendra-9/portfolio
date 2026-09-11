@@ -1,0 +1,59 @@
+.expertiseSection { padding: clamp(5rem, 9vw, 9rem) 7vw; border-bottom: 3px solid var(--ink); background: var(--paper); }
+.expertiseGrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.35rem; }
+.expertiseCard {
+  position: relative;
+  min-height: 260px;
+  padding: 1.8rem;
+  overflow: hidden;
+  border: 3px solid var(--ink);
+  background: var(--white);
+  box-shadow: 7px 7px 0 var(--ink);
+  transform: translate3d(0, 0, 0);
+  transition: transform .28s cubic-bezier(.2, .8, .2, 1);
+  will-change: transform;
+}
+.expertiseCard::before {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 8px;
+  content: '';
+  background: var(--blue);
+  transform: scaleX(.16);
+  transform-origin: left;
+  transition: transform .35s cubic-bezier(.2, .8, .2, 1);
+}
+.expertiseCard:nth-child(2)::before, .expertiseCard:nth-child(5)::before { background: var(--coral); }
+.expertiseCard:nth-child(3)::before, .expertiseCard:nth-child(6)::before { background: var(--yellow); }
+.expertiseCard:hover { transform: translate3d(0, -7px, 0); }
+.expertiseCard:hover::before { transform: scaleX(1); }
+.cardIcon {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border: 2px solid var(--ink);
+  background: var(--blue);
+  box-shadow: 3px 3px 0 var(--ink);
+  font-size: 1.35rem;
+  transition: transform .32s cubic-bezier(.2, .8, .2, 1);
+  will-change: transform;
+}
+.cardIcon svg { width: 1.35rem; height: 1.35rem; stroke-width: 2; }
+.expertiseCard:nth-child(2) .cardIcon, .expertiseCard:nth-child(5) .cardIcon { background: var(--coral); }
+.expertiseCard:nth-child(3) .cardIcon, .expertiseCard:nth-child(6) .cardIcon { background: var(--yellow); }
+.expertiseCard:hover .cardIcon { transform: rotate(-4deg) translate3d(0, -2px, 0); }
+.expertiseCard h3 { max-width: 380px; margin: 2.5rem 0 .9rem; font-size: clamp(1.35rem, 1.75vw, 1.85rem); line-height: 1.05; letter-spacing: -.035em; text-transform: uppercase; }
+.expertiseCard p { max-width: 410px; margin: 0; color: #4d4a45; font-size: .94rem; line-height: 1.62; }
+
+@media (max-width: 1120px) { .expertiseGrid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 800px) {
+  .expertiseSection { padding-right: 1.25rem; padding-left: 1.25rem; }
+  .expertiseGrid { grid-template-columns: 1fr; }
+  .expertiseCard { min-height: 230px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .expertiseCard, .expertiseCard::before, .cardIcon { transition: none; }
+}

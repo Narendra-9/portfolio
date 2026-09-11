@@ -1,0 +1,12 @@
+.sectionIntro { max-width: 1000px; margin-bottom: clamp(2.8rem, 5vw, 5rem); }
+.sectionKicker { display: flex; align-items: center; gap: .65rem; margin-bottom: 1.1rem; font-family: var(--font-geist-mono); font-size: .72rem; font-weight: 900; letter-spacing: .1em; text-transform: uppercase; }
+.sectionKicker span { display: grid; place-items: center; width: 34px; height: 34px; border: 2px solid var(--ink); color: var(--ink); background: var(--acid); box-shadow: 3px 3px 0 var(--ink); }
+.sectionIntro h2 { max-width: 1050px; margin: 0; font-size: clamp(3rem, 6.2vw, 6.5rem); font-weight: 950; line-height: .92; letter-spacing: -.065em; text-transform: uppercase; }
+.sectionIntro h2 em { color: var(--coral); font-style: normal; -webkit-text-stroke: 2px var(--ink); text-shadow: 4px 4px 0 var(--ink); }
+.sectionIntro > p { max-width: 640px; margin: 1.35rem 0 0; font-size: 1.05rem; line-height: 1.65; }
+.dark h2 em { color: var(--acid); -webkit-text-stroke-color: var(--paper); text-shadow: 4px 4px 0 #777; }
+
+@media (max-width: 560px) {
+  .sectionIntro h2 { font-size: clamp(2.75rem, 14vw, 4.2rem); }
+  .sectionIntro h2 em { -webkit-text-stroke-width: 1px; text-shadow: 3px 3px 0 var(--ink); }
+}

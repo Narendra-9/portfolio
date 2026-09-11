@@ -1,0 +1,20 @@
+.reveal {
+  opacity: 0;
+  transform: translate3d(0, 18px, 0);
+  transition: opacity 440ms ease-out, transform 440ms cubic-bezier(.2, .8, .2, 1);
+  will-change: opacity, transform;
+}
+
+.visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  will-change: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

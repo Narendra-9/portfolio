@@ -1,0 +1,32 @@
+.backdrop { position: fixed; z-index: 1000; inset: 0; display: grid; place-items: center; padding: 1.5rem; background: rgb(18 18 18 / 74%); backdrop-filter: blur(8px); animation: backdropIn .2s ease-out both; }
+.modal { width: min(1040px, 100%); max-height: 92vh; overflow: hidden; border: 3px solid var(--ink); color: var(--ink); background: var(--paper); box-shadow: 10px 10px 0 var(--acid); animation: modalIn .28s cubic-bezier(.2, .8, .2, 1) both; }
+.modalHeader { display: flex; align-items: center; justify-content: space-between; min-height: 70px; padding: .75rem 1rem .75rem 1.25rem; border-bottom: 3px solid var(--ink); background: var(--white); }
+.achievementNumber { color: #7f7a72; font-family: var(--font-geist-mono); font-size: 1.15rem; font-weight: 900; }
+.closeButton { display: grid; width: 44px; height: 44px; place-items: center; border: 2px solid var(--ink); background: var(--paper); box-shadow: 3px 3px 0 var(--ink); transition: transform .18s ease, box-shadow .18s ease, background-color .18s ease; }
+.closeButton svg { width: 1.35rem; height: 1.35rem; }
+.closeButton:hover { background: var(--coral); transform: translate(2px, 2px); box-shadow: 1px 1px 0 var(--ink); }
+.closeButton:focus-visible { outline: 4px solid var(--blue); outline-offset: 3px; }
+.modalBody { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(320px, .85fr); max-height: calc(92vh - 70px); overflow-y: auto; }
+.imageFrame { min-height: 540px; padding: 1.25rem; border-right: 3px solid var(--ink); background-color: var(--white); background-image: radial-gradient(#cbc5b9 1px, transparent 1px); background-size: 20px 20px; }
+.imageFrame img { display: block; width: 100%; height: 100%; min-height: 490px; border: 3px solid var(--ink); background: var(--white); }
+.contain img { padding: 1rem; object-fit: contain; }
+.cover img { object-fit: cover; object-position: center; }
+.achievementCopy { display: flex; flex-direction: column; justify-content: center; padding: clamp(2rem, 4vw, 3.5rem); }
+.eyebrow { width: fit-content; margin-bottom: 1.2rem; padding: .4rem .55rem; border: 2px solid var(--ink); background: var(--acid); font-family: var(--font-geist-mono); font-size: .65rem; font-weight: 900; letter-spacing: .06em; text-transform: uppercase; box-shadow: 3px 3px 0 var(--ink); }
+.achievementCopy h3 { margin: 0; font-size: clamp(2.2rem, 4.6vw, 4.6rem); line-height: .92; letter-spacing: -.055em; text-transform: uppercase; }
+.achievementCopy > strong { margin-top: 1.4rem; font-family: var(--font-geist-mono); font-size: .76rem; line-height: 1.45; text-transform: uppercase; }
+.achievementCopy > p { margin: .8rem 0 0; color: #4f4b45; font-size: 1rem; line-height: 1.7; }
+.summaryBox { margin-top: 1.8rem; padding: 1rem; border: 2px solid var(--ink); background: var(--white); box-shadow: 4px 4px 0 var(--coral); }
+.summaryBox span { font-family: var(--font-geist-mono); font-size: .62rem; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; }
+.summaryBox p { margin: .55rem 0 0; font-size: .88rem; line-height: 1.55; }
+@keyframes backdropIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes modalIn { from { opacity: 0; transform: translate3d(0, 18px, 0) scale(.985); } to { opacity: 1; transform: translate3d(0, 0, 0) scale(1); } }
+@media (max-width: 780px) {
+  .backdrop { padding: .75rem; }
+  .modal { max-height: 96vh; box-shadow: 6px 6px 0 var(--acid); }
+  .modalBody { grid-template-columns: 1fr; max-height: calc(96vh - 70px); }
+  .imageFrame { min-height: 330px; padding: .8rem; border-right: 0; border-bottom: 3px solid var(--ink); }
+  .imageFrame img { min-height: 280px; }
+  .achievementCopy { padding: 1.6rem; }
+}
+@media (prefers-reduced-motion: reduce) { .backdrop, .modal, .closeButton { animation: none; transition: none; } }

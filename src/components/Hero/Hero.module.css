@@ -1,0 +1,295 @@
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: stretch;
+  min-height: calc(100vh - 78px);
+  border-bottom: 3px solid var(--ink);
+}
+
+.heroCopy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: calc(100svh - 78px);
+  padding: clamp(3.4rem, 5vw, 5.6rem) clamp(2rem, 3.3vw, 4rem) 3rem clamp(2rem, 4vw, 4.5rem);
+}
+
+.introLine {
+  display: flex;
+  align-items: center;
+  gap: .9rem;
+  width: min(100%, 270px);
+  margin: 0 0 1rem;
+  font-family: var(--font-geist-mono);
+  font-size: .68rem;
+  font-weight: 900;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+}
+
+.introLine span {
+  flex: 1;
+  height: 1px;
+  background: var(--ink);
+}
+
+.hero h1 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 0;
+  font-size: clamp(4.15rem, 6.3vw, 7.4rem);
+  font-weight: 950;
+  line-height: .82;
+  letter-spacing: -.065em;
+  text-transform: uppercase;
+}
+
+.firstName {
+  display: block;
+}
+
+.lastName {
+  display: block;
+  margin-top: .09em;
+  padding: .04em .09em .09em .04em;
+  background: var(--acid);
+  box-shadow: 0 0 28px rgb(203 255 48 / 18%);
+}
+
+.roleLine {
+  margin: 1rem 0 0;
+  font-family: var(--font-geist-mono);
+  font-size: clamp(.66rem, .83vw, .8rem);
+  font-weight: 900;
+  letter-spacing: .32em;
+  text-transform: uppercase;
+}
+
+.lede {
+  max-width: 620px;
+  margin: 1.15rem 0 1.05rem;
+  font-size: clamp(.98rem, 1.08vw, 1.08rem);
+  line-height: 1.55;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .52rem;
+  max-width: 680px;
+}
+
+.tags span {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .5rem .68rem;
+  border: 1.5px solid var(--ink);
+  background: var(--white);
+  font-family: var(--font-geist-mono);
+  font-size: .68rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.tags svg {
+  width: 17px;
+  height: 17px;
+  flex: 0 0 auto;
+  stroke-width: 2;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1.65rem;
+}
+
+.primaryButton,
+.secondaryButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  min-height: 50px;
+  padding: .9rem 1.25rem;
+  border: 2px solid var(--ink);
+  font-family: var(--font-geist-mono);
+  font-size: .77rem;
+  font-weight: 900;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  box-shadow: 4px 4px 0 var(--ink);
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+
+.primaryButton {
+  color: var(--paper);
+  background: var(--ink);
+  box-shadow: 5px 5px 0 var(--acid);
+}
+
+.secondaryButton {
+  background: var(--white);
+}
+
+.primaryButton:hover,
+.secondaryButton:hover {
+  transform: translate(3px, 3px);
+  box-shadow: 2px 2px 0 var(--ink);
+}
+
+.heroVisual {
+  position: relative;
+  display: grid;
+  height: calc(100svh - 78px);
+  min-height: 640px;
+  overflow: hidden;
+  place-items: center;
+  background: var(--paper);
+  perspective: 1400px;
+  isolation: isolate;
+}
+
+.portraitStage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3840 / 3122;
+  overflow: hidden;
+  animation: stageIn .75s cubic-bezier(.2, .8, .2, 1) both;
+  transform-style: preserve-3d;
+  transition: transform .5s cubic-bezier(.2, .8, .2, 1);
+}
+
+.portraitStage:hover {
+  transform: translateY(-4px) rotateY(-1deg);
+}
+
+.portrait {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.marquee {
+  overflow: hidden;
+  border-bottom: 3px solid var(--ink);
+  color: var(--paper);
+  background: var(--ink);
+}
+
+.marquee > div {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  padding: .95rem 0;
+  animation: marquee 72s linear infinite;
+}
+
+.marqueeItem {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding-left: 1.5rem;
+  font-family: var(--font-geist-mono);
+  font-size: .78rem;
+  font-weight: 900;
+  letter-spacing: .08em;
+}
+
+.marqueeItem b {
+  color: var(--acid);
+}
+
+@keyframes stageIn {
+  from {
+    opacity: 0;
+    transform: translate3d(28px, 20px, -70px) scale(.97);
+  }
+}
+
+@keyframes marquee {
+  to { transform: translateX(-50%); }
+}
+
+@media (max-width: 1120px) {
+  .hero {
+    grid-template-columns: 1fr;
+    align-items: stretch;
+  }
+
+  .heroCopy {
+    min-height: 0;
+    border-bottom: 3px solid var(--ink);
+  }
+
+  .heroVisual {
+    height: auto;
+    min-height: 620px;
+  }
+
+  .portraitStage {
+    width: min(100%, 760px);
+  }
+}
+
+@media (max-width: 560px) {
+  .heroCopy {
+    padding: 3.2rem 1.15rem 3rem;
+  }
+
+  .hero h1 {
+    font-size: clamp(3.2rem, 17vw, 4.5rem);
+  }
+
+  .roleLine {
+    letter-spacing: .18em;
+    line-height: 1.5;
+  }
+
+  .lede {
+    font-size: 1rem;
+  }
+
+  .tags span {
+    flex: 1 1 calc(50% - .52rem);
+    justify-content: flex-start;
+    min-width: 0;
+    font-size: .62rem;
+  }
+
+  .actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .primaryButton,
+  .secondaryButton {
+    padding-inline: .75rem;
+    font-size: .68rem;
+  }
+
+  .heroVisual {
+    min-height: 390px;
+  }
+
+  .portraitStage {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .portraitStage,
+  .marquee > div {
+    animation: none !important;
+  }
+
+  .portraitStage {
+    transition: none;
+  }
+}
