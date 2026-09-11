@@ -156,7 +156,7 @@
 .portraitStage {
   position: relative;
   width: 100%;
-  aspect-ratio: 3840 / 3122;
+  aspect-ratio: 1391 / 1131;
   overflow: hidden;
   animation: stageIn .75s cubic-bezier(.2, .8, .2, 1) both;
   transform-style: preserve-3d;

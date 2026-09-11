@@ -8,7 +8,7 @@ export default function About() {
       <SectionHeading number="01" kicker="Who I am">Engineering across the <em>whole stack.</em></SectionHeading>
       <div className={styles.aboutGrid}>
         <Reveal className={styles.aboutCopy}>
-          <p className={styles.aboutLead}>I Turn AI Capabilities Into Dependable Products People Can Actually Use.</p>
+          <p className={styles.aboutLead}>I turn AI capabilities into dependable products people can actually use.</p>
           <p>My work spans model orchestration, retrieval, evaluation, backend services, responsive interfaces, data systems, and deployment. That full-stack perspective helps me build AI experiences that are useful, secure, and production-ready.</p>
           <div className={styles.certStrip}>
             <img src="/aws-ai-practitioner-badge.png" alt="AWS Certified AI Practitioner Foundational" />

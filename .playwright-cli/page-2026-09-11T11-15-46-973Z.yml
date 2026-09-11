@@ -1,0 +1,726 @@
+- main [ref=f1e3]:
+  - link "Skip to content" [ref=f1e4] [cursor=pointer]:
+    - /url: "#main-content"
+  - generic [ref=f1e5]:
+    - link "Narendra Vanapalli home" [ref=f1e6] [cursor=pointer]:
+      - /url: "#home"
+      - generic [ref=f1e8]: Narendra Vanapalli
+    - navigation "Primary navigation" [ref=f1e9]:
+      - link "Home" [ref=f1e10] [cursor=pointer]:
+        - /url: "#home"
+      - link "About" [ref=f1e11] [cursor=pointer]:
+        - /url: "#about"
+      - link "Expertise" [ref=f1e12] [cursor=pointer]:
+        - /url: "#expertise"
+      - link "Experience" [ref=f1e13] [cursor=pointer]:
+        - /url: "#experience"
+      - link "Projects" [ref=f1e14] [cursor=pointer]:
+        - /url: "#projects"
+      - link "Skills" [ref=f1e15] [cursor=pointer]:
+        - /url: "#skills"
+      - link "Contact" [ref=f1e16] [cursor=pointer]:
+        - /url: "#contact"
+    - generic [ref=f1e17]:
+      - link "Resume" [ref=f1e18] [cursor=pointer]:
+        - /url: /Narendra_Vanapalli_Resume.pdf
+        - text: Resume
+        - generic [aria-hidden] [ref=f1e19]: ↓
+      - button "Ask My AI" [ref=f1e20] [cursor=pointer]:
+        - generic [aria-hidden] [ref=f1e21]: ✦
+        - text: Ask My AI
+  - generic [ref=f1e22]:
+    - generic [ref=f1e24]:
+      - paragraph [ref=f1e25]: Hello, I'm
+      - heading "Narendra Vanapalli" [level=1] [ref=f1e27]:
+        - generic [ref=f1e28]: Narendra
+        - generic [ref=f1e29]: Vanapalli
+      - paragraph [ref=f1e30]: Machine Learning Engineer @ Endava
+      - paragraph [ref=f1e31]: I build production-ready AI products that combine RAG, agentic systems, and full-stack development to solve complex enterprise challenges with reliability, scale, and measurable impact.
+      - generic "Core expertise" [ref=f1e32]:
+        - generic [ref=f1e33]: AI/ML Engineering
+        - generic [ref=f1e41]: Agentic AI Systems
+        - generic [ref=f1e44]: Full-Stack Development
+        - generic [ref=f1e49]: RAG Pipelines
+        - generic [ref=f1e56]: Responsible AI
+        - generic [ref=f1e60]: Real-World Impact
+      - generic [ref=f1e64]:
+        - link "Explore my work" [ref=f1e65] [cursor=pointer]:
+          - /url: "#projects"
+          - text: Explore my work
+          - generic [aria-hidden] [ref=f1e66]: →
+        - link "Get in touch" [ref=f1e67] [cursor=pointer]:
+          - /url: "#contact"
+    - generic [ref=f1e71]:
+      - generic [ref=f1e72]:
+        - text: ReactJS
+        - generic [ref=f1e73]: ✦
+      - generic [ref=f1e74]:
+        - text: Redux
+        - generic [ref=f1e75]: ✦
+      - generic [ref=f1e76]:
+        - text: JavaScript
+        - generic [ref=f1e77]: ✦
+      - generic [ref=f1e78]:
+        - text: HTML5
+        - generic [ref=f1e79]: ✦
+      - generic [ref=f1e80]:
+        - text: CSS3
+        - generic [ref=f1e81]: ✦
+      - generic [ref=f1e82]:
+        - text: Responsive Design
+        - generic [ref=f1e83]: ✦
+      - generic [ref=f1e84]:
+        - text: Python
+        - generic [ref=f1e85]: ✦
+      - generic [ref=f1e86]:
+        - text: FastAPI
+        - generic [ref=f1e87]: ✦
+      - generic [ref=f1e88]:
+        - text: Java
+        - generic [ref=f1e89]: ✦
+      - generic [ref=f1e90]:
+        - text: Spring Boot
+        - generic [ref=f1e91]: ✦
+      - generic [ref=f1e92]:
+        - text: Spring WebFlux
+        - generic [ref=f1e93]: ✦
+      - generic [ref=f1e94]:
+        - text: REST APIs
+        - generic [ref=f1e95]: ✦
+      - generic [ref=f1e96]:
+        - text: Microservices
+        - generic [ref=f1e97]: ✦
+      - generic [ref=f1e98]:
+        - text: PostgreSQL
+        - generic [ref=f1e99]: ✦
+      - generic [ref=f1e100]:
+        - text: MongoDB
+        - generic [ref=f1e101]: ✦
+      - generic [ref=f1e102]:
+        - text: SQL Server
+        - generic [ref=f1e103]: ✦
+      - generic [ref=f1e104]:
+        - text: Redis
+        - generic [ref=f1e105]: ✦
+      - generic [ref=f1e106]:
+        - text: Caffeine
+        - generic [ref=f1e107]: ✦
+      - generic [ref=f1e108]:
+        - text: SQLAlchemy
+        - generic [ref=f1e109]: ✦
+      - generic [ref=f1e110]:
+        - text: pgvector
+        - generic [ref=f1e111]: ✦
+      - generic [ref=f1e112]:
+        - text: Qdrant
+        - generic [ref=f1e113]: ✦
+      - generic [ref=f1e114]:
+        - text: ChromaDB
+        - generic [ref=f1e115]: ✦
+      - generic [ref=f1e116]:
+        - text: AWS
+        - generic [ref=f1e117]: ✦
+      - generic [ref=f1e118]:
+        - text: GCP
+        - generic [ref=f1e119]: ✦
+      - generic [ref=f1e120]:
+        - text: Azure AI Foundry
+        - generic [ref=f1e121]: ✦
+      - generic [ref=f1e122]:
+        - text: Databricks
+        - generic [ref=f1e123]: ✦
+      - generic [ref=f1e124]:
+        - text: Docker
+        - generic [ref=f1e125]: ✦
+      - generic [ref=f1e126]:
+        - text: CI/CD
+        - generic [ref=f1e127]: ✦
+      - generic [ref=f1e128]:
+        - text: MLOps
+        - generic [ref=f1e129]: ✦
+      - generic [ref=f1e130]:
+        - text: LLMOps
+        - generic [ref=f1e131]: ✦
+      - generic [ref=f1e132]:
+        - text: Git
+        - generic [ref=f1e133]: ✦
+      - generic [ref=f1e134]:
+        - text: GitHub
+        - generic [ref=f1e135]: ✦
+      - generic [ref=f1e136]:
+        - text: Linux
+        - generic [ref=f1e137]: ✦
+      - generic [ref=f1e138]:
+        - text: Agentic AI
+        - generic [ref=f1e139]: ✦
+      - generic [ref=f1e140]:
+        - text: RAG
+        - generic [ref=f1e141]: ✦
+      - generic [ref=f1e142]:
+        - text: LangChain
+        - generic [ref=f1e143]: ✦
+      - generic [ref=f1e144]:
+        - text: LangGraph
+        - generic [ref=f1e145]: ✦
+      - generic [ref=f1e146]:
+        - text: LangSmith
+        - generic [ref=f1e147]: ✦
+      - generic [ref=f1e148]:
+        - text: CrewAI
+        - generic [ref=f1e149]: ✦
+      - generic [ref=f1e150]:
+        - text: OpenAI Agents SDK
+        - generic [ref=f1e151]: ✦
+      - generic [ref=f1e152]:
+        - text: Google ADK
+        - generic [ref=f1e153]: ✦
+      - generic [ref=f1e154]:
+        - text: MCP
+        - generic [ref=f1e155]: ✦
+      - generic [ref=f1e156]:
+        - text: Machine Learning
+        - generic [ref=f1e157]: ✦
+      - generic [ref=f1e158]:
+        - text: Deep Learning
+        - generic [ref=f1e159]: ✦
+      - generic [ref=f1e160]:
+        - text: AI Evals
+        - generic [ref=f1e161]: ✦
+      - generic [ref=f1e162]:
+        - text: AI Guardrails
+        - generic [ref=f1e163]: ✦
+      - generic [ref=f1e164]:
+        - text: PyTest
+        - generic [ref=f1e165]: ✦
+      - generic [ref=f1e166]:
+        - text: JUnit
+        - generic [ref=f1e167]: ✦
+      - generic [ref=f1e168]:
+        - text: RAGAS
+        - generic [ref=f1e169]: ✦
+      - generic [ref=f1e170]:
+        - text: Spec-Driven Development
+        - generic [ref=f1e171]: ✦
+      - generic [ref=f1e172]:
+        - text: ReactJS
+        - generic [ref=f1e173]: ✦
+      - generic [ref=f1e174]:
+        - text: Redux
+        - generic [ref=f1e175]: ✦
+      - generic [ref=f1e176]:
+        - text: JavaScript
+        - generic [ref=f1e177]: ✦
+      - generic [ref=f1e178]:
+        - text: HTML5
+        - generic [ref=f1e179]: ✦
+      - generic [ref=f1e180]:
+        - text: CSS3
+        - generic [ref=f1e181]: ✦
+      - generic [ref=f1e182]:
+        - text: Responsive Design
+        - generic [ref=f1e183]: ✦
+      - generic [ref=f1e184]:
+        - text: Python
+        - generic [ref=f1e185]: ✦
+      - generic [ref=f1e186]:
+        - text: FastAPI
+        - generic [ref=f1e187]: ✦
+      - generic [ref=f1e188]:
+        - text: Java
+        - generic [ref=f1e189]: ✦
+      - generic [ref=f1e190]:
+        - text: Spring Boot
+        - generic [ref=f1e191]: ✦
+      - generic [ref=f1e192]:
+        - text: Spring WebFlux
+        - generic [ref=f1e193]: ✦
+      - generic [ref=f1e194]:
+        - text: REST APIs
+        - generic [ref=f1e195]: ✦
+      - generic [ref=f1e196]:
+        - text: Microservices
+        - generic [ref=f1e197]: ✦
+      - generic [ref=f1e198]:
+        - text: PostgreSQL
+        - generic [ref=f1e199]: ✦
+      - generic [ref=f1e200]:
+        - text: MongoDB
+        - generic [ref=f1e201]: ✦
+      - generic [ref=f1e202]:
+        - text: SQL Server
+        - generic [ref=f1e203]: ✦
+      - generic [ref=f1e204]:
+        - text: Redis
+        - generic [ref=f1e205]: ✦
+      - generic [ref=f1e206]:
+        - text: Caffeine
+        - generic [ref=f1e207]: ✦
+      - generic [ref=f1e208]:
+        - text: SQLAlchemy
+        - generic [ref=f1e209]: ✦
+      - generic [ref=f1e210]:
+        - text: pgvector
+        - generic [ref=f1e211]: ✦
+      - generic [ref=f1e212]:
+        - text: Qdrant
+        - generic [ref=f1e213]: ✦
+      - generic [ref=f1e214]:
+        - text: ChromaDB
+        - generic [ref=f1e215]: ✦
+      - generic [ref=f1e216]:
+        - text: AWS
+        - generic [ref=f1e217]: ✦
+      - generic [ref=f1e218]:
+        - text: GCP
+        - generic [ref=f1e219]: ✦
+      - generic [ref=f1e220]:
+        - text: Azure AI Foundry
+        - generic [ref=f1e221]: ✦
+      - generic [ref=f1e222]:
+        - text: Databricks
+        - generic [ref=f1e223]: ✦
+      - generic [ref=f1e224]:
+        - text: Docker
+        - generic [ref=f1e225]: ✦
+      - generic [ref=f1e226]:
+        - text: CI/CD
+        - generic [ref=f1e227]: ✦
+      - generic [ref=f1e228]:
+        - text: MLOps
+        - generic [ref=f1e229]: ✦
+      - generic [ref=f1e230]:
+        - text: LLMOps
+        - generic [ref=f1e231]: ✦
+      - generic [ref=f1e232]:
+        - text: Git
+        - generic [ref=f1e233]: ✦
+      - generic [ref=f1e234]:
+        - text: GitHub
+        - generic [ref=f1e235]: ✦
+      - generic [ref=f1e236]:
+        - text: Linux
+        - generic [ref=f1e237]: ✦
+      - generic [ref=f1e238]:
+        - text: Agentic AI
+        - generic [ref=f1e239]: ✦
+      - generic [ref=f1e240]:
+        - text: RAG
+        - generic [ref=f1e241]: ✦
+      - generic [ref=f1e242]:
+        - text: LangChain
+        - generic [ref=f1e243]: ✦
+      - generic [ref=f1e244]:
+        - text: LangGraph
+        - generic [ref=f1e245]: ✦
+      - generic [ref=f1e246]:
+        - text: LangSmith
+        - generic [ref=f1e247]: ✦
+      - generic [ref=f1e248]:
+        - text: CrewAI
+        - generic [ref=f1e249]: ✦
+      - generic [ref=f1e250]:
+        - text: OpenAI Agents SDK
+        - generic [ref=f1e251]: ✦
+      - generic [ref=f1e252]:
+        - text: Google ADK
+        - generic [ref=f1e253]: ✦
+      - generic [ref=f1e254]:
+        - text: MCP
+        - generic [ref=f1e255]: ✦
+      - generic [ref=f1e256]:
+        - text: Machine Learning
+        - generic [ref=f1e257]: ✦
+      - generic [ref=f1e258]:
+        - text: Deep Learning
+        - generic [ref=f1e259]: ✦
+      - generic [ref=f1e260]:
+        - text: AI Evals
+        - generic [ref=f1e261]: ✦
+      - generic [ref=f1e262]:
+        - text: AI Guardrails
+        - generic [ref=f1e263]: ✦
+      - generic [ref=f1e264]:
+        - text: PyTest
+        - generic [ref=f1e265]: ✦
+      - generic [ref=f1e266]:
+        - text: JUnit
+        - generic [ref=f1e267]: ✦
+      - generic [ref=f1e268]:
+        - text: RAGAS
+        - generic [ref=f1e269]: ✦
+      - generic [ref=f1e270]:
+        - text: Spec-Driven Development
+        - generic [ref=f1e271]: ✦
+    - generic [ref=f1e272]:
+      - generic [ref=f1e273]:
+        - generic [ref=f1e274]:
+          - generic [ref=f1e275]: "01"
+          - text: Who I am
+        - heading [level=2] [ref=f1e276]:
+          - text: Engineering across the
+          - emphasis [ref=f1e277]: whole stack.
+      - generic [ref=f1e278]:
+        - generic [ref=f1e279]:
+          - paragraph [ref=f1e280]: I Turn AI Capabilities Into Dependable Products People Can Actually Use.
+          - paragraph [ref=f1e281]: My work spans model orchestration, retrieval, evaluation, backend services, responsive interfaces, data systems, and deployment. That full-stack perspective helps me build AI experiences that are useful, secure, and production-ready.
+          - generic [ref=f1e282]:
+            - img "AWS Certified AI Practitioner Foundational" [ref=f1e283]
+            - img "Databricks Certified Generative AI Engineer Associate" [ref=f1e284]
+        - generic [ref=f1e285]:
+          - paragraph [ref=f1e286]: Currently
+          - heading "Machine Learning Engineer" [level=3] [ref=f1e287]
+          - strong [ref=f1e288]: Endava Solutions India
+          - generic [ref=f1e289]:
+            - generic [ref=f1e290]:
+              - generic [ref=f1e291]: Based in
+              - text: Bangalore, India
+            - generic [ref=f1e292]:
+              - generic [ref=f1e293]: Working on
+              - text: Enterprise AI & full-stack systems
+            - generic [ref=f1e294]:
+              - generic [ref=f1e295]: Approach
+              - text: Build, measure, improve
+    - region [ref=f1e296]:
+      - generic [ref=f1e297]:
+        - generic [ref=f1e298]:
+          - generic [ref=f1e299]: "02"
+          - text: Core expertise
+        - heading [level=2] [ref=f1e300]:
+          - text: From intelligence to
+          - emphasis [ref=f1e301]: production.
+      - generic [ref=f1e302]:
+        - generic [ref=f1e303]:
+          - heading "LLM product engineering" [level=3] [ref=f1e307]
+          - paragraph [ref=f1e308]: Turning language models into useful enterprise products with reliable workflows, clear user experiences, and measurable outcomes.
+        - generic [ref=f1e309]:
+          - heading "Agentic & multi-agent systems" [level=3] [ref=f1e313]
+          - paragraph [ref=f1e314]: Orchestrating specialist agents, shared context, tool use, and controlled handoffs to complete complex business tasks.
+        - generic [ref=f1e315]:
+          - heading "Production RAG systems" [level=3] [ref=f1e319]
+          - paragraph [ref=f1e320]: Building grounded knowledge experiences with hybrid retrieval, reranking, citations, evaluation, and transparent quality.
+        - generic [ref=f1e321]:
+          - heading "Responsible AI & evaluation" [level=3] [ref=f1e325]
+          - paragraph [ref=f1e326]: Embedding guardrails, confidence checks, evaluation, observability, and traceability into AI systems before they ship.
+        - generic [ref=f1e327]:
+          - heading "MLOps & AI delivery" [level=3] [ref=f1e331]
+          - paragraph [ref=f1e332]: Operationalizing AI with repeatable releases, monitoring, experiment tracking, containerization, and cloud-ready delivery.
+        - generic [ref=f1e333]:
+          - heading "Full-stack product engineering" [level=3] [ref=f1e337]
+          - paragraph [ref=f1e338]: Delivering complete products across React interfaces, Java and Python services, data models, caching, APIs, and performance.
+    - generic [ref=f1e339]:
+      - generic [ref=f1e340]:
+        - generic [ref=f1e341]:
+          - generic [ref=f1e342]: "03"
+          - text: Experience
+        - heading [level=2] [ref=f1e343]:
+          - text: A fast-moving
+          - emphasis [ref=f1e344]: engineering journey.
+      - generic [ref=f1e345]:
+        - generic [ref=f1e346]:
+          - generic [ref=f1e347]: Aug 2024 to Present
+          - generic [ref=f1e348]:
+            - generic [ref=f1e349]:
+              - generic [ref=f1e350]: Current
+              - paragraph [ref=f1e351]: International Technology Park, Bangalore
+            - heading "Machine Learning Engineer" [level=3] [ref=f1e352]
+            - heading "Endava Solutions India Private Limited" [level=4] [ref=f1e353]
+            - generic [ref=f1e354]:
+              - text: Associate Developer
+              - generic [ref=f1e355]: →
+              - text: Junior ML Engineer
+              - generic [ref=f1e356]: →
+              - text: Machine Learning Engineer
+            - list [ref=f1e357]:
+              - listitem [ref=f1e358]:
+                - generic [ref=f1e359]: "01"
+                - paragraph [ref=f1e360]:
+                  - strong [ref=f1e361]: Advanced from Associate Developer to Junior ML Engineer to Machine Learning Engineer within two years,
+                  - text: earning broader ownership across solution design, AI engineering, full-stack delivery, performance optimization, and production releases.
+              - listitem [ref=f1e362]:
+                - generic [ref=f1e363]: "02"
+                - paragraph [ref=f1e364]:
+                  - strong [ref=f1e365]: Owned the AI Companion as the sole engineer,
+                  - text: translating business requirements into a production-ready React and FastAPI product with RAG, multi-agent orchestration, natural-language analytics, memory, tool integration, evaluations, and Redis caching; deployed the AI services on AWS and reduced repeated-request latency by approximately 80%.
+              - listitem [ref=f1e366]:
+                - generic [ref=f1e367]: "03"
+                - paragraph [ref=f1e368]:
+                  - strong [ref=f1e369]: Delivered Product Match AI independently as the sole engineer,
+                  - text: building the complete React, FastAPI, PostgreSQL, and pgvector solution with a multi-stage pipeline for filtering, retrieval, reranking, LLM-assisted validation, and explainable results, reducing analyst research time by approximately 50%.
+              - listitem [ref=f1e370]:
+                - generic [ref=f1e371]: "04"
+                - paragraph [ref=f1e372]:
+                  - strong [ref=f1e373]: Built and internally delivered Endava Talent Sphere,
+                  - text: a full-stack employee-management and workforce-insights platform using React, Spring WebFlux, PostgreSQL, and Caffeine caching; optimized queries, indexing, asynchronous processing, and connection management to reduce response latency by 87%, from 3 seconds to 400 milliseconds.
+              - listitem [ref=f1e374]:
+                - generic [ref=f1e375]: "05"
+                - paragraph [ref=f1e376]:
+                  - strong [ref=f1e377]: Developed the Automated Regression Validator,
+                  - text: a React, FastAPI, and MongoDB platform that compares new, resolved, and recurring issues at scale. Built an AI-assisted interface that translates natural-language prompts into configurable data-quality rules, enabling large-scale automated validation workflows.
+              - listitem [ref=f1e378]:
+                - generic [ref=f1e379]: "06"
+                - paragraph [ref=f1e380]:
+                  - strong [ref=f1e381]: Contributed across the complete Agile software-delivery lifecycle,
+                  - text: including requirement refinement, technical design, sprint planning, daily stand-ups, end-to-end implementation, peer code reviews, debugging, integration testing, release coordination, and collaboration with engineers, product stakeholders, and designers.
+            - generic "Innovation achievements" [ref=f1e382]:
+              - generic [ref=f1e383]: ★ Top Codex Hackathon submission · 52 teams · 232 participants
+              - generic [ref=f1e384]: ★ 2nd place · Endava AI Days 2025
+        - generic [ref=f1e385]:
+          - generic [ref=f1e386]: Oct 2023 to Feb 2024
+          - generic [ref=f1e387]:
+            - generic [ref=f1e388]:
+              - generic [ref=f1e389]: Internship
+              - paragraph [ref=f1e390]: Bangalore, India
+            - heading "Software Engineering Intern" [level=3] [ref=f1e391]
+            - heading "GalaxE Solutions, Inc." [level=4] [ref=f1e392]
+            - list [ref=f1e393]:
+              - listitem [ref=f1e394]:
+                - generic [ref=f1e395]: "01"
+                - paragraph [ref=f1e396]:
+                  - strong [ref=f1e397]: Completed hands-on full-stack engineering training
+                  - text: across Java, Spring Boot, ReactJS, PostgreSQL, Git, REST APIs, testing, and collaborative development practices.
+              - listitem [ref=f1e398]:
+                - generic [ref=f1e399]: "02"
+                - paragraph [ref=f1e400]:
+                  - strong [ref=f1e401]: Independently delivered a complete e-commerce application without AI-generated code
+                  - text: with responsive product experiences, backend workflows, role-based administration, real-time notifications, and relational database design.
+            - generic [ref=f1e402]: ★ Top performer among 80+ trainees
+    - region [ref=f1e403]:
+      - generic [ref=f1e404]:
+        - generic [ref=f1e405]:
+          - generic [ref=f1e406]: "04"
+          - text: Selected work
+        - heading [level=2] [ref=f1e407]:
+          - text: Products with
+          - emphasis [ref=f1e408]: depth.
+        - paragraph [ref=f1e409]: A focused collection of AI and full-stack products. Open a project to explore the engineering decisions, architecture, and outcomes behind it.
+      - generic [ref=f1e410]:
+        - article [ref=f1e412]:
+          - img "AI-Integrated Engineering Portfolio preview" [ref=f1e414]
+          - generic [ref=f1e415]:
+            - generic [ref=f1e416]: "01"
+            - paragraph [ref=f1e417]: Conversational Portfolio Experience
+            - heading "AI-Integrated Engineering Portfolio" [level=3] [ref=f1e418]
+            - paragraph [ref=f1e419]: An AI-ready professional portfolio designed to let recruiters explore engineering experience, projects, skills, and measurable outcomes through a focused conversational interface.
+            - button "View details" [ref=f1e420]
+        - article [ref=f1e424]:
+          - img "Production RAG Knowledge Assistant dashboard with citations and retrieval evaluation" [ref=f1e426]
+          - generic [ref=f1e427]:
+            - generic [ref=f1e428]: "02"
+            - paragraph [ref=f1e429]: Hybrid Retrieval, Reranking & Evaluation Platform
+            - heading "Production RAG Knowledge Assistant" [level=3] [ref=f1e430]
+            - paragraph [ref=f1e431]: A production-style knowledge assistant for technical documents that combines grounded generation, transparent retrieval, rigorous evaluation, observability, and measurable optimization across answer quality, latency, and inference cost.
+            - button "View details" [ref=f1e432]
+        - article [ref=f1e436]:
+          - img "Synthetic Data Studio workflow from connected data to validated synthetic data" [ref=f1e438]
+          - generic [ref=f1e439]:
+            - generic [ref=f1e440]: "03"
+            - paragraph [ref=f1e441]: AI-Powered Generation & Loop Engineering Platform
+            - heading "Agentic Synthetic Data Studio" [level=3] [ref=f1e442]
+            - paragraph [ref=f1e443]: A reusable, end-to-end AI product that connects to enterprise data sources, understands their structure and business rules, and produces realistic, validated synthetic data at scale.
+            - button "View details" [ref=f1e444]
+        - article [ref=f1e448]:
+          - img "QuickPark vehicle parking management dashboard" [ref=f1e450]
+          - generic [ref=f1e451]:
+            - generic [ref=f1e452]: "04"
+            - paragraph [ref=f1e453]: Vehicle Parking Management System
+            - heading "QuickPark" [level=3] [ref=f1e454]
+            - paragraph [ref=f1e455]: A complete parking-management web application developed as a capstone project for IIT Madras coursework. Built without AI coding assistance to strengthen practical understanding of backend architecture, authentication, database modeling, role-based workflows, and frontend integration.
+            - button "View details" [ref=f1e456]
+        - article [ref=f1e460]:
+          - img "Fitness gear e-commerce platform dashboard" [ref=f1e462]
+          - generic [ref=f1e463]:
+            - generic [ref=f1e464]: "05"
+            - paragraph [ref=f1e465]: React & Spring Boot Fitness E-Commerce Platform
+            - heading "Fitness Gear Store" [level=3] [ref=f1e466]
+            - paragraph [ref=f1e467]: A complete fitness gear e-commerce platform built from first principles during the GalaxE Solutions internship capstone, strictly without AI-generated code, to develop a deep understanding of frontend architecture, backend services, relational data, and real-world commerce workflows.
+            - button "View details" [ref=f1e468]
+        - article [ref=f1e472]:
+          - img "FakeCET examination and counseling portal dashboard" [ref=f1e474]
+          - generic [ref=f1e475]:
+            - generic [ref=f1e476]: "06"
+            - paragraph [ref=f1e477]: Examination & Counseling Management Portal
+            - heading "FakeCET" [level=3] [ref=f1e478]
+            - paragraph [ref=f1e479]: An examination and college-counseling portal built independently during the early stages of learning software development without AI assistance to understand how user interfaces, Java domain models, application workflows, and relational databases fit together.
+            - button "View details" [ref=f1e480]
+    - generic [ref=f1e483]:
+      - generic [ref=f1e484]:
+        - generic [ref=f1e485]:
+          - generic [ref=f1e486]: "05"
+          - text: Toolbox
+        - heading [level=2] [ref=f1e487]:
+          - text: Built with a
+          - emphasis [ref=f1e488]: practical stack.
+      - generic [ref=f1e489]:
+        - generic [ref=f1e490]:
+          - heading "Frontend" [level=3] [ref=f1e495]
+          - generic [ref=f1e496]:
+            - generic [ref=f1e497]: ReactJS
+            - generic [ref=f1e498]: Redux
+            - generic [ref=f1e499]: JavaScript
+            - generic [ref=f1e500]: HTML5
+            - generic [ref=f1e501]: CSS3
+            - generic [ref=f1e502]: Responsive Design
+        - generic [ref=f1e503]:
+          - heading "Backend" [level=3] [ref=f1e508]
+          - generic [ref=f1e509]:
+            - generic [ref=f1e510]: Python
+            - generic [ref=f1e511]: FastAPI
+            - generic [ref=f1e512]: Java
+            - generic [ref=f1e513]: Spring Boot
+            - generic [ref=f1e514]: Spring WebFlux
+            - generic [ref=f1e515]: REST APIs
+            - generic [ref=f1e516]: Microservices
+        - generic [ref=f1e517]:
+          - heading "Data & caching" [level=3] [ref=f1e522]
+          - generic [ref=f1e523]:
+            - generic [ref=f1e524]: PostgreSQL
+            - generic [ref=f1e525]: MongoDB
+            - generic [ref=f1e526]: SQL Server
+            - generic [ref=f1e527]: Redis
+            - generic [ref=f1e528]: Caffeine
+            - generic [ref=f1e529]: SQLAlchemy
+            - generic [ref=f1e530]: pgvector
+            - generic [ref=f1e531]: Qdrant
+            - generic [ref=f1e532]: ChromaDB
+        - generic [ref=f1e533]:
+          - heading "Cloud & delivery" [level=3] [ref=f1e538]
+          - generic [ref=f1e539]:
+            - generic [ref=f1e540]: AWS
+            - generic [ref=f1e541]: GCP
+            - generic [ref=f1e542]: Azure AI Foundry
+            - generic [ref=f1e543]: Databricks
+            - generic [ref=f1e544]: Docker
+            - generic [ref=f1e545]: CI/CD
+            - generic [ref=f1e546]: MLOps
+            - generic [ref=f1e547]: LLMOps
+            - generic [ref=f1e548]: Git
+            - generic [ref=f1e549]: GitHub
+            - generic [ref=f1e550]: Linux
+        - generic [ref=f1e551]:
+          - heading "AI engineering" [level=3] [ref=f1e556]
+          - generic [ref=f1e557]:
+            - generic [ref=f1e558]: Agentic AI
+            - generic [ref=f1e559]: RAG
+            - generic [ref=f1e560]: LangChain
+            - generic [ref=f1e561]: LangGraph
+            - generic [ref=f1e562]: LangSmith
+            - generic [ref=f1e563]: CrewAI
+            - generic [ref=f1e564]: OpenAI Agents SDK
+            - generic [ref=f1e565]: Google ADK
+            - generic [ref=f1e566]: MCP
+            - generic [ref=f1e567]: Machine Learning
+            - generic [ref=f1e568]: Deep Learning
+            - generic [ref=f1e569]: AI Evals
+            - generic [ref=f1e570]: AI Guardrails
+        - generic [ref=f1e571]:
+          - heading "Quality & workflow" [level=3] [ref=f1e576]
+          - generic [ref=f1e577]:
+            - generic [ref=f1e578]: PyTest
+            - generic [ref=f1e579]: JUnit
+            - generic [ref=f1e580]: RAGAS
+            - generic [ref=f1e581]: Spec-Driven Development
+    - generic [ref=f1e582]:
+      - generic [ref=f1e583]:
+        - generic [ref=f1e584]:
+          - generic [ref=f1e585]: "06"
+          - text: Recognition
+        - heading [level=2] [ref=f1e586]:
+          - text: Learning. Building.
+          - emphasis [ref=f1e587]: Winning.
+      - generic [ref=f1e588]:
+        - 'button "View details for Codex Hackathon: Top Finish" [ref=f1e590] [cursor=pointer]':
+          - generic [ref=f1e591]:
+            - generic [ref=f1e592]: "01"
+            - 'heading "Codex Hackathon: Top Finish" [level=3] [ref=f1e593]'
+            - paragraph [ref=f1e594]: Co-built Dava Compass, an AI-powered workforce planning and staffing decision platform.
+            - generic [ref=f1e595]: View details
+          - generic [aria-hidden]:
+            - generic:
+              - strong: Top submission among 52 teams
+              - paragraph: Dava Compass turns demand into clearer feasibility, staffing, and delivery decisions, helping teams match skills and availability to opportunities faster.
+        - 'button "View details for AI Innovation: 2nd Place" [ref=f1e599] [cursor=pointer]':
+          - generic [ref=f1e600]:
+            - generic [ref=f1e601]: "02"
+            - 'heading "AI Innovation: 2nd Place" [level=3] [ref=f1e602]'
+            - paragraph [ref=f1e603]: Built AI Evaluator to make code assessment faster, more consistent, and criteria-driven.
+            - generic [ref=f1e604]: View details
+          - generic [aria-hidden]:
+            - generic:
+              - strong: Endava AI Days 2025
+              - paragraph: Secured second place in the regional Speed Coding Challenge. AI Evaluator reduced rubric-based code evaluation from hours to seconds with consistent scoring, detailed feedback, and reporting.
+        - button "View details for Databricks Certified" [ref=f1e608] [cursor=pointer]:
+          - generic [ref=f1e609]:
+            - generic [ref=f1e610]: "03"
+            - heading "Databricks Certified" [level=3] [ref=f1e611]
+            - paragraph [ref=f1e612]: Earned the Generative AI Engineer Associate certification for applied enterprise GenAI expertise.
+            - generic [ref=f1e613]: View details
+          - generic [aria-hidden]:
+            - generic:
+              - strong: Generative AI Engineer Associate
+              - paragraph: Validated practical capability across LLM applications, retrieval-augmented generation, evaluation, governance, and production-oriented GenAI workflows.
+        - button "View details for AWS Certified" [ref=f1e617] [cursor=pointer]:
+          - generic [ref=f1e618]:
+            - generic [ref=f1e619]: "04"
+            - heading "AWS Certified" [level=3] [ref=f1e620]
+            - paragraph [ref=f1e621]: Earned the AWS Certified AI Practitioner credential for cloud AI and responsible-AI foundations.
+            - generic [ref=f1e622]: View details
+          - generic [aria-hidden]:
+            - generic:
+              - strong: AWS Certified AI Practitioner
+              - paragraph: Demonstrated knowledge of AWS AI services, generative-AI concepts, responsible-AI practices, security considerations, and cloud implementation fundamentals.
+    - generic [ref=f1e625]:
+      - generic [ref=f1e627]:
+        - generic [ref=f1e628]:
+          - generic [ref=f1e629]: "07"
+          - text: Get in touch
+        - heading [level=2] [ref=f1e630]:
+          - text: Have a hard problem?
+          - emphasis [ref=f1e631]: Let’s build.
+        - paragraph [ref=f1e632]: I enjoy conversations about production AI, intelligent products, and the engineering decisions that make them reliable at scale.
+      - generic [ref=f1e633]:
+        - generic [ref=f1e634]:
+          - paragraph [ref=f1e635]: Start a conversation
+          - text: Choose where you’d like to connect.
+        - generic [ref=f1e636]:
+          - link "LinkedIn Professional profile" [ref=f1e637] [cursor=pointer]:
+            - /url: https://www.linkedin.com/in/narendra-vanapalli-853b15256/
+            - generic [ref=f1e641]:
+              - strong [ref=f1e642]: LinkedIn
+              - generic [ref=f1e643]: Professional profile
+          - link "GitHub Narendra-9" [ref=f1e646] [cursor=pointer]:
+            - /url: https://github.com/Narendra-9
+            - generic [ref=f1e650]:
+              - strong [ref=f1e651]: GitHub
+              - generic [ref=f1e652]: Narendra-9
+          - link "Email Start a conversation" [ref=f1e655] [cursor=pointer]:
+            - /url: mailto:sivanarendravanapalli@gmail.com
+            - generic [ref=f1e659]:
+              - strong [ref=f1e660]: Email
+              - generic [ref=f1e661]: Start a conversation
+          - link "Resume Download PDF" [ref=f1e664] [cursor=pointer]:
+            - /url: /Narendra_Vanapalli_Resume.pdf
+            - generic [ref=f1e668]:
+              - strong [ref=f1e669]: Resume
+              - generic [ref=f1e670]: Download PDF
+          - link "Instagram @narendra_vanapalli" [ref=f1e673] [cursor=pointer]:
+            - /url: https://www.instagram.com/narendra_vanapalli/
+            - generic [ref=f1e677]:
+              - strong [ref=f1e678]: Instagram
+              - generic [ref=f1e679]: "@narendra_vanapalli"
+  - generic [ref=f1e682]:
+    - generic [ref=f1e683]:
+      - link "Narendra Vanapalli back to home" [ref=f1e684] [cursor=pointer]:
+        - /url: "#home"
+        - generic [ref=f1e686]:
+          - strong [ref=f1e687]: Narendra Vanapalli
+          - generic [ref=f1e688]: AI/ML + Full-Stack Engineer
+      - paragraph [ref=f1e689]: Building reliable AI products from grounded intelligence and agentic workflows to the full-stack systems that bring them to life.
+    - generic [ref=f1e690]:
+      - paragraph [ref=f1e691]: © 2026 Narendra Vanapalli
+      - navigation "Footer navigation" [ref=f1e692]:
+        - link "Selected work" [ref=f1e693] [cursor=pointer]:
+          - /url: "#projects"
+        - link "Contact" [ref=f1e694] [cursor=pointer]:
+          - /url: "#contact"
+        - link "Back to top" [ref=f1e695] [cursor=pointer]:
+          - /url: "#home"

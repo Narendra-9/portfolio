@@ -154,7 +154,7 @@ export const skillGroups = [
   { title: 'Frontend', skills: ['ReactJS', 'Redux', 'JavaScript', 'HTML5', 'CSS3', 'Responsive Design'] },
   { title: 'Backend', skills: ['Python', 'FastAPI', 'Java', 'Spring Boot', 'Spring WebFlux', 'REST APIs', 'Microservices'] },
   { title: 'Data & caching', skills: ['PostgreSQL', 'MongoDB', 'SQL Server', 'Redis', 'Caffeine', 'SQLAlchemy', 'pgvector', 'Qdrant', 'ChromaDB'] },
-  { title: 'Cloud & delivery', skills: ['AWS', 'Amazon Bedrock', 'Azure AI Foundry', 'Databricks', 'Docker', 'CI/CD', 'MLOps', 'LLMOps', 'Git', 'GitHub', 'Linux'] },
+  { title: 'Cloud & delivery', skills: ['AWS', 'GCP', 'Azure AI Foundry', 'Databricks', 'Docker', 'CI/CD', 'MLOps', 'LLMOps', 'Git', 'GitHub', 'Linux'] },
   { title: 'AI engineering', skills: ['Agentic AI', 'RAG', 'LangChain', 'LangGraph', 'LangSmith', 'CrewAI', 'OpenAI Agents SDK', 'Google ADK', 'MCP', 'Machine Learning', 'Deep Learning', 'AI Evals', 'AI Guardrails'] },
   { title: 'Quality & workflow', skills: ['PyTest', 'JUnit', 'RAGAS', 'Spec-Driven Development'] },
 ];

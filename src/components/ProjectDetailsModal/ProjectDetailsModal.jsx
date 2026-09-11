@@ -61,7 +61,7 @@ export default function ProjectDetailsModal({ project, onClose }) {
                 {(project.link || project.live) && (
                   <div className={styles.actions}>
                     {project.link && <a href={project.link} target="_blank" rel="noreferrer">Git repository <HiArrowUpRight aria-hidden="true" /></a>}
-                    {project.live && <a href={project.live}>Live project <HiArrowUpRight aria-hidden="true" /></a>}
+                    {project.live && <a href={project.live} target="_blank" rel="noreferrer">Live project <HiArrowUpRight aria-hidden="true" /></a>}
                   </div>
                 )}
               </aside>

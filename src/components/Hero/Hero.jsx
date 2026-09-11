@@ -54,10 +54,10 @@ export default function Hero() {
           <div className={styles.portraitStage}>
             <img
               className={styles.portrait}
-              src="/hero-editorial-4k.jpg"
+              src="/hero-editorial-cutout-clean.png"
               alt=""
-              width={3840}
-              height={3122}
+              width={1391}
+              height={1131}
               fetchPriority="high"
             />
           </div>

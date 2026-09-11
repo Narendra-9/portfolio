@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import styles from "./PortfolioAssistant.module.css";
 
 const quickPrompts = [
@@ -21,7 +22,7 @@ const answers = {
   experience:
     "At Endava Solutions India, Narendra progressed from Associate Developer to Junior ML Engineer and then Machine Learning Engineer. His work combines AI engineering with hands-on full-stack delivery across healthcare, automation, and enterprise intelligence products.",
   skills:
-    "His core stack includes ReactJS, JavaScript, Python, FastAPI, Java, Spring Boot, Spring WebFlux, PostgreSQL, MongoDB, Redis, Caffeine, REST APIs, AWS, Amazon Bedrock, Docker, and CI/CD. His AI toolkit includes RAG, agentic and multi-agent systems, LangChain, LangGraph, LangSmith, evaluations, and guardrails.",
+    "His core stack includes ReactJS, JavaScript, Python, FastAPI, Java, Spring Boot, Spring WebFlux, PostgreSQL, MongoDB, Redis, Caffeine, REST APIs, AWS, GCP, Docker, and CI/CD. His AI toolkit includes RAG, agentic and multi-agent systems, LangChain, LangGraph, LangSmith, evaluations, and guardrails.",
   achievements:
     "Narendra’s team earned a top finish in the InSync Codex Hackathon among 52 teams and 232 participants with Dava Compass. He also secured second place in Endava AI Days 2025 for AI Evaluator. He is a Databricks Certified Generative AI Engineer Associate and an AWS Certified AI Practitioner.",
   contact:
@@ -130,7 +131,7 @@ export default function PortfolioAssistant() {
         Ask My AI
       </button>
 
-      {isOpen && (
+      {isOpen && createPortal(
         <div
           className={styles.overlay}
           role="presentation"
@@ -274,7 +275,7 @@ export default function PortfolioAssistant() {
             )}
           </section>
         </div>
-      )}
+      , document.body)}
     </>
   );
 }
