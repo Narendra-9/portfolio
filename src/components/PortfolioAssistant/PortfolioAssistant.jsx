@@ -16,6 +16,50 @@ const AGENT_ID =
   import.meta.env.VITE_ELEVENLABS_AGENT_ID ||
   "agent_3501m2k3raesf7k978fkgxmkvsfz";
 
+const DAILY_VOICE_LIMIT_MS = 5 * 60 * 1000;
+const VOICE_USAGE_STORAGE_KEY = "narendra-portfolio-voice-usage-v1";
+
+function getLocalDateKey() {
+  const now = new Date();
+  const year = now.getFullYear();
+  const month = String(now.getMonth() + 1).padStart(2, "0");
+  const day = String(now.getDate()).padStart(2, "0");
+  return `${year}-${month}-${day}`;
+}
+
+function readVoiceUsage() {
+  if (typeof window === "undefined") return 0;
+
+  try {
+    const stored = JSON.parse(window.localStorage.getItem(VOICE_USAGE_STORAGE_KEY));
+    if (stored?.date !== getLocalDateKey()) return 0;
+    return Math.max(0, Math.min(DAILY_VOICE_LIMIT_MS, Number(stored.usedMs) || 0));
+  } catch {
+    return 0;
+  }
+}
+
+function saveVoiceUsage(usedMs) {
+  try {
+    window.localStorage.setItem(
+      VOICE_USAGE_STORAGE_KEY,
+      JSON.stringify({
+        date: getLocalDateKey(),
+        usedMs: Math.max(0, Math.min(DAILY_VOICE_LIMIT_MS, usedMs)),
+      }),
+    );
+  } catch {
+    // The conversation still works when storage is unavailable.
+  }
+}
+
+function formatVoiceTime(milliseconds) {
+  const totalSeconds = Math.max(0, Math.ceil(milliseconds / 1000));
+  const minutes = Math.floor(totalSeconds / 60);
+  const seconds = String(totalSeconds % 60).padStart(2, "0");
+  return `${minutes}:${seconds}`;
+}
+
 const quickPrompts = [
   "Walk me through your AI projects",
   "What have you owned end to end?",
@@ -82,8 +126,10 @@ function PortfolioAssistantExperience() {
   const [isAwaitingResponse, setIsAwaitingResponse] = useState(false);
   const [localError, setLocalError] = useState("");
   const [sessionMode, setSessionMode] = useState(null);
+  const [voiceUsedMs, setVoiceUsedMs] = useState(readVoiceUsage);
   const inputRef = useRef(null);
   const conversationRef = useRef(null);
+  const voiceTranscriptRef = useRef(null);
 
   const conversation = useConversation({
     onConnect: () => setLocalError(""),
@@ -93,10 +139,26 @@ function PortfolioAssistantExperience() {
     },
     onMessage: (message) => {
       const role = message.role === "agent" || message.source === "ai" ? "assistant" : "user";
-      setMessages((current) => [
-        ...current,
-        { role, text: message.message, eventId: message.event_id },
-      ]);
+      setMessages((current) => {
+        if (role === "user") {
+          const pendingIndex = current.findIndex(
+            (item) => item.role === "user" && item.pending && item.text === message.message,
+          );
+
+          if (pendingIndex !== -1) {
+            return current.map((item, index) =>
+              index === pendingIndex
+                ? { ...item, pending: false, eventId: message.event_id }
+                : item,
+            );
+          }
+        }
+
+        return [
+          ...current,
+          { role, text: message.message, eventId: message.event_id, pending: false },
+        ];
+      });
       if (role === "assistant") setIsAwaitingResponse(false);
     },
     onError: (error) => {
@@ -108,6 +170,7 @@ function PortfolioAssistantExperience() {
 
   const isConnected = conversation.status === "connected";
   const isConnecting = conversation.status === "connecting";
+  const endSession = conversation.endSession;
 
   const startTextSession = useCallback(() => {
     if (isConnected || isConnecting) return;
@@ -121,6 +184,13 @@ function PortfolioAssistantExperience() {
     if (isConnected || isConnecting) return;
     setMessages([]);
     setLocalError("");
+
+    const latestUsage = readVoiceUsage();
+    setVoiceUsedMs(latestUsage);
+    if (latestUsage >= DAILY_VOICE_LIMIT_MS) {
+      setLocalError("You’ve used today’s five-minute voice allowance. Voice chat resets tomorrow.");
+      return;
+    }
 
     try {
       const permissionStream = await navigator.mediaDevices.getUserMedia({ audio: true });
@@ -138,9 +208,9 @@ function PortfolioAssistantExperience() {
   };
 
   const endConversation = useCallback(() => {
-    if (conversation.status !== "disconnected") conversation.endSession();
+    if (conversation.status !== "disconnected") endSession();
     setIsAwaitingResponse(false);
-  }, [conversation]);
+  }, [conversation.status, endSession]);
 
   const closeAssistant = useCallback(() => {
     endConversation();
@@ -152,6 +222,7 @@ function PortfolioAssistantExperience() {
     setAssistantView(view);
     setIsOpen(true);
     setLocalError("");
+    setVoiceUsedMs(readVoiceUsage());
     if (view === "chat") window.setTimeout(startTextSession, 0);
   };
 
@@ -168,9 +239,23 @@ function PortfolioAssistantExperience() {
   const askQuestion = (question) => {
     const trimmedQuestion = question.trim();
     if (!trimmedQuestion || !isConnected || isAwaitingResponse) return;
-    conversation.sendUserMessage(trimmedQuestion);
-    setInput("");
-    setIsAwaitingResponse(true);
+
+    const localMessage = {
+      role: "user",
+      text: trimmedQuestion,
+      eventId: `local-${Date.now()}`,
+      pending: true,
+    };
+    setMessages((current) => [...current, localMessage]);
+
+    try {
+      conversation.sendUserMessage(trimmedQuestion);
+      setInput("");
+      setIsAwaitingResponse(true);
+    } catch {
+      setLocalError("Your message could not be sent. Please try again.");
+      setIsAwaitingResponse(false);
+    }
   };
 
   const handleSubmit = (event) => {
@@ -199,13 +284,54 @@ function PortfolioAssistantExperience() {
   }, [assistantView, isConnected, isOpen]);
 
   useEffect(() => {
-    conversationRef.current?.scrollTo({
-      top: conversationRef.current.scrollHeight,
-      behavior: "smooth",
+    [conversationRef, voiceTranscriptRef].forEach((ref) => {
+      ref.current?.scrollTo({
+        top: ref.current.scrollHeight,
+        behavior: "smooth",
+      });
     });
   }, [messages, isAwaitingResponse]);
 
   const isVoiceConnected = isConnected && sessionMode === "voice";
+  const remainingVoiceMs = Math.max(0, DAILY_VOICE_LIMIT_MS - voiceUsedMs);
+  const isVoiceLimitReached = remainingVoiceMs === 0;
+
+  useEffect(() => {
+    if (!isVoiceConnected) return undefined;
+
+    let lastTick = Date.now();
+    let limitHandled = false;
+    const updateUsage = () => {
+      const now = Date.now();
+      const elapsed = Math.max(0, now - lastTick);
+      lastTick = now;
+      const nextUsage = Math.min(DAILY_VOICE_LIMIT_MS, readVoiceUsage() + elapsed);
+
+      saveVoiceUsage(nextUsage);
+      setVoiceUsedMs(nextUsage);
+
+      if (nextUsage >= DAILY_VOICE_LIMIT_MS && !limitHandled) {
+        limitHandled = true;
+        setLocalError("You’ve reached today’s five-minute voice limit. Voice chat resets tomorrow.");
+        endSession();
+      }
+    };
+
+    const intervalId = window.setInterval(updateUsage, 1000);
+    return () => {
+      window.clearInterval(intervalId);
+      if (!limitHandled) updateUsage();
+    };
+  }, [endSession, isVoiceConnected]);
+
+  useEffect(() => {
+    const syncUsage = (event) => {
+      if (event.key === VOICE_USAGE_STORAGE_KEY) setVoiceUsedMs(readVoiceUsage());
+    };
+    window.addEventListener("storage", syncUsage);
+    return () => window.removeEventListener("storage", syncUsage);
+  }, []);
+
   const voiceStatus = isConnecting || (isConnected && sessionMode === "text")
     ? "Connecting…"
     : isVoiceConnected && conversation.isSpeaking
@@ -241,53 +367,111 @@ function PortfolioAssistantExperience() {
                 <p className={styles.voiceDisclaimer}>AI-powered conversation<br />Responses may occasionally be inaccurate.</p>
                 <button className={styles.voiceCloseButton} type="button" onClick={closeAssistant}>Close</button>
 
-                <div className={`${styles.voiceContent} ${styles.voiceExperience}`}>
-                  <div className={`${styles.voiceOrb} ${conversation.isSpeaking ? styles.voiceOrbSpeaking : ""}`}>
-                    <div className={styles.voicePortrait}>
-                      <img src="/profile.jpg" alt="Narendra Vanapalli" />
+                <div className={`${styles.voiceContent} ${styles.voiceExperience} ${sessionMode !== "voice" ? styles.voiceExperienceSolo : ""}`}>
+                  <div className={styles.voiceStage}>
+                    <div className={`${styles.voiceOrb} ${conversation.isSpeaking ? styles.voiceOrbSpeaking : ""}`}>
+                      <div className={styles.voicePortrait}>
+                        <img src="/profile.jpg" alt="Narendra Vanapalli" />
+                      </div>
+                    </div>
+
+                    <p className={styles.voiceEyebrow}>LIVE PORTFOLIO CONVERSATION</p>
+                    <h2>Narendra Vanapalli</h2>
+                    <p className={styles.voiceTagline}>Ask me about the products I’ve built and the problems I enjoy solving.</p>
+
+                    <AudioVisualizer
+                      active={isVoiceConnected}
+                      isSpeaking={conversation.isSpeaking}
+                      getInputData={conversation.getInputByteFrequencyData}
+                      getOutputData={conversation.getOutputByteFrequencyData}
+                    />
+                    <p className={styles.voiceAvailability} aria-live="polite">
+                      <span className={isVoiceConnected ? styles.liveDot : styles.idleDot} aria-hidden="true" />
+                      {voiceStatus}
+                    </p>
+
+                    <div className={styles.voiceBudget} aria-label={`${formatVoiceTime(remainingVoiceMs)} of voice time remaining today`}>
+                      <div className={styles.voiceBudgetLabel}>
+                        <span>Daily voice time</span>
+                        <strong>{formatVoiceTime(remainingVoiceMs)} left</strong>
+                      </div>
+                      <span className={styles.voiceBudgetTrack} aria-hidden="true">
+                        <span style={{ width: `${(remainingVoiceMs / DAILY_VOICE_LIMIT_MS) * 100}%` }} />
+                      </span>
+                    </div>
+
+                    {localError && <p className={styles.connectionError}>{localError}</p>}
+
+                    <div className={styles.voiceActions}>
+                      {!isVoiceConnected ? (
+                        <button
+                          className={styles.voiceStartButton}
+                          type="button"
+                          onClick={startVoiceSession}
+                          disabled={isConnecting || isConnected || isVoiceLimitReached}
+                        >
+                          <TbMicrophone aria-hidden="true" />
+                          {isVoiceLimitReached
+                            ? "Limit reached"
+                            : isConnecting || isConnected
+                              ? "Switching to voice…"
+                              : "Start conversation"}
+                        </button>
+                      ) : (
+                        <>
+                          <button className={styles.voiceChatButton} type="button" onClick={() => conversation.setMuted(!conversation.isMuted)}>
+                            {conversation.isMuted ? <TbMicrophoneOff aria-hidden="true" /> : <TbMicrophone aria-hidden="true" />}
+                            {conversation.isMuted ? "Unmute" : "Mute"}
+                          </button>
+                          <button className={styles.endCallButton} type="button" onClick={endConversation}>
+                            <TbPhoneOff aria-hidden="true" />
+                            End
+                          </button>
+                        </>
+                      )}
+                      <button className={styles.voiceChatButton} type="button" onClick={switchToChat}>
+                        <TbMessageCircle aria-hidden="true" />
+                        Text chat
+                      </button>
                     </div>
                   </div>
 
-                  <p className={styles.voiceEyebrow}>LIVE PORTFOLIO CONVERSATION</p>
-                  <h2>Narendra Vanapalli</h2>
-                  <p className={styles.voiceTagline}>Ask me about the products I’ve built and the problems I enjoy solving.</p>
-
-                  <AudioVisualizer
-                    active={isVoiceConnected}
-                    isSpeaking={conversation.isSpeaking}
-                    getInputData={conversation.getInputByteFrequencyData}
-                    getOutputData={conversation.getOutputByteFrequencyData}
-                  />
-                  <p className={styles.voiceAvailability} aria-live="polite">
-                    <span className={isVoiceConnected ? styles.liveDot : styles.idleDot} aria-hidden="true" />
-                    {voiceStatus}
-                  </p>
-
-                  {localError && <p className={styles.connectionError}>{localError}</p>}
-
-                  <div className={styles.voiceActions}>
-                    {!isVoiceConnected ? (
-                      <button className={styles.voiceStartButton} type="button" onClick={startVoiceSession} disabled={isConnecting || isConnected}>
-                        <TbMicrophone aria-hidden="true" />
-                        {isConnecting || isConnected ? "Switching to voice…" : "Start conversation"}
-                      </button>
-                    ) : (
-                      <>
-                        <button className={styles.voiceChatButton} type="button" onClick={() => conversation.setMuted(!conversation.isMuted)}>
-                          {conversation.isMuted ? <TbMicrophoneOff aria-hidden="true" /> : <TbMicrophone aria-hidden="true" />}
-                          {conversation.isMuted ? "Unmute" : "Mute"}
-                        </button>
-                        <button className={styles.endCallButton} type="button" onClick={endConversation}>
-                          <TbPhoneOff aria-hidden="true" />
-                          End
-                        </button>
-                      </>
-                    )}
-                    <button className={styles.voiceChatButton} type="button" onClick={switchToChat}>
-                      <TbMessageCircle aria-hidden="true" />
-                      Open transcript
-                    </button>
-                  </div>
+                  {sessionMode === "voice" && (
+                    <aside className={styles.voiceTranscriptPanel} aria-label="Live conversation transcript">
+                      <div className={styles.voiceTranscriptHeader}>
+                        <div>
+                          <span>LIVE TRANSCRIPT</span>
+                          <strong>Conversation</strong>
+                        </div>
+                        <span className={isVoiceConnected ? styles.transcriptLive : styles.transcriptIdle}>
+                          {isVoiceConnected ? "Live" : "Connecting"}
+                        </span>
+                      </div>
+                      <div className={styles.voiceTranscript} ref={voiceTranscriptRef} aria-live="polite">
+                        {messages.length === 0 ? (
+                          <p className={styles.voiceTranscriptEmpty}>
+                            What you ask and what I say will appear here as the conversation happens.
+                          </p>
+                        ) : (
+                          messages.map((message, index) => (
+                            <div
+                              className={`${styles.voiceTranscriptMessage} ${message.role === "user" ? styles.voiceTranscriptUser : styles.voiceTranscriptAgent}`}
+                              key={`voice-${message.role}-${message.eventId ?? index}-${index}`}
+                            >
+                              <span>{message.role === "user" ? "You" : "Narendra"}</span>
+                              <p>{message.text}</p>
+                            </div>
+                          ))
+                        )}
+                        {isAwaitingResponse && (
+                          <div className={`${styles.voiceTranscriptMessage} ${styles.voiceTranscriptAgent}`}>
+                            <span>Narendra</span>
+                            <p className={styles.typing} aria-label="Preparing answer"><i /><i /><i /></p>
+                          </div>
+                        )}
+                      </div>
+                    </aside>
+                  )}
                 </div>
               </div>
             ) : (

@@ -286,10 +286,25 @@
 }
 
 .voiceExperience {
+  display: grid;
+  width: min(810px, 100%);
+  grid-template-columns: minmax(0, 1.08fr) minmax(290px, .92fr);
+  gap: 2rem;
   align-items: center;
-  justify-content: center;
   text-align: center;
   transform: none;
+}
+
+.voiceExperienceSolo {
+  width: min(520px, 100%);
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.voiceStage {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  flex-direction: column;
 }
 
 .voiceOrb {
@@ -482,6 +497,159 @@
   background: rgb(255 103 93 / 9%);
   font-size: .84rem;
   line-height: 1.45;
+}
+
+.voiceBudget {
+  width: min(430px, 92%);
+  margin-top: .9rem;
+}
+
+.voiceBudgetLabel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #918c85;
+  font-family: var(--font-geist-mono);
+  font-size: .68rem;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+
+.voiceBudgetLabel strong { color: var(--white); }
+
+.voiceBudgetTrack {
+  display: block;
+  height: 5px;
+  margin-top: .5rem;
+  overflow: hidden;
+  border-radius: 999px;
+  background: #292725;
+}
+
+.voiceBudgetTrack > span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--coral), var(--acid));
+  transition: width 300ms linear;
+}
+
+.voiceTranscriptPanel {
+  display: grid;
+  width: 100%;
+  height: min(440px, calc(100dvh - 9rem));
+  min-height: 310px;
+  overflow: hidden;
+  grid-template-rows: auto 1fr;
+  border: 1px solid #373431;
+  border-radius: 22px;
+  background: #0d0d0d;
+  box-shadow: 7px 7px 0 rgb(120 146 255 / 30%);
+  text-align: left;
+}
+
+.voiceTranscriptHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.05rem;
+  border-bottom: 1px solid #2b2927;
+}
+
+.voiceTranscriptHeader > div {
+  display: grid;
+  gap: .2rem;
+}
+
+.voiceTranscriptHeader div > span {
+  color: var(--acid);
+  font-family: var(--font-geist-mono);
+  font-size: .58rem;
+  font-weight: 900;
+  letter-spacing: .12em;
+}
+
+.voiceTranscriptHeader strong {
+  color: var(--white);
+  font-size: 1rem;
+}
+
+.transcriptLive,
+.transcriptIdle {
+  padding: .36rem .58rem;
+  border: 1px solid rgb(215 255 63 / 38%);
+  border-radius: 999px;
+  color: var(--acid);
+  background: rgb(215 255 63 / 8%);
+  font-family: var(--font-geist-mono);
+  font-size: .62rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.transcriptIdle {
+  color: #8d8881;
+  border-color: #383532;
+  background: transparent;
+}
+
+.voiceTranscript {
+  display: flex;
+  min-height: 0;
+  flex-direction: column;
+  gap: .7rem;
+  overflow-y: auto;
+  padding: 1rem;
+  scrollbar-color: #494540 transparent;
+  scrollbar-width: thin;
+}
+
+.voiceTranscriptEmpty {
+  max-width: 250px;
+  margin: auto;
+  color: #77726b;
+  font-size: .88rem;
+  line-height: 1.55;
+  text-align: center;
+}
+
+.voiceTranscriptMessage {
+  width: fit-content;
+  max-width: 88%;
+  padding: .72rem .82rem;
+  border-radius: 15px;
+}
+
+.voiceTranscriptMessage > span {
+  display: block;
+  margin-bottom: .28rem;
+  color: #89847e;
+  font-family: var(--font-geist-mono);
+  font-size: .57rem;
+  font-weight: 900;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+}
+
+.voiceTranscriptMessage p {
+  margin: 0;
+  color: var(--white);
+  font-size: .88rem;
+  line-height: 1.48;
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
+}
+
+.voiceTranscriptAgent {
+  align-self: flex-start;
+  border-top-left-radius: 4px;
+  background: #1b1a19;
+}
+
+.voiceTranscriptUser {
+  align-self: flex-end;
+  border-top-right-radius: 4px;
+  background: #31302f;
 }
 
 .voicePrompt { max-width: 470px; margin-top: 2rem; color: #bbb7b0; font-size: 1rem; line-height: 1.55; }
@@ -843,6 +1011,14 @@
   .voiceDisclaimer { top: 1.2rem; left: 1.2rem; max-width: 210px; font-size: .7rem; }
   .voiceCloseButton { top: 1.1rem; right: 1.1rem; padding: .5rem .75rem; }
   .voiceContent { transform: none; }
+  .voiceExperience {
+    display: flex;
+    width: 100%;
+    min-height: 0;
+    gap: 1.4rem;
+  }
+  .voiceStage { width: 100%; padding-top: 4rem; }
+  .voiceTranscriptPanel { height: 300px; min-height: 300px; }
   .voicePortrait { width: 104px; height: 104px; }
   .voiceIntro h2 { margin-top: 1.3rem; }
   .voiceActions { width: 100%; flex-direction: column; }
@@ -851,6 +1027,7 @@
   .voiceOrb { width: 126px; height: 126px; }
   .visualizer { width: 100%; height: 64px; gap: 4px; }
   .visualizer span { width: 4px; }
+  .voiceBudget { width: 100%; }
   .portraitFrame { width: 108px; height: 108px; }
   .intro h2 { font-size: clamp(1.9rem, 10vw, 2.7rem); }
   .chatHeader { padding: .6rem .75rem; }
