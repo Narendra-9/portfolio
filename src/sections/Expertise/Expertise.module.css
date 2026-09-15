@@ -1,5 +1,15 @@
-.expertiseSection { padding: clamp(5rem, 9vw, 9rem) 7vw; border-bottom: 3px solid var(--ink); background: var(--paper); }
-.expertiseGrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.35rem; }
+.expertiseSection {
+  padding: clamp(5rem, 9vw, 9rem) 7vw;
+  border-bottom: 3px solid var(--ink);
+  background: var(--paper);
+}
+
+.expertiseGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.35rem;
+}
+
 .expertiseCard {
   --accent: var(--blue);
   position: relative;
@@ -11,8 +21,15 @@
   box-shadow: 6px 6px 0 var(--accent);
   transition: transform .22s ease, box-shadow .22s ease;
 }
-.expertiseCard:nth-child(2), .expertiseCard:nth-child(5) { --accent: var(--coral); }
-.expertiseCard:nth-child(3), .expertiseCard:nth-child(6) { --accent: var(--yellow); }
+
+.expertiseCard:nth-child(2), .expertiseCard:nth-child(5) {
+  --accent: var(--coral);
+}
+
+.expertiseCard:nth-child(3), .expertiseCard:nth-child(6) {
+  --accent: var(--yellow);
+}
+
 .expertiseCard::before {
   position: absolute;
   right: 0;
@@ -23,6 +40,7 @@
   background: var(--accent);
   clip-path: polygon(38% 100%, 100% 0, 100% 100%);
 }
+
 .cornerLines {
   position: absolute;
   z-index: 1;
@@ -33,7 +51,12 @@
   background: repeating-linear-gradient(135deg, transparent 0 7px, var(--ink) 7px 9px, transparent 9px 13px);
   clip-path: polygon(44% 100%, 100% 0, 100% 100%);
 }
-.expertiseCard:hover { transform: translate3d(0, -5px, 0); box-shadow: 8px 10px 0 var(--accent); }
+
+.expertiseCard:hover {
+  transform: translate3d(0, -5px, 0);
+  box-shadow: 8px 10px 0 var(--accent);
+}
+
 .cardNumber {
   position: absolute;
   top: .8rem;
@@ -44,7 +67,16 @@
   font-weight: 900;
   line-height: 1;
 }
-.cardHeader { position: relative; z-index: 1; display: flex; align-items: center; gap: 1.15rem; padding-right: 3.1rem; }
+
+.cardHeader {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 1.15rem;
+  padding-right: 3.1rem;
+}
+
 .cardIcon {
   display: grid;
   width: 56px;
@@ -55,17 +87,55 @@
   background: var(--accent);
   box-shadow: 3px 3px 0 var(--ink);
 }
-.cardIcon svg { width: 1.65rem; height: 1.65rem; stroke-width: 2; }
-.expertiseCard h3 { max-width: 310px; margin: 0; font-size: clamp(1.2rem, 1.55vw, 1.6rem); line-height: 1.02; letter-spacing: -.04em; text-transform: uppercase; }
-.expertiseCard p { position: relative; z-index: 1; max-width: 405px; margin: 1.2rem 0 0; color: #37342f; font-size: .95rem; line-height: 1.48; }
 
-@media (max-width: 1120px) { .expertiseGrid { grid-template-columns: repeat(2, 1fr); } }
+.cardIcon svg {
+  width: 1.65rem;
+  height: 1.65rem;
+  stroke-width: 2;
+}
+
+.expertiseCard h3 {
+  max-width: 310px;
+  margin: 0;
+  font-size: clamp(1.2rem, 1.55vw, 1.6rem);
+  line-height: 1.02;
+  letter-spacing: -.04em;
+  text-transform: uppercase;
+}
+
+.expertiseCard p {
+  position: relative;
+  z-index: 1;
+  max-width: 405px;
+  margin: 1.2rem 0 0;
+  color: #37342f;
+  font-size: .95rem;
+  line-height: 1.48;
+}
+
+@media (max-width: 1120px) {
+  .expertiseGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 @media (max-width: 800px) {
-  .expertiseSection { padding-right: 1.25rem; padding-left: 1.25rem; }
-  .expertiseGrid { grid-template-columns: 1fr; }
-  .expertiseCard { min-height: 220px; }
+  .expertiseSection {
+    padding-right: 1.25rem;
+    padding-left: 1.25rem;
+  }
+
+  .expertiseGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .expertiseCard {
+    min-height: 220px;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .expertiseCard { transition: none; }
+  .expertiseCard {
+    transition: none;
+  }
 }

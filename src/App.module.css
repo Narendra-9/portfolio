@@ -26,8 +26,12 @@
   transform: translateY(-160%);
 }
 
-.skipLink:focus { transform: translateY(0); }
+.skipLink:focus {
+  transform: translateY(0);
+}
 
 @media (prefers-reduced-motion: reduce) {
-  .page { scroll-behavior: auto; }
+  .page {
+    scroll-behavior: auto;
+  }
 }

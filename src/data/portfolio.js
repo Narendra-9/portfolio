@@ -92,6 +92,7 @@ export const projects = [
     image: '/quickpark-cover-light.png',
     imageAlt: 'QuickPark vehicle parking management dashboard',
     link: 'https://github.com/Narendra-9/vehicle-parking-app',
+    live: 'https://vehicle-parking-app-o6jm.onrender.com/',
     tone: 'coral',
   },
   {
@@ -198,6 +199,16 @@ export const achievements = [
     imageAlt: 'AWS Certified AI Practitioner certificate for Narendra Vanapalli',
     detailTitle: 'AWS Certified AI Practitioner',
     detail: 'Demonstrated knowledge of AWS AI services, generative-AI concepts, responsible-AI practices, security considerations, and cloud implementation fundamentals.',
+    fit: 'contain',
+  },
+  {
+    mark: '05',
+    title: 'IIT Madras Foundation Level',
+    text: 'Completed the Foundation Level in Programming and Data Science through IIT Madras.',
+    image: '/achievements/iit-madras-programming-data-science.jpg',
+    imageAlt: 'IIT Madras certificate for Foundation Level in Programming and Data Science',
+    detailTitle: 'Programming and Data Science · December 2022',
+    detail: 'Successfully completed the IIT Madras Centre for Outreach and Digital Education Foundation Level in Programming and Data Science, strengthening core programming and data-science fundamentals.',
     fit: 'contain',
   },
 ];

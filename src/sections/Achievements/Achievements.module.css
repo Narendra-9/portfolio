@@ -4,14 +4,42 @@
   background: var(--paper);
 }
 
-.achievementGrid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1rem;
+.sliderShell {
+  position: relative;
+  margin: 0 -1rem;
+  isolation: isolate;
 }
+
+.sliderShell::before,
+.sliderShell::after {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  bottom: 0;
+  width: clamp(1.25rem, 3vw, 3.25rem);
+  content: '';
+  pointer-events: none;
+}
+
+.sliderShell::before { left: 0; background: linear-gradient(90deg, var(--paper), rgb(245 241 232 / 0%)); }
+.sliderShell::after { right: 0; background: linear-gradient(270deg, var(--paper), rgb(245 241 232 / 0%)); }
+
+.achievementGrid {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  padding: .5rem 1rem 1rem;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.achievementGrid::-webkit-scrollbar { display: none; }
 
 .achievementCard {
   position: relative;
+  flex: 0 0 clamp(280px, 27vw, 360px);
   min-height: 360px;
   overflow: hidden;
   border: 3px solid var(--ink);
@@ -20,11 +48,51 @@
   cursor: pointer;
   isolation: isolate;
   transition: transform .25s ease, box-shadow .25s ease;
+  scroll-snap-align: start;
 }
 
-.achievementCard:nth-child(2) { background: var(--coral); }
-.achievementCard:nth-child(3) { background: var(--acid); }
-.achievementCard:nth-child(4) { background: var(--yellow); }
+.achievementCard:nth-child(2) {
+  background: var(--coral);
+}
+
+.achievementCard:nth-child(3) {
+  background: var(--acid);
+}
+
+.achievementCard:nth-child(4) {
+  background: var(--yellow);
+}
+
+.achievementCard:nth-child(5) {
+  background: var(--blue);
+}
+
+.sliderArrow {
+  position: absolute;
+  z-index: 3;
+  top: 50%;
+  display: grid;
+  width: 48px;
+  height: 48px;
+  place-items: center;
+  border: 1px solid rgb(18 18 18 / 22%);
+  border-radius: 50%;
+  color: var(--ink);
+  background: rgb(255 253 247 / 30%);
+  box-shadow: 0 8px 24px rgb(18 18 18 / 10%);
+  -webkit-backdrop-filter: blur(7px);
+  backdrop-filter: blur(7px);
+  cursor: pointer;
+  opacity: .78;
+  transform: translateY(-50%);
+  transition: opacity .18s ease, background-color .18s ease, transform .18s ease;
+}
+
+.sliderArrow svg { width: 1.4rem; height: 1.4rem; }
+.sliderArrowLeft { left: .25rem; }
+.sliderArrowRight { right: .25rem; }
+.sliderArrow:hover { background: rgb(215 255 63 / 78%); opacity: 1; transform: translateY(-50%) scale(1.05); }
+.sliderArrow:focus-visible { outline: 4px solid var(--blue); outline-offset: 3px; opacity: 1; }
 
 .achievementCard:hover {
   box-shadow: 12px 12px 0 var(--ink);
@@ -45,7 +113,10 @@
   cursor: pointer;
 }
 
-.cardButton:focus-visible { outline: 4px solid var(--blue); outline-offset: -7px; }
+.cardButton:focus-visible {
+  outline: 4px solid var(--blue);
+  outline-offset: -7px;
+}
 
 .cardFront {
   display: flex;
@@ -68,7 +139,10 @@
   text-transform: uppercase;
 }
 
-.cardFront > p { margin: 0; line-height: 1.55; }
+.cardFront>p {
+  margin: 0;
+  line-height: 1.55;
+}
 
 .viewHint {
   display: flex;
@@ -84,8 +158,15 @@
   text-transform: uppercase;
 }
 
-.viewHint svg { width: 1rem; height: 1rem; transition: transform .2s ease; }
-.cardButton:hover .viewHint svg { transform: translate(3px, -3px); }
+.viewHint svg {
+  width: 1rem;
+  height: 1rem;
+  transition: transform .2s ease;
+}
+
+.cardButton:hover .viewHint svg {
+  transform: translate(3px, -3px);
+}
 
 .imageLayer {
   position: absolute;
@@ -120,8 +201,15 @@
   background: var(--white);
 }
 
-.contain img { padding: .7rem; object-fit: contain; }
-.cover img { object-fit: cover; object-position: center; }
+.contain img {
+  padding: .7rem;
+  object-fit: contain;
+}
+
+.cover img {
+  object-fit: cover;
+  object-position: center;
+}
 
 .imageCaption {
   padding: 1rem;
@@ -140,26 +228,45 @@
   text-transform: uppercase;
 }
 
-.imageCaption p { margin: .55rem 0 0; font-size: .72rem; line-height: 1.45; }
-
-@media (max-width: 1120px) {
-  .achievementGrid { grid-template-columns: repeat(2, 1fr); }
+.imageCaption p {
+  margin: .55rem 0 0;
+  font-size: .72rem;
+  line-height: 1.45;
 }
 
 @media (max-width: 800px) {
-  .achievementsSection { padding-right: 1.25rem; padding-left: 1.25rem; }
+  .achievementsSection {
+    padding-right: 1.25rem;
+    padding-left: 1.25rem;
+  }
 }
 
 @media (max-width: 560px) {
-  .achievementGrid { grid-template-columns: 1fr; }
-  .achievementCard, .cardButton, .cardFront { min-height: 300px; }
+  .sliderShell { margin-right: -1.25rem; margin-left: -1.25rem; }
+  .achievementGrid { padding-right: 1.25rem; padding-left: 1.25rem; }
+  .achievementCard { flex-basis: min(84vw, 340px); }
+  .sliderArrow { width: 40px; height: 40px; }
+  .sliderArrowLeft { left: .2rem; }
+  .sliderArrowRight { right: .2rem; }
+
+  .achievementCard, .cardButton, .cardFront {
+    min-height: 300px;
+  }
 }
 
 @media (hover: none) {
-  .imageLayer { display: none; }
-  .cardButton:focus-visible .cardFront { opacity: 1; transform: none; }
+  .imageLayer {
+    display: none;
+  }
+
+  .cardButton:focus-visible .cardFront {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .achievementCard, .cardFront, .imageLayer, .viewHint svg { transition: none; }
+  .achievementCard, .cardFront, .imageLayer, .viewHint svg {
+    transition: none;
+  }
 }

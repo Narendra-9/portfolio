@@ -9,7 +9,9 @@
   text-rendering: optimizeLegibility;
 }
 
-* { box-sizing: border-box; }
+* {
+  box-sizing: border-box;
+}
 
 html {
   scroll-behavior: smooth;
@@ -25,11 +27,15 @@ body {
 button,
 input,
 textarea,
-select { font: inherit; }
+select {
+  font: inherit;
+}
 
 a {
   color: inherit;
   text-decoration: none;
 }
 
-img { max-width: 100%; }
+img {
+  max-width: 100%;
+}
