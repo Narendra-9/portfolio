@@ -1,17 +1,26 @@
+.launchers {
+  display: flex;
+  align-items: center;
+  gap: .65rem;
+}
+
 .launchButton {
   display: inline-flex;
   align-items: center;
-  gap: .5rem;
-  padding: .78rem 1rem;
+  justify-content: center;
+  gap: .42rem;
+  min-width: 148px;
+  padding: .68rem .65rem;
   border: 2px solid var(--ink);
   color: var(--white);
   background: var(--ink);
   box-shadow: 5px 5px 0 var(--coral);
   font-family: var(--font-geist-mono);
-  font-size: .74rem;
+  font-size: .66rem;
   font-weight: 900;
   letter-spacing: .04em;
   text-transform: uppercase;
+  white-space: nowrap;
   cursor: pointer;
   transition: transform 150ms ease, box-shadow 150ms ease;
 }
@@ -25,7 +34,9 @@
 
 .launchIcon {
   color: var(--acid);
-  font-size: .9rem;
+  width: 1rem;
+  height: 1rem;
+  flex: 0 0 auto;
 }
 
 .launchButton:hover .launchIcon { color: var(--ink); }
@@ -226,6 +237,183 @@
   font-size: .62rem;
 }
 
+.voiceIntro {
+  position: relative;
+  height: 100%;
+  overflow-y: auto;
+  padding: 2rem;
+  color: var(--white);
+  background-color: var(--ink);
+  background-image: radial-gradient(rgb(255 253 247 / 22%) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+.voiceDisclaimer {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  margin: 0;
+  color: #98948d;
+  font-size: .8rem;
+  line-height: 1.45;
+}
+
+.voiceCloseButton {
+  position: absolute;
+  top: 1.7rem;
+  right: 1.8rem;
+  padding: .6rem 1rem;
+  border: 1px solid #68645f;
+  border-radius: 999px;
+  color: var(--white);
+  background: transparent;
+  font-size: .8rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.voiceCloseButton:hover { color: var(--ink); border-color: var(--acid); background: var(--acid); }
+
+.voiceContent {
+  display: flex;
+  width: min(490px, 100%);
+  min-height: 100%;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+  transform: translateX(-8%);
+}
+
+.voicePortrait {
+  position: relative;
+  width: 126px;
+  height: 126px;
+  padding: .2rem;
+  border: 2px solid var(--acid);
+  border-radius: 50%;
+  background: var(--white);
+  box-shadow: 4px 4px 0 var(--coral);
+}
+
+.voicePortrait img {
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  object-fit: cover;
+  object-position: center 28%;
+}
+
+.voiceIntro h2 {
+  margin: 1.8rem 0 .45rem;
+  font-size: clamp(2rem, 4vw, 2.7rem);
+  font-weight: 900;
+  letter-spacing: -.04em;
+  line-height: 1.05;
+}
+
+.voiceTagline {
+  margin: 0;
+  color: #8f8b84;
+  font-size: 1.05rem;
+  line-height: 1.55;
+}
+
+.voiceActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .75rem;
+  margin-top: 2rem;
+}
+
+.voiceStartButton,
+.voiceChatButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  min-width: 176px;
+  padding: .9rem 1.1rem;
+  border: 1px solid #69655f;
+  border-radius: 999px;
+  font-size: .95rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.voiceStartButton {
+  color: var(--ink);
+  border-color: var(--white);
+  background: var(--white);
+  box-shadow: none;
+}
+
+.voiceChatButton {
+  color: var(--white);
+  background: transparent;
+}
+
+.voiceStartButton:hover,
+.voiceChatButton:hover { transform: translateY(-2px); }
+.voiceStartButton:hover { color: var(--ink); background: var(--acid); border-color: var(--acid); }
+.voiceChatButton:hover { color: var(--ink); background: var(--white); }
+
+.voiceAvailability,
+.voicePrompt {
+  margin: 1.05rem 0 0;
+  color: #77736d;
+  font-size: .85rem;
+}
+
+.voicePrompt { max-width: 470px; margin-top: 2rem; color: #bbb7b0; font-size: 1rem; line-height: 1.55; }
+.voicePrompt strong { color: var(--white); }
+
+.videoIntro {
+  position: relative;
+  display: grid;
+  height: 100%;
+  place-items: center;
+  overflow: hidden;
+  padding: 2rem;
+  color: var(--ink);
+  background-color: var(--blue);
+  background-image: radial-gradient(rgb(18 18 18 / 20%) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+.videoCloseButton {
+  position: absolute;
+  top: 1.7rem;
+  right: 1.8rem;
+  padding: .6rem 1rem;
+  border: 2px solid var(--ink);
+  border-radius: 999px;
+  color: var(--ink);
+  background: var(--white);
+  font-size: .8rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.videoCloseButton:hover { background: var(--coral); }
+.videoContent { max-width: 520px; text-align: center; }
+.videoIcon {
+  display: grid;
+  width: 76px;
+  height: 76px;
+  place-items: center;
+  margin: 0 auto 1.35rem;
+  border: 3px solid var(--ink);
+  background: var(--yellow);
+  box-shadow: 6px 6px 0 var(--ink);
+}
+.videoIcon svg { width: 2rem; height: 2rem; }
+.videoEyebrow { margin: 0 0 .65rem; font-family: var(--font-geist-mono); font-size: .7rem; font-weight: 900; letter-spacing: .1em; }
+.videoContent h2 { margin: 0; font-size: clamp(2.4rem, 5vw, 4rem); font-weight: 950; line-height: .92; letter-spacing: -.06em; text-transform: uppercase; }
+.videoContent > p:not(.videoEyebrow) { max-width: 450px; margin: 1.2rem auto 1.55rem; font-size: 1rem; line-height: 1.55; }
+.videoChatButton { padding: .85rem 1.1rem; border: 3px solid var(--ink); color: var(--white); background: var(--ink); box-shadow: 4px 4px 0 var(--coral); font-family: var(--font-geist-mono); font-size: .74rem; font-weight: 900; letter-spacing: .04em; text-transform: uppercase; cursor: pointer; }
+.videoChatButton:hover { color: var(--ink); background: var(--acid); transform: translate(2px, 2px); box-shadow: 2px 2px 0 var(--coral); }
+
 .chatView {
   display: grid;
   height: calc(100% - 68px);
@@ -405,6 +593,53 @@
 
 .chatForm button:disabled { cursor: not-allowed; opacity: .45; }
 
+/* Minimal conversation view */
+.chatView { height: 100%; grid-template-rows: auto 1fr; color: var(--white); background: #050505; }
+.chatHeader { min-height: 92px; padding: 1rem 1.25rem; border-bottom: 1px solid #292725; background: #050505; }
+.chatBackButton,
+.chatCloseButton,
+.chatClearButton {
+  border: 1px solid #45413d;
+  border-radius: 999px;
+  color: var(--white);
+  background: transparent;
+  cursor: pointer;
+}
+.chatBackButton { display: grid; width: 44px; height: 44px; place-items: center; }
+.chatBackButton svg { width: 1.15rem; height: 1.15rem; }
+.chatIdentity { margin-left: .85rem; }
+.chatIdentity strong { color: var(--white); font-family: var(--font-interface); font-size: 1.05rem; font-weight: 850; }
+.chatIdentity span { margin-top: .25rem; color: #88837c; font-family: var(--font-interface); font-size: .76rem; }
+.chatClearButton { margin-left: auto; padding: .5rem .7rem; border-color: transparent; color: #928d85; font-size: .78rem; }
+.chatCloseButton { margin-left: auto; padding: .58rem 1.05rem; font-size: .82rem; font-weight: 800; }
+.chatClearButton + .chatCloseButton { margin-left: .55rem; }
+.chatBackButton:hover,
+.chatCloseButton:hover { color: var(--ink); border-color: var(--acid); background: var(--acid); }
+.chatClearButton:hover { color: var(--acid); }
+.chatPanel { background: #050505; }
+.conversation { gap: 1rem; padding: 1.3rem; }
+.chatEmptyState { display: flex; width: min(760px, 100%); flex-direction: column; align-items: center; margin: auto; text-align: center; }
+.chatSpark { display: grid; width: 70px; height: 70px; place-items: center; border: 2px solid #292725; border-radius: 50%; color: var(--acid); background: #151515; }
+.chatSpark svg { width: 1.45rem; height: 1.45rem; }
+.chatEmptyState h2 { margin: 1.15rem 0 .55rem; color: var(--white); font-size: 1.5rem; letter-spacing: -.04em; }
+.chatEmptyState > p { max-width: 440px; margin: 0; color: #89847e; font-size: .95rem; line-height: 1.55; }
+.followUps { display: flex; width: auto; flex-wrap: wrap; justify-content: center; gap: .65rem; margin-top: 1.65rem; }
+.followUps > span { display: none; }
+.followUps > div { display: contents; }
+.followUps button { display: block; padding: .7rem 1rem; border: 1px solid #3d3935; border-radius: 999px; color: #d8d4cd; background: transparent; font-family: var(--font-interface); font-size: .78rem; font-weight: 600; text-align: center; }
+.followUps button:hover { color: var(--ink); border-color: var(--acid); background: var(--acid); transform: translateY(-2px); }
+.message { width: min(78%, 720px); padding: 1rem 1.1rem; border: 0; border-radius: 20px; box-shadow: none; }
+.message > span { display: none; }
+.message p { color: var(--white); font-size: .98rem; line-height: 1.55; }
+.assistant { background: #151515; border-top-left-radius: 5px; }
+.user { background: #31302f; border-top-right-radius: 5px; }
+.chatForm { gap: .7rem; padding: 1rem; border-top: 1px solid #292725; background: #050505; }
+.chatForm input { padding: .9rem 1.1rem; border: 1px solid #403c37; border-radius: 999px; color: var(--white); background: #151515; font-size: .94rem; }
+.chatForm input::placeholder { color: #77726b; }
+.chatForm button { display: grid; width: 48px; height: 48px; place-items: center; padding: 0; border: 0; border-radius: 50%; color: var(--ink); background: var(--acid); box-shadow: none; }
+.chatForm button svg { width: 1.15rem; height: 1.15rem; }
+.chatForm button:not(:disabled):hover { color: var(--white); background: var(--coral); transform: translateY(-2px); }
+
 .srOnly {
   position: absolute;
   width: 1px;
@@ -431,8 +666,13 @@
   35% { transform: translateY(-4px); opacity: 1; }
 }
 
+@media (max-width: 860px) {
+  .launchers { gap: .35rem; }
+  .launchButton { min-width: 0; padding: .65rem .75rem; }
+  .launchLabel { display: none; }
+}
+
 @media (max-width: 720px) {
-  .launchButton { padding: .65rem .75rem; }
 
   .overlay { padding: .5rem; }
 
@@ -444,6 +684,14 @@
 
   .assistantBrand strong { font-size: .68rem; }
   .intro { padding: 1.2rem; }
+  .voiceIntro { padding: 1.2rem; }
+  .voiceDisclaimer { top: 1.2rem; left: 1.2rem; max-width: 210px; font-size: .7rem; }
+  .voiceCloseButton { top: 1.1rem; right: 1.1rem; padding: .5rem .75rem; }
+  .voiceContent { transform: none; }
+  .voicePortrait { width: 104px; height: 104px; }
+  .voiceIntro h2 { margin-top: 1.3rem; }
+  .voiceActions { width: 100%; flex-direction: column; }
+  .voiceStartButton, .voiceChatButton { width: 100%; }
   .portraitFrame { width: 108px; height: 108px; }
   .intro h2 { font-size: clamp(1.9rem, 10vw, 2.7rem); }
   .chatHeader { padding: .6rem .75rem; }

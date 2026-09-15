@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
+import { TbArrowLeft, TbMicrophone, TbSend2, TbSparkles, TbVideo } from "react-icons/tb";
 import styles from "./PortfolioAssistant.module.css";
 
 const quickPrompts = [
@@ -54,7 +55,9 @@ function getAnswer(question) {
 
 export default function PortfolioAssistant() {
   const [isOpen, setIsOpen] = useState(false);
+  const [assistantView, setAssistantView] = useState("chat");
   const [hasStarted, setHasStarted] = useState(false);
+  const [voiceStatus, setVoiceStatus] = useState("idle");
   const [input, setInput] = useState("");
   const [isTyping, setIsTyping] = useState(false);
   const [messages, setMessages] = useState([
@@ -81,8 +84,8 @@ export default function PortfolioAssistant() {
   }, [isOpen]);
 
   useEffect(() => {
-    if (hasStarted && isOpen) inputRef.current?.focus();
-  }, [hasStarted, isOpen]);
+    if (assistantView === "chat" && hasStarted && isOpen) inputRef.current?.focus();
+  }, [assistantView, hasStarted, isOpen]);
 
   useEffect(() => {
     conversationRef.current?.scrollTo({
@@ -117,19 +120,37 @@ export default function PortfolioAssistant() {
     askQuestion(input);
   };
 
+  const openAssistant = (view) => {
+    setAssistantView(view);
+    setVoiceStatus("idle");
+    if (view === "chat") setHasStarted(true);
+    setIsOpen(true);
+  };
+
   return (
     <>
-      <button
-        className={styles.launchButton}
-        type="button"
-        onClick={() => setIsOpen(true)}
-        aria-haspopup="dialog"
-      >
-        <span className={styles.launchIcon} aria-hidden="true">
-          ✦
-        </span>
-        Ask My AI
-      </button>
+      <div className={styles.launchers} aria-label="Portfolio AI options">
+        <button
+          className={styles.launchButton}
+          type="button"
+          onClick={() => openAssistant("voice")}
+          aria-haspopup="dialog"
+          aria-label="Start a voice chat with AI"
+        >
+          <TbMicrophone className={styles.launchIcon} aria-hidden="true" />
+          <span className={styles.launchLabel}>Voice Chat with AI</span>
+        </button>
+        <button
+          className={styles.launchButton}
+          type="button"
+          onClick={() => openAssistant("video")}
+          aria-haspopup="dialog"
+          aria-label="Start a video chat with AI"
+        >
+          <TbVideo className={styles.launchIcon} aria-hidden="true" />
+          <span className={styles.launchLabel}>Video Chat with AI</span>
+        </button>
+      </div>
 
       {isOpen && createPortal(
         <div
@@ -141,24 +162,64 @@ export default function PortfolioAssistant() {
             className={styles.dialog}
             role="dialog"
             aria-modal="true"
-            aria-labelledby="assistant-title"
+            aria-label={assistantView === "voice" ? "Voice AI experience" : assistantView === "video" ? "Video chat status" : "Chat with Narendra"}
             onMouseDown={(event) => event.stopPropagation()}
           >
-            <header className={styles.dialogHeader}>
-              <div className={styles.assistantBrand}>
-                <span className={styles.brandMark}>NV</span>
-                <strong id="assistant-title">PORTFOLIO ASSISTANT</strong>
+            {assistantView === "voice" ? (
+              <div className={styles.voiceIntro}>
+                <p className={styles.voiceDisclaimer}>Powered by AI &amp; built by Narendra.<br />Responses may not always be fully accurate.</p>
+                <button className={styles.voiceCloseButton} type="button" onClick={() => setIsOpen(false)}>Close</button>
+                <div className={styles.voiceContent}>
+                  <div className={styles.voicePortrait}>
+                    <img src="/profile.jpg" alt="Narendra Vanapalli" />
+                  </div>
+                  <h2>Narendra Vanapalli</h2>
+                  <p className={styles.voiceTagline}>Ask my AI about the work I build.</p>
+                  <div className={styles.voiceActions}>
+                    <button
+                      className={styles.voiceStartButton}
+                      type="button"
+                      onClick={() => setVoiceStatus("ready")}
+                    >
+                      <TbMicrophone aria-hidden="true" />
+                      {voiceStatus === "ready" ? "Voice session ready" : "Start the call"}
+                    </button>
+                    <button
+                      className={styles.voiceChatButton}
+                      type="button"
+                      onClick={() => {
+                        setAssistantView("chat");
+                        setHasStarted(true);
+                      }}
+                    >
+                      Chat with me
+                    </button>
+                  </div>
+                  <p className={styles.voiceAvailability}>{voiceStatus === "ready" ? "Voice interface is ready for a realtime connection." : "Voice experience preview"}</p>
+                  <p className={styles.voicePrompt}>Ask me to <strong>“walk me through your RAG work”</strong> and I&apos;ll explain the architecture, evaluation, and impact.</p>
+                </div>
               </div>
-              <button
-                className={styles.closeButton}
-                type="button"
-                onClick={() => setIsOpen(false)}
-              >
-                Close <span aria-hidden="true">×</span>
-              </button>
-            </header>
-
-            {!hasStarted ? (
+            ) : assistantView === "video" ? (
+              <div className={styles.videoIntro}>
+                <button className={styles.videoCloseButton} type="button" onClick={() => setIsOpen(false)}>Close</button>
+                <div className={styles.videoContent}>
+                  <span className={styles.videoIcon} aria-hidden="true"><TbVideo /></span>
+                  <p className={styles.videoEyebrow}>COMING SOON</p>
+                  <h2>Video Chat is<br />in development.</h2>
+                  <p>I&apos;m building an interactive way to explore my work through video. For now, you can still ask my portfolio assistant anything by text.</p>
+                  <button
+                    className={styles.videoChatButton}
+                    type="button"
+                    onClick={() => {
+                      setAssistantView("chat");
+                      setHasStarted(true);
+                    }}
+                  >
+                    Chat with me instead
+                  </button>
+                </div>
+              </div>
+            ) : !hasStarted ? (
               <div className={styles.intro}>
                 <div className={styles.portraitFrame}>
                   <img src="/profile.jpg" alt="Narendra Vanapalli" />
@@ -195,15 +256,36 @@ export default function PortfolioAssistant() {
             ) : (
               <div className={styles.chatView}>
                 <div className={styles.chatHeader}>
+                  <button
+                    className={styles.chatBackButton}
+                    type="button"
+                    onClick={() => {
+                      setAssistantView("voice");
+                      setHasStarted(false);
+                    }}
+                    aria-label="Back to voice chat"
+                  >
+                    <TbArrowLeft aria-hidden="true" />
+                  </button>
                   <div className={styles.chatIdentity}>
-                    <div className={styles.miniPortrait}>
-                      <img src="/profile.jpg" alt="" />
-                    </div>
                     <div>
-                      <strong>Narendra’s Portfolio</strong>
-                      <span>Ask about the work</span>
+                      <strong>Chat with Narendra</strong>
+                      <span>Portfolio assistant · Ask about my work</span>
                     </div>
                   </div>
+                  {messages.length > 1 && (
+                    <button
+                      className={styles.chatClearButton}
+                      type="button"
+                      onClick={() => {
+                        setMessages([{ role: "assistant", text: answers.greeting }]);
+                        setIsTyping(false);
+                      }}
+                    >
+                      Clear
+                    </button>
+                  )}
+                  <button className={styles.chatCloseButton} type="button" onClick={() => setIsOpen(false)}>Close</button>
                 </div>
 
                 <div className={styles.chatPanel}>
@@ -212,7 +294,7 @@ export default function PortfolioAssistant() {
                     ref={conversationRef}
                     aria-live="polite"
                   >
-                    {messages.map((message, index) => (
+                    {messages.slice(1).map((message, index) => (
                       <div
                         className={`${styles.message} ${styles[message.role]}`}
                         key={`${message.role}-${index}`}
@@ -224,16 +306,18 @@ export default function PortfolioAssistant() {
                       </div>
                     ))}
                     {messages.length === 1 && !isTyping && (
-                      <div className={styles.followUps}>
-                        <span>Suggested follow-ups</span>
-                        <div>
-                          {quickPrompts.map((prompt) => (
+                      <div className={styles.chatEmptyState}>
+                        <span className={styles.chatSpark}><TbSparkles aria-hidden="true" /></span>
+                        <h2>Ask me anything</h2>
+                        <p>Ask about AI projects, experience, technical decisions, or the impact behind my work.</p>
+                        <div className={styles.followUps}>
+                          {quickPrompts.slice(0, 3).map((prompt) => (
                             <button
                               type="button"
                               onClick={() => askQuestion(prompt)}
                               key={prompt}
                             >
-                              {prompt} <span aria-hidden="true">↗</span>
+                              {prompt}
                             </button>
                           ))}
                         </div>
@@ -263,11 +347,11 @@ export default function PortfolioAssistant() {
                       ref={inputRef}
                       value={input}
                       onChange={(event) => setInput(event.target.value)}
-                      placeholder="Ask about projects, impact, skills..."
+                      placeholder="Type a message..."
                       autoComplete="off"
                     />
-                    <button type="submit" disabled={!input.trim() || isTyping}>
-                      Send <span aria-hidden="true">↗</span>
+                    <button type="submit" disabled={!input.trim() || isTyping} aria-label="Send message">
+                      <TbSend2 aria-hidden="true" />
                     </button>
                   </form>
                 </div>

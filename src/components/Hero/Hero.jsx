@@ -45,7 +45,7 @@ export default function Hero() {
             ))}
           </div>
           <div className={styles.actions}>
-            <a className={styles.primaryButton} href="#projects">Explore my work <span aria-hidden="true">→</span></a>
+            <a className={styles.primaryButton} href="#projects">Explore my work</a>
             <a className={styles.secondaryButton} href="#contact">Get in touch</a>
           </div>
         </div>

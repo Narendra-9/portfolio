@@ -30,9 +30,13 @@ export default function Expertise() {
 
           return (
             <Reveal className={styles.expertiseCard} delay={(index % 3) * 45} key={item.title}>
-              <div className={styles.cardIcon} aria-hidden="true"><Icon /></div>
-              <h3>{item.title}</h3>
+              <span className={styles.cardNumber} aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
+              <div className={styles.cardHeader}>
+                <div className={styles.cardIcon} aria-hidden="true"><Icon /></div>
+                <h3>{item.title}</h3>
+              </div>
               <p>{item.text}</p>
+              <span className={styles.cornerLines} aria-hidden="true" />
             </Reveal>
           );
         })}

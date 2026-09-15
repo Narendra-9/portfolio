@@ -3,9 +3,9 @@
   top: 0;
   z-index: 30;
   display: grid;
-  grid-template-columns: minmax(220px, 1fr) auto minmax(130px, 1fr);
+  grid-template-columns: minmax(220px, 1fr) auto max-content;
   align-items: center;
-  gap: clamp(1rem, 2vw, 2rem);
+  gap: clamp(.5rem, 1vw, 1rem);
   min-height: 78px;
   padding: 0 5vw;
   border-bottom: 3px solid var(--ink);
@@ -46,7 +46,8 @@
   justify-self: end;
   display: flex;
   align-items: center;
-  gap: .85rem;
+  gap: .7rem;
+  width: max-content;
 }
 
 .headerCta {

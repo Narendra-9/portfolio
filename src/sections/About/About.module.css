@@ -2,6 +2,8 @@
 .aboutGrid { display: grid; grid-template-columns: 1.05fr .95fr; gap: clamp(2rem, 5vw, 6rem); align-items: start; }
 .aboutCopy { max-width: 740px; }
 .aboutCopy p { margin-top: 0; font-size: 1.05rem; line-height: 1.75; }
+.aboutCopy .aboutBody { font-family: "Edu NSW ACT Cursive", cursive; }
+.aboutCopy .aboutBody strong { color: inherit; font-weight: 900; -webkit-text-stroke: .25px currentColor; }
 .aboutCopy .aboutLead { font-family: "Edu NSW ACT Cursive", cursive; font-size: clamp(1.75rem, 3.05vw, 2.85rem); font-weight: 700; line-height: 1.35; letter-spacing: .01em; }
 .certStrip { display: flex; flex-wrap: wrap; align-items: center; gap: 1.4rem; margin-top: 2rem; }
 .certStrip img { display: block; width: 140px; height: 140px; object-fit: contain; }
