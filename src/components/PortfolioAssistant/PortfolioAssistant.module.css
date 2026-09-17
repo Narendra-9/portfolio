@@ -1146,6 +1146,82 @@
 }
 
 .videoLayoutStarting { grid-template-columns: minmax(0, 1fr); }
+.videoLayoutStarting .videoPrompt,
+.videoLayoutStarting .videoCallDock { display: none; }
+
+.videoConnectingScreen {
+  position: absolute;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  color: var(--white);
+  background-color: #090c0a;
+  background-image:
+    radial-gradient(circle at 50% 46%, rgb(215 255 63 / 10%), transparent 26%),
+    radial-gradient(rgb(255 253 247 / 16%) 1px, transparent 1px);
+  background-size: auto, 22px 22px;
+  text-align: center;
+  inset: 0;
+}
+
+.videoConnectingLoader {
+  position: relative;
+  display: grid;
+  width: 82px;
+  height: 82px;
+  place-items: center;
+  margin-bottom: 1.45rem;
+  border: 1px solid rgb(215 255 63 / 20%);
+  border-radius: 50%;
+  color: var(--acid);
+  background: rgb(215 255 63 / 7%);
+  box-shadow: 0 0 45px rgb(215 255 63 / 12%);
+}
+
+.videoConnectingLoader::before,
+.videoConnectingLoader::after,
+.videoConnectingLoader i {
+  position: absolute;
+  border-radius: 50%;
+  content: "";
+}
+
+.videoConnectingLoader::before {
+  border: 2px solid transparent;
+  border-top-color: var(--acid);
+  border-right-color: rgb(215 255 63 / 32%);
+  animation: videoConnectSpin 1.15s linear infinite;
+  inset: -10px;
+}
+
+.videoConnectingLoader::after {
+  border: 1px solid rgb(120 146 255 / 28%);
+  animation: videoConnectPulse 1.7s ease-out infinite;
+  inset: -20px;
+}
+
+.videoConnectingLoader i {
+  background: var(--acid);
+  box-shadow: 0 0 12px rgb(215 255 63 / 88%);
+  inset: 8px auto auto 8px;
+  width: 6px;
+  height: 6px;
+}
+
+.videoConnectingLoader svg { width: 1.65rem; height: 1.65rem; }
+.videoConnectingScreen strong { font-size: 1.05rem; font-weight: 600; }
+.videoConnectingScreen p { max-width: 310px; margin: .5rem 0 0; color: #929b94; font-size: .76rem; line-height: 1.55; }
+
+@keyframes videoConnectSpin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes videoConnectPulse {
+  0% { opacity: .6; transform: scale(.88); }
+  70%, 100% { opacity: 0; transform: scale(1.18); }
+}
 
 .videoStage,
 .videoTranscriptPanel {

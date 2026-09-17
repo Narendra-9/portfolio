@@ -318,7 +318,7 @@ export default function VideoAvatar({ onClose }) {
         <div className={styles.videoHeading}>
           <span className={styles.videoHeaderIcon}><TbVideo aria-hidden="true" /></span>
           <div>
-            <strong>Face-to-face with Narendra</strong>
+            <strong>Talk with Narendra, live</strong>
             <p>Have a real-time conversation with my AI avatar.</p>
           </div>
         </div>
@@ -337,8 +337,13 @@ export default function VideoAvatar({ onClose }) {
         <section className={styles.videoStage} aria-label="AI avatar video">
           <video id={VIDEO_ELEMENT_ID} className={styles.avatarVideo} autoPlay playsInline />
           {!isConnected && (
-            <div className={styles.videoPoster}>
-              <img src="/profile.jpg" alt="Narendra Vanapalli" />
+            <div className={styles.videoConnectingScreen} aria-live="polite">
+              <span className={styles.videoConnectingLoader} aria-hidden="true">
+                <i />
+                <TbVideo />
+              </span>
+              <strong>Bringing Narendra on screen</strong>
+              <p>Connecting your microphone and preparing the live video…</p>
             </div>
           )}
 
