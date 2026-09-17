@@ -5,7 +5,9 @@ import {
   TbMicrophone,
   TbMicrophoneOff,
   TbPhoneOff,
+  TbSparkles,
   TbVideo,
+  TbX,
 } from "react-icons/tb";
 import styles from "./PortfolioAssistant.module.css";
 
@@ -51,12 +53,6 @@ function saveVideoUsage(usedMs) {
   }
 }
 
-function formatTime(milliseconds) {
-  const totalSeconds = Math.max(0, Math.ceil(milliseconds / 1000));
-  const minutes = Math.floor(totalSeconds / 60);
-  return `${minutes}:${String(totalSeconds % 60).padStart(2, "0")}`;
-}
-
 function upsertTranscript(current, event) {
   const index = current.findIndex((message) => message.id === event.id);
   const role = event.role === "user" ? "user" : "assistant";
@@ -82,7 +78,7 @@ function upsertTranscript(current, event) {
   return next;
 }
 
-export default function VideoAvatar({ onClose, onOpenText, onOpenVoice }) {
+export default function VideoAvatar({ onClose }) {
   const clientRef = useRef(null);
   const preparedAtRef = useRef(0);
   const transcriptRef = useRef(null);
@@ -232,6 +228,8 @@ export default function VideoAvatar({ onClose, onOpenText, onOpenVoice }) {
         setConversationState("Connecting microphone and video");
       }
 
+      // Render the video element before handing it to the streaming SDK.
+      await new Promise((resolve) => window.requestAnimationFrame(resolve));
       await anamClient.streamToVideoElement(VIDEO_ELEMENT_ID);
     } catch (startError) {
       setStatus("error");
@@ -260,24 +258,87 @@ export default function VideoAvatar({ onClose, onOpenText, onOpenVoice }) {
 
   const remainingMs = Math.max(0, DAILY_VIDEO_LIMIT_MS - usedMs);
   const isConnected = status === "connected";
+  const headerStatus = status === "ready"
+    ? "AI Avatar Ready"
+    : status === "connected"
+      ? "Conversation Live"
+      : status === "preparing"
+        ? "Preparing Avatar"
+        : status === "connecting"
+          ? "Connecting"
+          : status === "error"
+            ? "Setup Required"
+            : "Call Ended";
+
+  if (!isConnected && status !== "connecting") {
+    return (
+      <div className={styles.videoLanding}>
+        <p className={styles.videoLandingDisclaimer}>
+          Powered by AI and fully built by me.<br />
+          Live video responses may not be perfectly accurate.
+        </p>
+        <button className={styles.videoLandingClose} type="button" onClick={() => leaveVideo(onClose)}>
+          <TbX aria-hidden="true" /> Close
+        </button>
+
+        <main className={styles.videoLandingContent}>
+          <img className={styles.videoLandingPortrait} src="/profile.jpg" alt="Narendra Vanapalli" />
+          <h2>Narendra Vanapalli</h2>
+          <p className={styles.videoLandingTagline}>See me talk, live on video.</p>
+          <p className={styles.videoLandingDescription}>
+            Have a real-time conversation with my AI avatar.
+          </p>
+          {error && <p className={styles.videoLandingError}>{error}</p>}
+          <button
+            className={styles.videoLandingStart}
+            type="button"
+            onClick={status === "error" || status === "ended" ? prepareSession : startSession}
+            disabled={status === "preparing" || remainingMs === 0}
+          >
+            <TbVideo aria-hidden="true" />
+            {status === "preparing"
+              ? "Preparing..."
+              : status === "error" || status === "ended"
+                ? "Prepare again"
+                : remainingMs === 0
+                  ? "Limit reached"
+                  : "Start Video Call"}
+          </button>
+          <p className={styles.videoLandingAllowance}>
+            {remainingMs === 0 ? "Today's video time has been used." : "3:00 free today · Resets tomorrow"}
+          </p>
+        </main>
+      </div>
+    );
+  }
 
   return (
     <div className={styles.videoExperience}>
       <div className={styles.videoTopbar}>
-        <div>
-          <span className={styles.videoLiveMark}><TbVideo aria-hidden="true" /> AI VIDEO</span>
-          <strong>Face-to-face with Narendra</strong>
+        <div className={styles.videoHeading}>
+          <span className={styles.videoHeaderIcon}><TbVideo aria-hidden="true" /></span>
+          <div>
+            <strong>Face-to-face with Narendra</strong>
+            <p>Have a real-time conversation with my AI avatar.</p>
+          </div>
         </div>
-        <button className={styles.voiceCloseButton} type="button" onClick={() => leaveVideo(onClose)}>Close</button>
+        <div className={styles.videoHeaderActions}>
+          <span className={styles.videoReadyBadge}>
+            <i className={status === "error" ? styles.videoStatusError : ""} aria-hidden="true" />
+            {headerStatus}
+          </span>
+          <button className={styles.videoCloseButton} type="button" onClick={() => leaveVideo(onClose)}>
+            <TbX aria-hidden="true" /> Close
+          </button>
+        </div>
       </div>
 
-      <div className={styles.videoLayout}>
+      <div className={`${styles.videoLayout} ${!isConnected ? styles.videoLayoutStarting : ""}`}>
         <section className={styles.videoStage} aria-label="AI avatar video">
           <video id={VIDEO_ELEMENT_ID} className={styles.avatarVideo} autoPlay playsInline />
           {!isConnected && (
             <div className={styles.videoPoster}>
               <img src="/profile.jpg" alt="Narendra Vanapalli" />
-              <span className={styles.videoPosterBadge}><TbVideo aria-hidden="true" /></span>
             </div>
           )}
 
@@ -286,61 +347,65 @@ export default function VideoAvatar({ onClose, onOpenText, onOpenVoice }) {
             {conversationState}
           </div>
 
-          <div className={styles.videoControls}>
-            {!isConnected ? (
-              <button
-                className={styles.videoStartButton}
-                type="button"
-                onClick={status === "error" || status === "ended" ? prepareSession : startSession}
-                disabled={status === "preparing" || status === "connecting" || remainingMs === 0}
-              >
-                <TbVideo aria-hidden="true" />
-                {status === "preparing"
-                  ? "Preparing…"
-                  : status === "connecting"
-                    ? "Connecting…"
-                    : status === "error" || status === "ended"
-                      ? "Prepare again"
-                      : remainingMs === 0
-                        ? "Limit reached"
-                        : "Start video conversation"}
-              </button>
-            ) : (
-              <>
-                <button className={styles.videoControlButton} type="button" onClick={toggleMute}>
-                  {isMuted ? <TbMicrophoneOff aria-hidden="true" /> : <TbMicrophone aria-hidden="true" />}
-                  {isMuted ? "Unmute" : "Mute"}
-                </button>
-                <button className={styles.videoEndButton} type="button" onClick={() => stopSession()}>
-                  <TbPhoneOff aria-hidden="true" /> End
-                </button>
-              </>
-            )}
-          </div>
+          {!isConnected && (
+            <div className={styles.videoPrompt}>
+              <span className={styles.videoPosterBadge}><TbVideo aria-hidden="true" /></span>
+              <strong>{status === "error" ? "Video needs configuration" : "Start the conversation"}</strong>
+              <p>{status === "error" ? "Check the setup message below, then try again." : "Connect when you’re ready to talk."}</p>
+            </div>
+          )}
 
-          <div className={styles.videoBudget}>
-            <span>Daily video time</span>
-            <strong>{formatTime(remainingMs)} left</strong>
-          </div>
           {error && <p className={styles.videoError}>{error}</p>}
-          <p className={styles.videoDisclosure}>AI-generated avatar and cloned voice of Narendra.</p>
+
+          <div className={styles.videoCallDock}>
+            <div className={styles.videoControls}>
+              {!isConnected ? (
+                <button
+                  className={styles.videoStartButton}
+                  type="button"
+                  onClick={status === "error" || status === "ended" ? prepareSession : startSession}
+                  disabled={status === "preparing" || status === "connecting" || remainingMs === 0}
+                >
+                  <TbVideo aria-hidden="true" />
+                  {status === "preparing"
+                    ? "Preparing..."
+                    : status === "connecting"
+                      ? "Connecting..."
+                      : status === "error" || status === "ended"
+                        ? "Prepare again"
+                        : remainingMs === 0
+                          ? "Limit reached"
+                          : "Start Call"}
+                </button>
+              ) : (
+                <>
+                  <button className={styles.videoControlButton} type="button" onClick={toggleMute}>
+                    {isMuted ? <TbMicrophoneOff aria-hidden="true" /> : <TbMicrophone aria-hidden="true" />}
+                    {isMuted ? "Unmute" : "Mute"}
+                  </button>
+                  <button className={styles.videoEndButton} type="button" onClick={() => stopSession()}>
+                    <TbPhoneOff aria-hidden="true" /> End
+                  </button>
+                </>
+              )}
+            </div>
+          </div>
         </section>
 
-        <aside className={styles.videoTranscriptPanel} aria-label="Live video conversation transcript">
-          <div className={styles.voiceTranscriptHeader}>
-            <div>
-              <span>LIVE TRANSCRIPT</span>
-              <strong>Conversation</strong>
+        {isConnected && <aside className={styles.videoTranscriptPanel} aria-label="Live video conversation transcript">
+          {isConnected && (
+            <div className={styles.videoPanelTabs}>
+              <span className={styles.videoTranscriptLabel}>Live Transcript</span>
             </div>
-            <span className={isConnected ? styles.transcriptLive : styles.transcriptIdle}>
-              {isConnected ? "Live" : "Waiting"}
-            </span>
-          </div>
+          )}
+
           <div className={styles.voiceTranscript} ref={transcriptRef} aria-live="polite">
             {messages.length === 0 ? (
-              <p className={styles.voiceTranscriptEmpty}>
-                Start the call and your conversation will appear here in real time.
-              </p>
+              <div className={styles.videoTranscriptEmpty}>
+                <span><TbMessageCircle aria-hidden="true" /><TbSparkles aria-hidden="true" /></span>
+                <strong>Start a conversation</strong>
+                <p>Your live transcript will appear here as you talk with Narendra.</p>
+              </div>
             ) : (
               messages.map((message) => (
                 <div
@@ -348,16 +413,12 @@ export default function VideoAvatar({ onClose, onOpenText, onOpenVoice }) {
                   key={message.id}
                 >
                   <span>{message.role === "user" ? "You" : "Narendra"}</span>
-                  <p>{message.text}{message.interrupted ? " …" : ""}</p>
+                  <p>{message.text}{message.interrupted ? " ..." : ""}</p>
                 </div>
               ))
             )}
           </div>
-          <div className={styles.videoAlternatives}>
-            <button type="button" onClick={() => leaveVideo(onOpenVoice)}><TbMicrophone aria-hidden="true" /> Voice</button>
-            <button type="button" onClick={() => leaveVideo(onOpenText)}><TbMessageCircle aria-hidden="true" /> Text</button>
-          </div>
-        </aside>
+        </aside>}
       </div>
     </div>
   );

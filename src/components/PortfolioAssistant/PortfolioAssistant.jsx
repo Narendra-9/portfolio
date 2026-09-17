@@ -372,7 +372,7 @@ function PortfolioAssistantExperience() {
       {isOpen && createPortal(
         <div className={styles.overlay} role="presentation" onMouseDown={closeAssistant}>
           <section
-            className={styles.dialog}
+            className={`${styles.dialog} ${assistantView === "video" ? styles.videoDialog : ""}`}
             role="dialog"
             aria-modal="true"
             aria-label={
@@ -388,8 +388,6 @@ function PortfolioAssistantExperience() {
               <Suspense fallback={<div className={styles.videoLoading}>Preparing video experience&hellip;</div>}>
                 <VideoAvatar
                   onClose={closeAssistant}
-                  onOpenText={switchToChat}
-                  onOpenVoice={switchToVoice}
                 />
               </Suspense>
             ) : assistantView === "voice" ? (

@@ -928,6 +928,435 @@
   font-size: .72rem;
 }
 
+/* Refined video-call layout */
+.videoDialog {
+  width: min(1040px, 100%);
+  height: min(620px, calc(100dvh - 2.5rem));
+  border: 1px solid #2b312b;
+  border-radius: 20px;
+  background: #080b0a;
+  box-shadow: 0 24px 80px rgb(0 0 0 / 54%), 8px 8px 0 var(--acid);
+}
+
+.videoExperience {
+  font-family: var(--font-interface);
+  font-weight: 400;
+  background:
+    radial-gradient(circle at 10% 0%, rgb(215 255 63 / 7%), transparent 26%),
+    linear-gradient(145deg, #080b0a, #060807);
+}
+
+.videoLanding {
+  position: relative;
+  display: grid;
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
+  place-items: center;
+  padding: 2rem;
+  color: var(--white);
+  background-color: var(--ink);
+  background-image: radial-gradient(rgb(255 253 247 / 22%) 1px, transparent 1px);
+  background-size: 22px 22px;
+  font-family: var(--font-interface);
+}
+
+.videoLandingDisclaimer {
+  position: absolute;
+  top: 1.65rem;
+  left: 1.8rem;
+  margin: 0;
+  color: #98948d;
+  font-size: .78rem;
+  line-height: 1.45;
+}
+
+.videoLandingClose {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.7rem;
+  display: inline-flex;
+  align-items: center;
+  gap: .45rem;
+  padding: .6rem 1rem;
+  border: 1px solid #4a514c;
+  border-radius: 999px;
+  color: var(--white);
+  background: transparent;
+  font-family: var(--font-interface);
+  font-size: .78rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.videoLandingClose:hover { color: var(--ink); border-color: var(--acid); background: var(--acid); }
+
+.videoLandingContent {
+  display: flex;
+  width: min(380px, 100%);
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.videoLandingPortrait {
+  width: 136px;
+  height: 136px;
+  border: 1px solid #4e564f;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center 25%;
+}
+
+.videoLandingContent h2 {
+  margin: 1.45rem 0 .35rem;
+  font-size: clamp(1.85rem, 3.3vw, 2.35rem);
+  font-weight: 650;
+  letter-spacing: -.045em;
+}
+
+.videoLandingTagline { margin: 0; color: #b0b6b1; font-size: 1rem; }
+.videoLandingDescription { margin: 1rem 0 0; color: #7f8781; font-size: .78rem; line-height: 1.5; }
+.videoLandingError { margin: 1rem 0 0; color: #ffaaa4; font-size: .72rem; line-height: 1.45; }
+
+.videoLandingStart {
+  display: inline-flex;
+  min-width: 210px;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  margin-top: 1.7rem;
+  padding: .85rem 1.15rem;
+  border: 1px solid var(--acid);
+  border-radius: 999px;
+  color: var(--ink);
+  background: var(--acid);
+  box-shadow: 0 10px 28px rgb(215 255 63 / 20%);
+  font-family: var(--font-interface);
+  font-size: .9rem;
+  font-weight: 650;
+  cursor: pointer;
+}
+
+.videoLandingStart:hover:not(:disabled) { transform: translateY(-2px); box-shadow: 0 14px 32px rgb(215 255 63 / 28%); }
+.videoLandingStart:disabled { cursor: wait; opacity: .58; }
+.videoLandingAllowance { margin: .9rem 0 0; color: #717971; font-size: .7rem; }
+
+.videoTopbar {
+  min-height: 94px;
+  padding: 1rem 1.25rem;
+  border-bottom-color: #29302b;
+  background: transparent;
+}
+
+.videoHeading {
+  display: flex !important;
+  align-items: center;
+  gap: .85rem !important;
+}
+
+.videoHeading > div {
+  display: grid;
+  gap: .18rem;
+}
+
+.videoHeaderIcon {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  flex: 0 0 auto;
+  place-items: center;
+  border-radius: 12px;
+  color: var(--acid);
+  background: rgb(215 255 63 / 10%);
+  box-shadow: 0 0 26px rgb(215 255 63 / 18%);
+}
+
+.videoHeaderIcon svg { width: 1.45rem; height: 1.45rem; }
+
+.videoLiveMark {
+  font-size: .59rem;
+  font-weight: 700;
+  letter-spacing: .18em;
+}
+
+.videoHeading strong {
+  font-size: 1.25rem;
+  font-weight: 650;
+  letter-spacing: -.035em;
+}
+
+.videoHeading p {
+  margin: 0;
+  color: #929a94;
+  font-size: .76rem;
+}
+
+.videoHeaderActions {
+  display: flex !important;
+  align-items: center;
+  gap: .7rem !important;
+}
+
+.videoReadyBadge,
+.videoCloseButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  min-height: 42px;
+  border-radius: 999px;
+  font-size: .72rem;
+  font-family: var(--font-interface);
+  font-weight: 600;
+}
+
+.videoReadyBadge {
+  padding: .55rem .85rem;
+  border: 1px solid rgb(215 255 63 / 30%);
+  color: #dce4dd;
+  background: linear-gradient(180deg, rgb(215 255 63 / 10%), rgb(215 255 63 / 3%));
+}
+
+.videoReadyBadge i {
+  width: .43rem;
+  height: .43rem;
+  border-radius: 50%;
+  background: var(--acid);
+  box-shadow: 0 0 12px rgb(215 255 63 / 85%);
+}
+
+.videoReadyBadge i.videoStatusError { background: var(--coral); box-shadow: 0 0 12px rgb(255 103 93 / 72%); }
+
+.videoCloseButton {
+  padding: .55rem 1rem;
+  border: 1px solid #414943;
+  color: var(--white);
+  background: #101412;
+  cursor: pointer;
+}
+
+.videoCloseButton svg { width: 1rem; height: 1rem; }
+.videoCloseButton:hover { color: var(--ink); border-color: var(--acid); background: var(--acid); }
+
+.videoLayout {
+  grid-template-columns: minmax(0, 1.65fr) minmax(310px, .85fr);
+  gap: .75rem;
+  padding: .75rem;
+}
+
+.videoLayoutStarting { grid-template-columns: minmax(0, 1fr); }
+
+.videoStage,
+.videoTranscriptPanel {
+  border-color: #2e3631;
+  border-radius: 18px;
+}
+
+.videoStage { box-shadow: inset 0 0 70px rgb(0 0 0 / 46%); }
+
+.videoPoster::after {
+  background: linear-gradient(180deg, rgb(0 0 0 / 4%) 30%, rgb(5 8 6 / 74%) 88%, rgb(5 8 6 / 90%));
+}
+
+.videoState {
+  top: .8rem;
+  left: .8rem;
+  padding: .45rem .65rem;
+  border-color: rgb(255 255 255 / 16%);
+  background: rgb(15 18 16 / 78%);
+  font-size: .66rem;
+  font-weight: 500;
+}
+
+.videoPrompt {
+  position: absolute;
+  z-index: 4;
+  top: 47%;
+  left: 50%;
+  display: flex;
+  width: min(330px, 80%);
+  align-items: center;
+  flex-direction: column;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.videoPosterBadge {
+  position: relative;
+  width: 58px;
+  height: 58px;
+  margin-bottom: 1.15rem;
+  border: 0;
+  box-shadow: 0 0 0 13px rgb(215 255 63 / 14%), 0 0 38px rgb(215 255 63 / 24%);
+}
+
+.videoPrompt strong { font-size: 1rem; font-weight: 600; }
+.videoPrompt p { margin: .38rem 0 0; color: #c0c7c1; font-size: .75rem; font-weight: 400; }
+
+.videoCallDock {
+  position: absolute;
+  z-index: 5;
+  right: auto;
+  bottom: .8rem;
+  left: 50%;
+  display: block;
+  width: min(340px, calc(100% - 1.6rem));
+  transform: translateX(-50%);
+}
+
+.videoMicState,
+.videoVoiceState {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: .55rem;
+}
+
+.videoVoiceState { justify-self: end; }
+
+.videoMicState > span,
+.videoVoiceState > span {
+  display: grid;
+  width: 32px;
+  height: 32px;
+  flex: 0 0 auto;
+  place-items: center;
+  border-radius: 50%;
+  color: #e6ece7;
+  background: rgb(255 255 255 / 9%);
+}
+
+.videoMicState > div,
+.videoVoiceState > div { display: grid; min-width: 0; gap: .15rem; }
+.videoMicState small,
+.videoVoiceState small { color: #a4aba6; font-size: .62rem; }
+.videoVoiceState strong { overflow: hidden; font-size: .66rem; text-overflow: ellipsis; white-space: nowrap; }
+
+.videoMicState i { display: flex; gap: 3px; }
+.videoMicState b { width: 13px; height: 4px; border-radius: 999px; background: var(--acid); }
+.videoMicState b:last-child { background: #4b524d; }
+
+.videoControls {
+  position: static;
+  width: 100%;
+  justify-self: center;
+  transform: none;
+}
+
+.videoStartButton,
+.videoControlButton,
+.videoEndButton {
+  min-height: 46px;
+  padding: .72rem 1.2rem;
+  font-family: var(--font-interface);
+  font-weight: 600;
+}
+
+.videoStartButton { width: 100%; min-width: 190px; font-weight: 650; box-shadow: 0 10px 28px rgb(215 255 63 / 24%); }
+.videoControlButton,
+.videoEndButton { flex: 1; }
+
+.videoError {
+  right: 1.2rem;
+  bottom: 5.9rem;
+  left: 1.2rem;
+  padding: .55rem .72rem;
+  background: rgb(72 13 10 / 90%);
+  font-size: .69rem;
+}
+
+.videoTranscriptPanel {
+  box-shadow: none;
+  background: linear-gradient(180deg, #101412, #0b0e0c);
+}
+
+.videoPanelTabs {
+  padding: .65rem;
+  border-bottom: 1px solid #29302b;
+}
+
+.videoTranscriptLabel {
+  display: inline-flex;
+  width: 100%;
+  min-height: 40px;
+  align-items: center;
+  justify-content: center;
+  gap: .45rem;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  color: var(--acid);
+  border-color: rgb(215 255 63 / 65%);
+  background: rgb(215 255 63 / 9%);
+  box-shadow: inset 0 0 14px rgb(215 255 63 / 7%), 0 0 18px rgb(215 255 63 / 12%);
+  font-size: .7rem;
+  font-family: var(--font-interface);
+  font-weight: 600;
+}
+
+.videoTranscriptEmpty {
+  display: flex;
+  max-width: 245px;
+  align-items: center;
+  flex-direction: column;
+  margin: auto;
+  color: #a1a8a3;
+  text-align: center;
+}
+
+.videoTranscriptEmpty > span {
+  position: relative;
+  display: grid;
+  width: 56px;
+  height: 56px;
+  place-items: center;
+  margin-bottom: 1rem;
+  border: 1px solid #4b544e;
+  border-radius: 15px;
+  color: #bbc3bd;
+}
+
+.videoTranscriptEmpty > span svg:first-child { width: 1.6rem; height: 1.6rem; }
+.videoTranscriptEmpty > span svg:last-child { position: absolute; top: -8px; right: -8px; color: var(--acid); }
+.videoTranscriptEmpty strong { color: var(--white); font-size: .95rem; font-weight: 600; }
+.videoTranscriptEmpty p { margin: .75rem 0 0; font-size: .75rem; line-height: 1.55; }
+
+.videoTranscriptPanel .voiceTranscriptMessage > span { font-weight: 600; }
+.videoTranscriptPanel .voiceTranscriptMessage p { font-weight: 400; }
+
+.videoAboutPanel {
+  display: flex;
+  min-height: 0;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  overflow-y: auto;
+  padding: 1.3rem;
+  text-align: center;
+}
+
+.videoAboutIcon {
+  display: grid;
+  width: 52px;
+  height: 52px;
+  place-items: center;
+  border: 1px solid rgb(215 255 63 / 35%);
+  border-radius: 50%;
+  color: var(--acid);
+  background: rgb(215 255 63 / 7%);
+}
+
+.videoAboutPanel h3 { margin: 1rem 0 .5rem; font-size: 1rem; font-weight: 600; }
+.videoAboutPanel > p { margin: 0; color: #9ca39e; font-size: .75rem; line-height: 1.55; }
+.videoAboutPanel dl { width: 100%; margin: 1.2rem 0; }
+.videoAboutPanel dl div { display: flex; justify-content: space-between; gap: 1rem; padding: .65rem 0; border-top: 1px solid #29302b; font-size: .68rem; }
+.videoAboutPanel dt { color: #8e9690; }
+.videoAboutPanel dd { margin: 0; color: var(--white); font-weight: 800; }
+.videoAboutPanel small { color: #747b76; font-size: .62rem; }
+
+.videoAlternatives { padding: .65rem; }
+.videoAlternatives button { min-height: 42px; background: transparent; font-family: var(--font-interface); font-weight: 600; }
+
 .chatView {
   display: grid;
   height: calc(100% - 68px);
@@ -1273,6 +1702,28 @@
   .videoDisclosure { bottom: 2.7rem; left: .8rem; }
   .videoBudget { right: .8rem; bottom: .8rem; }
   .videoError { right: .75rem; bottom: 7.7rem; left: .75rem; }
+  .videoDialog { border-radius: 14px; }
+  .videoTopbar { min-height: 78px; }
+  .videoHeading { gap: .6rem !important; }
+  .videoHeaderIcon { width: 36px; height: 36px; border-radius: 10px; }
+  .videoHeading strong { font-size: .92rem; }
+  .videoHeading p,
+  .videoReadyBadge { display: none; }
+  .videoHeaderActions { gap: 0 !important; }
+  .videoCloseButton { min-height: 36px; padding: .45rem .7rem; }
+  .videoStage { min-height: min(58dvh, 500px); }
+  .videoPrompt { top: 42%; }
+  .videoCallDock {
+    right: auto;
+    bottom: .65rem;
+    left: 50%;
+    width: calc(100% - 1.3rem);
+    transform: translateX(-50%);
+  }
+  .videoControls { width: 100%; }
+  .videoStartButton { width: min(250px, 100%); max-width: none; }
+  .videoError { bottom: 5.7rem; }
+  .videoTranscriptPanel { min-height: 340px; flex-basis: 340px; }
   .portraitFrame { width: 108px; height: 108px; }
   .intro h2 { font-size: clamp(1.9rem, 10vw, 2.7rem); }
   .chatHeader { padding: .6rem .75rem; }
@@ -1287,7 +1738,6 @@
   .launchButton { gap: .35rem; font-size: .66rem; }
   .videoLiveMark { font-size: .54rem; }
   .videoState { top: .65rem; left: .65rem; font-size: .66rem; }
-  .videoControls { bottom: 5rem; }
   .videoStartButton,
   .videoControlButton,
   .videoEndButton { padding: .72rem .8rem; font-size: .72rem; }
