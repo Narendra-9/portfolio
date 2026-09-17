@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { lazy, Suspense, useCallback, useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { ConversationProvider, useConversation } from "@elevenlabs/react";
 import {
@@ -9,8 +9,12 @@ import {
   TbSend2,
   TbSparkles,
   TbMessageCircle,
+  TbVideo,
 } from "react-icons/tb";
 import styles from "./PortfolioAssistant.module.css";
+
+const loadVideoAvatar = () => import("./VideoAvatar");
+const VideoAvatar = lazy(loadVideoAvatar);
 
 const AGENT_ID =
   import.meta.env.VITE_ELEVENLABS_AGENT_ID ||
@@ -219,6 +223,7 @@ function PortfolioAssistantExperience() {
   }, [endConversation]);
 
   const openAssistant = (view) => {
+    if (view === "video") endConversation();
     setAssistantView(view);
     setIsOpen(true);
     setLocalError("");
@@ -332,6 +337,17 @@ function PortfolioAssistantExperience() {
     return () => window.removeEventListener("storage", syncUsage);
   }, []);
 
+  useEffect(() => {
+    const preload = () => loadVideoAvatar().catch(() => {});
+    if ("requestIdleCallback" in window) {
+      const idleId = window.requestIdleCallback(preload, { timeout: 1500 });
+      return () => window.cancelIdleCallback(idleId);
+    }
+
+    const timeoutId = window.setTimeout(preload, 800);
+    return () => window.clearTimeout(timeoutId);
+  }, []);
+
   const voiceStatus = isConnecting || (isConnected && sessionMode === "text")
     ? "Connecting…"
     : isVoiceConnected && conversation.isSpeaking
@@ -343,13 +359,13 @@ function PortfolioAssistantExperience() {
   return (
     <>
       <div className={styles.launchers} aria-label="Talk with Narendra">
+        <button className={styles.launchButton} type="button" onClick={() => openAssistant("video")} aria-haspopup="dialog">
+          <TbVideo className={styles.launchIcon} aria-hidden="true" />
+          <span className={styles.launchLabel}>Video chat</span>
+        </button>
         <button className={styles.launchButton} type="button" onClick={() => openAssistant("voice")} aria-haspopup="dialog">
           <TbMicrophone className={styles.launchIcon} aria-hidden="true" />
           <span className={styles.launchLabel}>Voice chat</span>
-        </button>
-        <button className={styles.launchButton} type="button" onClick={() => openAssistant("chat")} aria-haspopup="dialog">
-          <TbMessageCircle className={styles.launchIcon} aria-hidden="true" />
-          <span className={styles.launchLabel}>Text chat</span>
         </button>
       </div>
 
@@ -359,10 +375,24 @@ function PortfolioAssistantExperience() {
             className={styles.dialog}
             role="dialog"
             aria-modal="true"
-            aria-label={assistantView === "voice" ? "Voice conversation with Narendra" : "Chat with Narendra"}
+            aria-label={
+              assistantView === "video"
+                ? "Video conversation with Narendra"
+                : assistantView === "voice"
+                  ? "Voice conversation with Narendra"
+                  : "Chat with Narendra"
+            }
             onMouseDown={(event) => event.stopPropagation()}
           >
-            {assistantView === "voice" ? (
+            {assistantView === "video" ? (
+              <Suspense fallback={<div className={styles.videoLoading}>Preparing video experience&hellip;</div>}>
+                <VideoAvatar
+                  onClose={closeAssistant}
+                  onOpenText={switchToChat}
+                  onOpenVoice={switchToVoice}
+                />
+              </Suspense>
+            ) : assistantView === "voice" ? (
               <div className={styles.voiceIntro}>
                 <p className={styles.voiceDisclaimer}>AI-powered conversation<br />Responses may occasionally be inaccurate.</p>
                 <button className={styles.voiceCloseButton} type="button" onClick={closeAssistant}>Close</button>
