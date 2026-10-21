@@ -15,7 +15,7 @@ export default function Projects() {
     <section className={styles.projectsSection} id="projects" aria-labelledby="projects-title">
       <SectionHeading
         number="04"
-        kicker="Selected work"
+          kicker="Selected personal work"
         headingId="projects-title"
         description="A focused collection of AI and full-stack products. Open a project to explore the engineering decisions, architecture, and outcomes behind it."
         dark
