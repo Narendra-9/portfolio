@@ -37,12 +37,6 @@ export default function Projects() {
                 )}
               </div>
               <div className={styles.projectContent}>
-                <div className={styles.projectMeta}>
-                  <span>{project.number}</span>
-                </div>
-                <p className={styles.projectType}>{project.subtitle}</p>
-                <h3>{project.title}</h3>
-                <p className={styles.projectSummary}>{project.summary}</p>
                 <button className={styles.detailsButton} type="button" onClick={() => setSelectedProject(project)}>
                   View details <HiArrowRight aria-hidden="true" />
                 </button>

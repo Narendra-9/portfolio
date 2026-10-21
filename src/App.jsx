@@ -2,6 +2,7 @@ import Footer from './components/Footer/Footer';
 import Header from './components/Header/Header';
 import Hero from './components/Hero/Hero';
 import About from './sections/About/About';
+import ValueJourney from './sections/ValueJourney/ValueJourney';
 import Achievements from './sections/Achievements/Achievements';
 import Contact from './sections/Contact/Contact';
 import Experience from './sections/Experience/Experience';
@@ -19,6 +20,7 @@ export default function Home() {
       <div id="main-content">
         <Hero />
         <About />
+        <ValueJourney />
         <Expertise />
         <Experience />
         <Projects />

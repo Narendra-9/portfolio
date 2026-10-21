@@ -34,8 +34,9 @@ export default function Posts() {
               className={styles.postEmbed}
               src={`https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:${postId}?collapsed=1`}
               title={`Selected LinkedIn post ${index + 1} by Narendra Vanapalli`}
-              height={628}
+              height={360}
               loading="lazy"
+              scrolling="yes"
               allowFullScreen
             />
             <a
