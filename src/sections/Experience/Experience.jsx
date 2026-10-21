@@ -4,28 +4,28 @@ import styles from './Experience.module.css';
 
 const experiencePoints = [
   {
-    lead: 'Advanced from Associate Developer to Junior ML Engineer to Machine Learning Engineer within two years,',
-    detail: 'earning broader ownership across solution design, AI engineering, full-stack delivery, performance optimization, and production releases.',
+    lead: 'Delivered six enterprise AI and full-stack initiatives',
+    detail: 'across healthcare, analytics, grant compliance, and workforce intelligence, contributing across solution design, development, testing, and deployment.',
   },
   {
-    lead: 'Owned the AI Companion as the sole engineer,',
-    detail: 'translating business requirements into a production-ready React and FastAPI product with RAG, multi-agent orchestration, natural-language analytics, memory, tool integration, evaluations, and Redis caching; deployed the AI services on AWS and reduced repeated-request latency by approximately 80%.',
+    lead: 'Engineered Generative AI and agentic AI solutions',
+    detail: 'using RAG, multi-agent orchestration, MCP integrations, and LLM-powered workflows for document intelligence, natural-language analytics, and automated decision support.',
   },
   {
-    lead: 'Delivered Product Match AI independently as the sole engineer,',
-    detail: 'building the complete React, FastAPI, PostgreSQL, and pgvector solution with a multi-stage pipeline for filtering, retrieval, reranking, LLM-assisted validation, and explainable results, reducing analyst research time by approximately 50%.',
+    lead: 'Developed scalable microservices and full-stack applications',
+    detail: 'with Python, FastAPI, Java Spring Boot/WebFlux, React.js, and PostgreSQL, incorporating asynchronous processing, API integrations, and performance optimisation.',
   },
   {
-    lead: 'Built and internally delivered Endava Talent Sphere,',
-    detail: 'a full-stack employee-management and workforce-insights platform using React, Spring WebFlux, PostgreSQL, and Caffeine caching; optimized queries, indexing, asynchronous processing, and connection management to reduce response latency by 87%, from 3 seconds to 400 milliseconds.',
+    lead: 'Implemented AI evaluation and reliability frameworks',
+    detail: 'using gold-standard datasets, retrieval metrics, citation validation, guardrails, and human-in-the-loop review to improve output quality and explainability.',
   },
   {
-    lead: 'Developed the Automated Regression Validator,',
-    detail: 'a React, FastAPI, and MongoDB platform that compares new, resolved, and recurring issues at scale. Built an AI-assisted interface that translates natural-language prompts into configurable data-quality rules, enabling large-scale automated validation workflows.',
+    lead: 'Supported AWS and Google Cloud deployments',
+    detail: 'using Docker, Kubernetes, CI/CD, and infrastructure automation to deliver secure, scalable cloud-native applications.',
   },
   {
-    lead: 'Contributed across the complete Agile software-delivery lifecycle,',
-    detail: 'including requirement refinement, technical design, sprint planning, daily stand-ups, end-to-end implementation, peer code reviews, debugging, integration testing, release coordination, and collaboration with engineers, product stakeholders, and designers.',
+    lead: 'Collaborated closely with engineering, QA, product, and business stakeholders',
+    detail: 'through Agile ceremonies, technical reviews, debugging, demonstrations, and release coordination to deliver solutions aligned with business requirements.',
   },
 ];
 
@@ -37,7 +37,7 @@ export default function Experience() {
         <Reveal className={styles.timelineItem}>
           <div className={styles.timelineDate}>Aug 2024 to Present</div>
           <div className={styles.timelineContent}>
-            <div className={styles.roleTop}><span>Current</span><p>International Technology Park, Bangalore</p></div>
+            <div className={styles.roleTop}><span>Current</span><p>Bengaluru, India</p></div>
             <h3>Machine Learning Engineer</h3>
             <h4>Endava Solutions India Private Limited</h4>
             <div className={styles.progression}>Associate Developer <b>→</b> Junior ML Engineer <b>→</b> Machine Learning Engineer</div>
@@ -57,19 +57,19 @@ export default function Experience() {
         </Reveal>
 
         <Reveal className={styles.timelineItem}>
-          <div className={styles.timelineDate}>Oct 2023 to Feb 2024</div>
+          <div className={styles.timelineDate}>Feb 2024 to Apr 2024</div>
           <div className={styles.timelineContent}>
-            <div className={styles.roleTop}><span>Internship</span><p>Bangalore, India</p></div>
+            <div className={styles.roleTop}><span>Internship</span><p>Bengaluru, India</p></div>
             <h3>Software Engineering Intern</h3>
             <h4>GalaxE Solutions, Inc.</h4>
             <ul className={`${styles.impactList} ${styles.internshipList}`}>
               <li>
                 <span className={styles.pointNumber}>01</span>
-                <p><strong>Completed hands-on full-stack engineering training</strong> across Java, Spring Boot, ReactJS, PostgreSQL, Git, REST APIs, testing, and collaborative development practices.</p>
+                <p><strong>Independently engineered a full-stack e-commerce platform</strong> using Java Spring Boot, React.js, and SQL databases, implementing six-plus workflows across product discovery, inventory management, checkout, order fulfilment, payments, and delivery tracking.</p>
               </li>
               <li>
                 <span className={styles.pointNumber}>02</span>
-                <p><strong>Independently delivered a complete e-commerce application without AI-generated code</strong> with responsive product experiences, backend workflows, role-based administration, real-time notifications, and relational database design.</p>
+                <p><strong>Developed RESTful APIs and modular backend services</strong> with JWT authentication, role-based access control, and WebSocket-based real-time updates, enabling secure transactions and live order-status tracking.</p>
               </li>
             </ul>
             <div className={styles.topPerformer}>★ Top performer among 80+ trainees</div>
