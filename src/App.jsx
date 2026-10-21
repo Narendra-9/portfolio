@@ -7,6 +7,7 @@ import Contact from './sections/Contact/Contact';
 import Experience from './sections/Experience/Experience';
 import Expertise from './sections/Expertise/Expertise';
 import Projects from './sections/Projects/Projects';
+import Posts from './sections/Posts/Posts';
 import Skills from './sections/Skills/Skills';
 import styles from './App.module.css';
 
@@ -23,6 +24,7 @@ export default function Home() {
         <Projects />
         <Skills />
         <Achievements />
+        <Posts />
         <Contact />
       </div>
       <Footer />

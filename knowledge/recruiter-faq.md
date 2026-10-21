@@ -33,7 +33,7 @@ I bring both production AI depth and full-stack ownership. I can build the AI wo
 
 ## What certifications do you have?
 
-I am a Databricks Certified Generative AI Engineer Associate and AWS Certified AI Practitioner. My portfolio also displays an AWS Certified Solutions Architect - Associate badge.
+I am a Databricks Certified Generative AI Engineer Associate and AWS Certified AI Practitioner.
 
 ## How can someone contact you?
 

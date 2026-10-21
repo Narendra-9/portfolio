@@ -1,0 +1,88 @@
+.postsSection {
+  padding: clamp(5rem, 9vw, 9rem) 7vw;
+  border-bottom: 3px solid var(--ink);
+  color: var(--paper);
+  background-color: var(--ink);
+  background-image: radial-gradient(rgb(255 253 247 / 12%) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+.postGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.postCard {
+  min-width: 0;
+  overflow: hidden;
+  border: 3px solid var(--paper);
+  color: var(--ink);
+  background: var(--white);
+  box-shadow: 7px 7px 0 var(--acid);
+}
+
+.postCard:nth-child(2) { box-shadow: 7px 7px 0 var(--blue); }
+.postCard:nth-child(3) { box-shadow: 7px 7px 0 var(--coral); }
+
+.postHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: .8rem 1rem;
+  border-bottom: 2px solid var(--ink);
+  font-family: var(--font-geist-mono);
+  font-size: .68rem;
+  font-weight: 800;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+.postNumber { color: #625e57; }
+.postSource { display: inline-flex; align-items: center; gap: .45rem; }
+.postSource svg { width: 1rem; height: 1rem; }
+
+.postEmbed {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  border: 0;
+  background: var(--white);
+}
+
+.postLink {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 52px;
+  padding: .8rem 1rem;
+  border-top: 2px solid var(--ink);
+  color: var(--ink);
+  background: var(--acid);
+  font-family: var(--font-geist-mono);
+  font-size: .68rem;
+  font-weight: 900;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  transition: background-color .18s ease;
+}
+
+.postLink:hover { background: var(--yellow); }
+.postLink:focus-visible { outline: 4px solid var(--blue); outline-offset: -4px; }
+.postLink svg { width: 1.15rem; height: 1.15rem; }
+
+@media (max-width: 1100px) {
+  .postGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 720px) {
+  .postsSection { padding-right: 1.25rem; padding-left: 1.25rem; }
+  .postGrid { grid-template-columns: minmax(0, 1fr); gap: 1.35rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .postLink { transition: none; }
+}

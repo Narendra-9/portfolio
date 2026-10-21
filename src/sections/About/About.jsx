@@ -12,7 +12,6 @@ export default function About() {
           <p className={styles.aboutBody}>With experience across <strong>retrieval</strong>, <strong>backend services</strong>, <strong>data systems</strong>, <strong>evaluation</strong>, and <strong>deployment</strong>, I approach AI as an <strong>end-to-end engineering discipline</strong>, not just a model or a prototype. I care about turning complex technical capabilities into <strong>dependable products</strong> that solve meaningful problems.</p>
           <div className={styles.certStrip}>
             <img src="/aws-ai-practitioner-badge.png" alt="AWS Certified AI Practitioner Foundational" />
-            <img src="/aws-solutions-architect-associate-badge.png" alt="AWS Certified Solutions Architect Associate" />
             <img src="/databricks-genai-engineer-badge.png" alt="Databricks Certified Generative AI Engineer Associate" />
           </div>
         </Reveal>

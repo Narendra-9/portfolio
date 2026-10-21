@@ -9,10 +9,6 @@ last_verified: 2026-09-15
 
 ## Professional certifications
 
-### AWS Certified Solutions Architect - Associate
-
-I hold the AWS Certified Solutions Architect - Associate certification. It reflects associate-level ability to design AWS-based solutions using the AWS Well-Architected Framework, including architectures that are secure, resilient, high-performing, and cost-optimized.
-
 ### AWS Certified AI Practitioner
 
 I hold the AWS Certified AI Practitioner certification. It covers foundational AI, machine-learning, and generative-AI concepts and their practical use with AWS services, including responsible-AI practices and security, compliance, and governance considerations.

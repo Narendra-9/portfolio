@@ -8,7 +8,7 @@ export default function Contact() {
     <section className={styles.contactSection} id="contact">
       <div className={styles.contactCopy}>
         <Reveal>
-          <div className={styles.sectionKicker}><span>07</span> Get in touch</div>
+          <div className={styles.sectionKicker}><span>08</span> Get in touch</div>
           <h2>Have a hard problem?<br /><em>Let’s build.</em></h2>
           <p>I enjoy conversations about production AI, intelligent products, and the engineering decisions that make them reliable at scale.</p>
         </Reveal>
