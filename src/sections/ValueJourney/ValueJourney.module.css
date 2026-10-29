@@ -176,6 +176,7 @@
   .route::before,
   .route::after {
     position: absolute;
+    z-index: 0;
     left: 35px;
     top: 8%;
     width: 5px;
@@ -191,6 +192,7 @@
   .step,
   .left,
   .right {
+    z-index: 1;
     left: 0;
     top: calc(8% + var(--step-index) * 21%);
     transform: translateY(-50%);

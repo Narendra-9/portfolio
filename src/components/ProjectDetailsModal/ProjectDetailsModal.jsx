@@ -60,7 +60,7 @@ export default function ProjectDetailsModal({ project, onClose }) {
                 <div className={styles.stack}>{project.stack.map((item) => <span key={item}>{item}</span>)}</div>
                 {(project.link || project.live) && (
                   <div className={styles.actions}>
-                    {project.link && <a href={project.link} target="_blank" rel="noreferrer">Git repository <HiArrowUpRight aria-hidden="true" /></a>}
+                    {project.link && <a href={project.link} target="_blank" rel="noreferrer">View GitHub <HiArrowUpRight aria-hidden="true" /></a>}
                     {project.live && <a href={project.live} target="_blank" rel="noreferrer">Live project <HiArrowUpRight aria-hidden="true" /></a>}
                   </div>
                 )}
