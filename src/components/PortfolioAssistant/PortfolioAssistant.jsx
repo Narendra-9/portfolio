@@ -223,6 +223,7 @@ function PortfolioAssistantExperience() {
   }, [endConversation]);
 
   const openAssistant = (view) => {
+    window.dispatchEvent(new Event('portfolio:pause-music'));
     if (view === "video") endConversation();
     setAssistantView(view);
     setIsOpen(true);
@@ -230,6 +231,12 @@ function PortfolioAssistantExperience() {
     setVoiceUsedMs(readVoiceUsage());
     if (view === "chat") window.setTimeout(startTextSession, 0);
   };
+
+  useEffect(() => {
+    const openVideoFromInvitation = () => openAssistant("video");
+    window.addEventListener('portfolio:open-video', openVideoFromInvitation);
+    return () => window.removeEventListener('portfolio:open-video', openVideoFromInvitation);
+  });
 
   const switchToChat = () => {
     setAssistantView("chat");
@@ -359,13 +366,11 @@ function PortfolioAssistantExperience() {
   return (
     <>
       <div className={styles.launchers} aria-label="Talk with Narendra">
-        <button className={styles.launchButton} type="button" onClick={() => openAssistant("video")} aria-haspopup="dialog">
+        <button className={styles.launchButton} type="button" onClick={() => openAssistant("video")} aria-haspopup="dialog" aria-label="Talk to my AI video avatar" data-tooltip="Talk to my AI avatar">
           <TbVideo className={styles.launchIcon} aria-hidden="true" />
-          <span className={styles.launchLabel}>Video chat</span>
         </button>
-        <button className={styles.launchButton} type="button" onClick={() => openAssistant("voice")} aria-haspopup="dialog">
+        <button className={styles.launchButton} type="button" onClick={() => openAssistant("voice")} aria-haspopup="dialog" aria-label="Chat with my AI voice" data-tooltip="Chat with my AI voice">
           <TbMicrophone className={styles.launchIcon} aria-hidden="true" />
-          <span className={styles.launchLabel}>Voice chat</span>
         </button>
       </div>
 

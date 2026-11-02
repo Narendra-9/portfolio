@@ -1,16 +1,17 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { TbBriefcase, TbBulb, TbFolder, TbHome, TbMail, TbTools, TbUser } from 'react-icons/tb';
 import styles from './Nav.module.css';
 
 const navItems = [
-  { id: 'home', label: 'Home' },
-  { id: 'about', label: 'About' },
-  { id: 'expertise', label: 'Expertise' },
-  { id: 'experience', label: 'Experience' },
-  { id: 'projects', label: 'Projects' },
-  { id: 'skills', label: 'Skills' },
-  { id: 'contact', label: 'Contact' },
+  { id: 'home', label: 'Home', icon: TbHome },
+  { id: 'about', label: 'About', icon: TbUser },
+  { id: 'expertise', label: 'Expertise', icon: TbBulb },
+  { id: 'experience', label: 'Experience', icon: TbBriefcase },
+  { id: 'projects', label: 'Projects', icon: TbFolder },
+  { id: 'skills', label: 'Skills', icon: TbTools },
+  { id: 'contact', label: 'Contact', icon: TbMail },
 ];
 
 export default function Nav() {
@@ -57,10 +58,12 @@ export default function Nav() {
         <a
           key={item.id}
           href={`#${item.id}`}
+          aria-label={item.label}
+          data-tooltip={item.label}
           aria-current={activeSection === item.id ? 'location' : undefined}
           onClick={() => setActiveSection(item.id)}
         >
-          {item.label}
+          <item.icon aria-hidden="true" />
         </a>
       ))}
     </nav>

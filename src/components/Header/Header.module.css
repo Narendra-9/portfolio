@@ -1,16 +1,27 @@
-.header {
+.headerShell {
   position: sticky;
-  top: 0;
+  top: 14px;
   z-index: 30;
+  width: min(990px, calc(100% - 2rem));
+  margin: 14px auto 0;
+  border-radius: 16px;
+  box-shadow: 5px 5px 0 var(--ink);
+}
+
+.header {
+  position: relative;
+  z-index: 1;
   display: grid;
-  grid-template-columns: minmax(220px, 1fr) auto max-content;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
   align-items: center;
-  gap: clamp(.5rem, 1vw, 1rem);
-  min-height: 78px;
-  padding: 0 5vw;
-  border-bottom: 3px solid var(--ink);
-  background: rgba(245, 241, 232, .96);
-  backdrop-filter: blur(10px);
+  gap: clamp(1.25rem, 3vw, 3rem);
+  width: 100%;
+  min-height: 64px;
+  padding: .45rem .7rem .45rem .55rem;
+  border: 2px solid var(--ink);
+  border-radius: 16px 16px 0 0;
+  background: rgb(245 241 232 / 96%);
+  backdrop-filter: blur(16px);
   transition: opacity .3s ease, transform .3s ease;
 }
 
@@ -47,35 +58,89 @@
   justify-self: end;
   display: flex;
   align-items: center;
-  gap: .7rem;
+  gap: .55rem;
   width: max-content;
 }
 
 .headerCta {
+  position: relative;
   display: inline-flex;
   align-items: center;
-  gap: .4rem;
-  padding: .78rem 1.15rem;
-  border: 2px solid var(--ink);
-  background: var(--white);
-  font-family: var(--font-geist-mono);
-  font-size: .74rem;
-  font-weight: 900;
-  letter-spacing: .035em;
-  text-transform: uppercase;
-  box-shadow: 4px 4px 0 var(--ink);
-  transition: transform .18s ease, box-shadow .18s ease;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  cursor: pointer;
+  transition: color .18s ease, transform .18s ease;
 }
 
-.headerCta:hover { transform: translate(3px, 3px); box-shadow: 1px 1px 0 var(--ink); }
+.headerCta svg { display: block; width: 1.2rem; height: 1.2rem; }
+.headerCta:hover { color: #647b00; transform: translateY(-2px); }
+.musicActive { background: var(--acid); }
+.headerCta:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
+
+.headerCta::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  top: calc(100% + 12px);
+  right: 0;
+  width: max-content;
+  padding: .55rem .7rem;
+  border: 1px solid var(--ink);
+  border-radius: 7px;
+  color: var(--white);
+  background: var(--ink);
+  font-family: var(--font-interface);
+  font-size: .75rem;
+  font-weight: 600;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-4px);
+  transition: opacity .15s ease, transform .15s ease;
+}
+
+.headerCta:hover::after,
+.headerCta:focus-visible::after { opacity: 1; transform: translateY(0); }
+
+.aiInvitation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .8rem;
+  width: 100%;
+  min-height: 49px;
+  padding: .45rem 1rem;
+  border: 2px solid var(--ink);
+  border-top: 0;
+  border-radius: 0 0 16px 16px;
+  color: var(--ink);
+  background: var(--white);
+  font-family: var(--font-interface);
+  font-size: .9rem;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color .18s ease;
+}
+
+.aiInvitation:hover { background: var(--acid); }
+.aiInvitation:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
+.aiInvitation img { width: 31px; height: 31px; flex: 0 0 31px; border: 2px solid var(--ink); border-radius: 50%; object-fit: cover; }
+.aiInvitation strong { font-weight: 800; }
 
 @media (max-width: 1120px) {
   .header { grid-template-columns: 1fr auto; }
 }
 
 @media (max-width: 560px) {
-  .header { min-height: 68px; padding: 0 1rem; }
+  .headerShell { top: 8px; margin-top: 8px; }
+  .header { min-height: 56px; padding: .35rem .45rem; gap: .45rem; }
   .brand > span:last-child { display: none; }
-  .headerActions { gap: .55rem; }
-  .headerCta { padding: .65rem .7rem; }
+  .brandMark { width: 36px; height: 36px; flex-basis: 36px; }
+  .headerActions { gap: .45rem; }
+  .headerCta { height: 38px; }
+  .aiInvitation { justify-content: flex-start; gap: .55rem; padding: .5rem .7rem; font-size: .76rem; }
+  .aiInvitation img { width: 27px; height: 27px; flex-basis: 27px; }
 }

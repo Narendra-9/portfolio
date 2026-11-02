@@ -46,9 +46,11 @@ export default function AchievementDetailsModal({ achievement, onClose }) {
         </header>
 
         <div className={styles.modalBody}>
-          <div className={`${styles.imageFrame} ${styles[achievement.fit]}`}>
-            <img src={achievement.image} alt={achievement.imageAlt} />
-          </div>
+          {achievement.image && (
+            <div className={`${styles.imageFrame} ${styles[achievement.fit]}`}>
+              <img src={achievement.image} alt={achievement.imageAlt} />
+            </div>
+          )}
 
           <div className={styles.achievementCopy}>
             <span className={styles.eyebrow}>Achievement highlight</span>

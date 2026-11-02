@@ -1,272 +1,87 @@
 .achievementsSection {
-  padding: clamp(5rem, 9vw, 9rem) 7vw;
-  border-bottom: 3px solid var(--ink);
-  background: var(--paper);
-}
-
-.sliderShell {
-  position: relative;
-  margin: 0 -1rem;
-  isolation: isolate;
-}
-
-.sliderShell::before,
-.sliderShell::after {
-  position: absolute;
-  z-index: 2;
-  top: 0;
-  bottom: 0;
-  width: clamp(1.25rem, 3vw, 3.25rem);
-  content: '';
-  pointer-events: none;
-}
-
-.sliderShell::before { left: 0; background: linear-gradient(90deg, var(--paper), rgb(245 241 232 / 0%)); }
-.sliderShell::after { right: 0; background: linear-gradient(270deg, var(--paper), rgb(245 241 232 / 0%)); }
-
-.achievementGrid {
-  display: flex;
-  gap: 1rem;
-  overflow-x: auto;
-  padding: .5rem 1rem 1rem;
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
-
-.achievementGrid::-webkit-scrollbar { display: none; }
-
-.achievementCard {
-  position: relative;
-  flex: 0 0 clamp(280px, 27vw, 360px);
-  min-height: 360px;
-  overflow: hidden;
-  border: 3px solid var(--ink);
-  background: var(--white);
-  box-shadow: 7px 7px 0 var(--ink);
-  cursor: pointer;
-  isolation: isolate;
-  transition: transform .25s ease, box-shadow .25s ease;
-  scroll-snap-align: start;
-}
-
-.achievementCard:nth-child(2) {
-  background: var(--coral);
-}
-
-.achievementCard:nth-child(3) {
-  background: var(--acid);
-}
-
-.achievementCard:nth-child(4) {
-  background: var(--yellow);
-}
-
-.achievementCard:nth-child(5) {
-  background: var(--blue);
-}
-
-.sliderArrow {
-  position: absolute;
-  z-index: 3;
-  top: 50%;
-  display: grid;
-  width: 48px;
-  height: 48px;
-  place-items: center;
-  border: 1px solid rgb(18 18 18 / 22%);
-  border-radius: 50%;
-  color: var(--ink);
-  background: rgb(255 253 247 / 30%);
-  box-shadow: 0 8px 24px rgb(18 18 18 / 10%);
-  -webkit-backdrop-filter: blur(7px);
-  backdrop-filter: blur(7px);
-  cursor: pointer;
-  opacity: .78;
-  transform: translateY(-50%);
-  transition: opacity .18s ease, background-color .18s ease, transform .18s ease;
-}
-
-.sliderArrow svg { width: 1.4rem; height: 1.4rem; }
-.sliderArrowLeft { left: .25rem; }
-.sliderArrowRight { right: .25rem; }
-.sliderArrow:hover { background: rgb(215 255 63 / 78%); opacity: 1; transform: translateY(-50%) scale(1.05); }
-.sliderArrow:focus-visible { outline: 4px solid var(--blue); outline-offset: 3px; opacity: 1; }
-
-.achievementCard:hover {
-  box-shadow: 12px 12px 0 var(--ink);
-  transform: translate3d(-4px, -4px, 0) rotate(-.3deg);
-}
-
-.cardButton {
-  position: relative;
-  display: block;
-  width: 100%;
-  min-height: 354px;
-  padding: 0;
-  overflow: hidden;
-  border: 0;
-  color: inherit;
-  background: transparent;
-  text-align: left;
-  cursor: pointer;
-}
-
-.cardButton:focus-visible {
-  outline: 4px solid var(--blue);
-  outline-offset: -7px;
-}
-
-.cardFront {
-  display: flex;
-  min-height: 354px;
-  padding: 1.5rem;
-  flex-direction: column;
-  transition: transform .45s cubic-bezier(.22, 1, .36, 1), opacity .3s ease;
-}
-
-.cardNumber {
-  font-family: var(--font-geist-mono);
-  font-size: .72rem;
-  font-weight: 900;
-}
-
-.cardFront h3 {
-  margin: 4.5rem 0 1rem;
-  font-size: clamp(1.35rem, 2vw, 2rem);
-  line-height: 1;
-  text-transform: uppercase;
-}
-
-.cardFront>p {
-  margin: 0;
-  line-height: 1.55;
-}
-
-.viewHint {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: auto;
-  padding-top: 1.2rem;
+  padding: clamp(4rem, 7vw, 7rem) 4vw 5rem;
   border-top: 2px solid var(--ink);
-  font-family: var(--font-geist-mono);
-  font-size: .64rem;
-  font-weight: 900;
-  letter-spacing: .08em;
-  text-transform: uppercase;
+  border-bottom: 3px solid var(--ink);
+  background: #fffefa;
+  overflow: hidden;
 }
 
-.viewHint svg {
-  width: 1rem;
-  height: 1rem;
-  transition: transform .2s ease;
-}
+.hero { display: flex; min-height: 275px; align-items: center; justify-content: space-between; gap: 2rem; }
+.headingBlock { flex: 0 0 auto; }
+.kicker { display: flex; align-items: center; gap: .7rem; margin-bottom: 1rem; font-size: .75rem; font-weight: 900; letter-spacing: .1em; text-transform: uppercase; }
+.kicker span { display: grid; width: 34px; height: 34px; place-items: center; border: 2px solid var(--ink); background: var(--acid); box-shadow: 3px 3px 0 var(--ink); }
+.headingBlock h2 { margin: 0; font-size: clamp(3.5rem, 6.4vw, 7.5rem); font-weight: 950; letter-spacing: -.07em; line-height: .82; text-transform: uppercase; }
+.headingBlock h2 em { color: var(--coral); font-style: normal; -webkit-text-stroke: 2px var(--ink); text-shadow: 4px 4px 0 var(--ink); }
 
-.cardButton:hover .viewHint svg {
-  transform: translate(3px, -3px);
-}
+.heroArt { position: relative; display: flex; width: min(42vw, 530px); min-height: 245px; align-items: center; justify-content: center; }
+.heroArt img { width: clamp(170px, 21vw, 280px); height: 245px; object-fit: contain; filter: drop-shadow(0 15px 12px rgb(80 50 0 / 13%)); }
+.heroArt p, .heroArt span { position: absolute; margin: 0; font-family: cursive; font-size: clamp(.8rem, 1.2vw, 1.1rem); line-height: 1.35; transform: rotate(-6deg); }
+.heroArt p { top: 1.25rem; left: 0; }
+.heroArt span { right: 0; bottom: 2.5rem; transform: rotate(7deg); }
 
-.imageLayer {
-  position: absolute;
-  z-index: 2;
-  inset: 0;
-  display: grid;
-  grid-template-rows: minmax(0, 1fr) auto;
-  background: var(--white);
-  opacity: 0;
-  pointer-events: none;
-  transform: translateY(102%) scale(.96);
-  transition: transform .48s cubic-bezier(.22, 1, .36, 1), opacity .25s ease;
-}
+.controls { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin: 2rem 0 1.25rem; }
+.filters { display: flex; flex-wrap: wrap; gap: .6rem; }
+.filters button { min-width: 84px; padding: .7rem 1.2rem; border: 1px solid transparent; border-radius: 999px; color: var(--ink); background: #f2f1ee; cursor: pointer; transition: background-color .2s ease, color .2s ease, transform .2s ease; }
+.filters button:hover { transform: translateY(-2px); background: #e9edda; }
+.filters .activeFilter { color: var(--white); background: var(--ink); }
+.filters .activeFilter:hover { background: var(--ink); }
+.filters button:focus-visible, .arrows button:focus-visible, .achievementCard:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
+.arrows { display: flex; flex: 0 0 auto; gap: .5rem; }
+.arrows button { display: grid; width: 44px; height: 44px; place-items: center; border: 1px solid #d1d1cf; border-radius: 50%; color: var(--ink); background: var(--white); cursor: pointer; }
+.arrows button:last-child { color: var(--white); background: var(--ink); }
+.arrows svg { width: 1.2rem; height: 1.2rem; }
 
-.cardButton:hover .imageLayer,
-.cardButton:focus-visible .imageLayer {
-  opacity: 1;
-  transform: translateY(0) scale(1);
-}
-
-.cardButton:hover .cardFront,
-.cardButton:focus-visible .cardFront {
-  opacity: .25;
-  transform: translateY(-12px) scale(.98);
-}
-
-.imageLayer img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  min-height: 0;
-  background: var(--white);
-}
-
-.contain img {
-  padding: .7rem;
-  object-fit: contain;
-}
-
-.cover img {
-  object-fit: cover;
-  object-position: center;
-}
-
-.imageCaption {
-  padding: 1rem;
-  border-top: 3px solid var(--ink);
-  color: var(--paper);
-  background: var(--ink);
-  text-align: left;
-}
-
-.imageCaption strong {
-  display: block;
-  color: var(--acid);
-  font-family: var(--font-geist-mono);
-  font-size: .72rem;
-  line-height: 1.35;
-  text-transform: uppercase;
-}
-
-.imageCaption p {
-  margin: .55rem 0 0;
-  font-size: .72rem;
-  line-height: 1.45;
-}
+.achievementGrid { display: flex; gap: 1rem; overflow-x: auto; padding: 0 .25rem 1.5rem; scroll-snap-type: x mandatory; scroll-behavior: smooth; scrollbar-color: var(--ink) #e5e5e2; scrollbar-width: thin; }
+.achievementGrid::-webkit-scrollbar { height: 7px; }
+.achievementGrid::-webkit-scrollbar-thumb { background: var(--ink); border-radius: 999px; }
+.achievementGrid::-webkit-scrollbar-track { background: #e5e5e2; border-radius: 999px; }
+.achievementCard { display: flex; flex: 0 0 clamp(250px, 22vw, 320px); min-height: 350px; flex-direction: column; overflow: hidden; padding: 0; border: 1.5px solid var(--ink); border-radius: 12px; background: var(--white); box-shadow: 2px 3px 0 rgb(18 18 18 / 18%); color: var(--ink); text-align: left; cursor: pointer; scroll-snap-align: start; transition: transform .2s ease, box-shadow .2s ease; }
+.achievementCard:hover { transform: translateY(-4px); box-shadow: 4px 7px 0 rgb(18 18 18 / 18%); }
+.cardVisual { position: relative; display: grid; height: 145px; flex: 0 0 145px; place-items: center; overflow: hidden; background: #ffc9c7; }
+.achievementCard:nth-child(6n + 2) .cardVisual { background: #e2ffc4; }
+.achievementCard:nth-child(6n + 3) .cardVisual { background: #e6dcff; }
+.achievementCard:nth-child(6n + 4) .cardVisual { background: #ffedab; }
+.achievementCard:nth-child(6n + 5) .cardVisual { background: #cde9ff; }
+.achievementCard:nth-child(6n + 6) .cardVisual { background: #d9e6ff; }
+.cardVisual img { display: block; width: 100%; height: 100%; padding: .65rem; object-fit: contain; mix-blend-mode: multiply; }
+.cardNumber { position: absolute; z-index: 1; top: .7rem; left: .7rem; display: grid; min-width: 30px; height: 28px; place-items: center; padding: 0 .3rem; border-radius: 7px; background: rgb(255 255 255 / 92%); font-size: .7rem; font-weight: 900; }
+.fallbackIcon { width: 70px; height: 70px; stroke-width: 1.2; }
+.cardCopy { display: flex; flex: 1; flex-direction: column; padding: .9rem 1rem 1rem; }
+.cardCategory { align-self: flex-start; padding: .3rem .7rem; border-radius: 999px; background: #ffdddd; font-size: .66rem; font-weight: 800; text-transform: uppercase; }
+.achievementCard:nth-child(6n + 2) .cardCategory { background: #e6ffce; }
+.achievementCard:nth-child(6n + 3) .cardCategory { background: #e9ddff; }
+.achievementCard:nth-child(6n + 4) .cardCategory { background: #fff0b3; }
+.achievementCard:nth-child(6n + 5) .cardCategory { background: #d6ebff; }
+.achievementCard:nth-child(6n + 6) .cardCategory { background: #dbe5ff; }
+.cardCopy h3 { margin: .7rem 0 .35rem; font-size: clamp(1.05rem, 1.45vw, 1.35rem); line-height: 1.06; }
+.cardCopy p { margin: 0; color: #4d4d4d; font-size: .83rem; line-height: 1.45; }
+.cardFooter { display: flex; align-items: center; justify-content: space-between; margin-top: auto; padding-top: .9rem; font-size: .7rem; font-weight: 700; text-transform: uppercase; }
+.cardFooter svg { box-sizing: content-box; width: 1.2rem; height: 1.2rem; padding: .55rem; border-radius: 50%; background: #ffdddd; }
+.achievementCard:nth-child(6n + 2) .cardFooter svg { background: #e6ffce; }
+.achievementCard:nth-child(6n + 3) .cardFooter svg { background: #e9ddff; }
+.achievementCard:nth-child(6n + 4) .cardFooter svg { background: #fff0b3; }
+.achievementCard:nth-child(6n + 5) .cardFooter svg { background: #d6ebff; }
 
 @media (max-width: 800px) {
-  .achievementsSection {
-    padding-right: 1.25rem;
-    padding-left: 1.25rem;
-  }
+  .heroArt p, .heroArt span { display: none; }
+  .heroArt { width: 34vw; }
+  .heroArt img { width: 100%; }
+  .achievementCard { flex-basis: 280px; }
 }
 
-@media (max-width: 560px) {
-  .sliderShell { margin-right: -1.25rem; margin-left: -1.25rem; }
-  .achievementGrid { padding-right: 1.25rem; padding-left: 1.25rem; }
-  .achievementCard { flex-basis: min(84vw, 340px); }
-  .sliderArrow { width: 40px; height: 40px; }
-  .sliderArrowLeft { left: .2rem; }
-  .sliderArrowRight { right: .2rem; }
-
-  .achievementCard, .cardButton, .cardFront {
-    min-height: 300px;
-  }
-}
-
-@media (hover: none) {
-  .imageLayer {
-    display: none;
-  }
-
-  .cardButton:focus-visible .cardFront {
-    opacity: 1;
-    transform: none;
-  }
+@media (max-width: 600px) {
+  .achievementsSection { padding: 4rem 1.25rem; }
+  .hero { min-height: 0; }
+  .headingBlock h2 { font-size: clamp(3rem, 13vw, 5rem); }
+  .heroArt { display: none; }
+  .controls { align-items: flex-end; }
+  .filters { gap: .4rem; }
+  .filters button { min-width: 0; padding: .55rem .85rem; font-size: .78rem; }
+  .arrows button { width: 36px; height: 36px; }
+  .achievementCard { flex-basis: min(82vw, 300px); }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .achievementCard, .cardFront, .imageLayer, .viewHint svg {
-    transition: none;
-  }
+  .achievementGrid { scroll-behavior: auto; }
+  .achievementCard, .filters button { transition: none; }
 }

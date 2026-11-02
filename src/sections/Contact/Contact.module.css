@@ -1,231 +1,106 @@
 .contactSection {
-  display: grid;
-  grid-template-columns: 1.1fr .9fr;
-  min-height: 680px;
-  border-bottom: 3px solid var(--ink);
-  background: var(--acid);
-}
-
-.contactCopy {
   display: flex;
-  align-items: center;
-  padding: clamp(5rem, 9vw, 9rem) 5vw 5rem 7vw;
-  border-right: 3px solid var(--ink);
+  min-height: 780px;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding: 0 7vw 2.25rem;
+  border-top: 3px solid var(--ink);
+  background: linear-gradient(to bottom,
+    #141414 0%, #141414 22%,
+    #242820 22%, #242820 37%,
+    #38432a 37%, #38432a 52%,
+    #647b2e 52%, #647b2e 67%,
+    #a6c942 67%, #a6c942 89%,
+    var(--acid) 89%, var(--acid) 100%);
 }
 
-.sectionKicker {
-  display: flex;
-  align-items: center;
-  gap: .65rem;
-  margin-bottom: 1.1rem;
-  font-family: var(--font-geist-mono);
-  font-size: .72rem;
-  font-weight: 900;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-}
+.contactContent { width: min(640px, 100%); }
 
-.sectionKicker span {
-  display: grid;
-  place-items: center;
-  width: 34px;
-  height: 34px;
-  border: 2px solid var(--ink);
-  background: var(--acid);
-  box-shadow: 3px 3px 0 var(--ink);
-}
-
-.contactCopy h2 {
-  max-width: 1050px;
-  margin: 0;
-  font-size: clamp(3rem, 6.2vw, 6.5rem);
-  font-weight: 950;
-  line-height: .92;
-  letter-spacing: -.065em;
-  text-transform: uppercase;
-}
-
-.contactCopy h2 em {
-  color: var(--coral);
-  font-style: normal;
-  -webkit-text-stroke: 2px var(--ink);
-  text-shadow: 4px 4px 0 var(--ink);
-}
-
-.contactCopy p {
-  max-width: 650px;
-  margin: 2rem 0 0;
-  font-family: "Edu NSW ACT Cursive", cursive;
-  font-size: 1.08rem;
-  line-height: 1.7;
-}
-
-.contactCard {
-  align-self: center;
-  margin: clamp(2rem, 6vw, 6rem);
-  padding: clamp(2rem, 4vw, 3.5rem);
-  border: 3px solid var(--ink);
-  color: var(--paper);
-  background: var(--ink);
-  box-shadow: 12px 12px 0 var(--coral);
-  transform: rotate(1deg);
-}
-
-.cardIntro {
-  padding-bottom: 1.6rem;
-  border-bottom: 2px solid #666;
-}
-
-.cardIntro p {
-  margin: 0 0 .45rem;
-  font-family: var(--font-geist-mono);
-  font-size: .72rem;
-  font-weight: 900;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-}
-
-.cardIntro span {
-  color: #bbb5aa;
-  font-size: .95rem;
-  line-height: 1.5;
-}
-
-.contactLinks {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: .75rem;
-  margin-top: 1.6rem;
-}
-
-.contactLinks a {
-  display: grid;
-  grid-template-columns: 42px minmax(0, 1fr) 18px;
-  align-items: center;
-  gap: .75rem;
-  min-height: 76px;
-  padding: .75rem;
-  border: 2px solid #77736d;
-  background: #181818;
-  transition: color .18s ease, background-color .18s ease, border-color .18s ease, transform .18s ease;
-}
-
-.contactLinks a:hover {
-  color: var(--ink);
-  border-color: var(--paper);
-  background: var(--acid);
-  transform: translateY(-3px);
-}
-
-.contactLinks a:focus-visible {
-  outline: 4px solid var(--acid);
-  outline-offset: 3px;
-}
-
-.linkIcon {
-  display: grid;
-  width: 42px;
-  height: 42px;
-  place-items: center;
-  border: 2px solid currentColor;
-  background: var(--ink);
-}
-
-.linkIcon svg {
-  width: 1.2rem;
-  height: 1.2rem;
-  color: var(--paper);
-}
-
-.contactLinks a:hover .linkIcon {
-  background: var(--paper);
-}
-
-.contactLinks a:hover .linkIcon svg {
-  color: var(--ink);
-}
-
-.linkCopy {
-  display: grid;
-  gap: .2rem;
-  min-width: 0;
-}
-
-.linkCopy strong {
-  font-family: var(--font-geist-mono);
-  font-size: .69rem;
-  letter-spacing: .04em;
-  text-transform: uppercase;
-}
-
-.linkCopy small {
+.visuallyHidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
   overflow: hidden;
-  color: #aaa49b;
-  font-size: .67rem;
-  line-height: 1.3;
-  text-overflow: ellipsis;
+  clip: rect(0, 0, 0, 0);
   white-space: nowrap;
 }
 
-.contactLinks a:hover .linkCopy small {
-  color: #34312d;
+.musicCard {
+  display: flex;
+  width: min(515px, 100%);
+  min-height: 194px;
+  align-items: center;
+  gap: .8rem;
+  margin: 0 0 2.4rem;
+  padding: .75rem;
+  border: 1px solid rgb(255 253 247 / 65%);
+  border-radius: 28px;
+  color: var(--ink);
+  background: #d8d0be;
 }
 
-.linkArrow {
-  width: 1rem;
-  height: 1rem;
+.albumArt {
+  width: 118px;
+  height: 168px;
+  flex: 0 0 118px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.playerBody { display: flex; min-width: 0; min-height: 168px; flex: 1; flex-direction: column; align-items: flex-start; }
+.playerBody strong { font-family: var(--font-interface); font-size: clamp(1.35rem, 2vw, 1.65rem); font-weight: 600; line-height: 1.15; }
+.artist { margin-top: .35rem; color: #433c32; font-size: 1rem; }
+.playerProgress { width: 100%; margin-top: auto; }
+.playerProgress input { display: block; width: 100%; height: 3px; margin: 0; appearance: none; border: 0; border-radius: 0; background: linear-gradient(to right, var(--coral) 0 var(--progress), #938977 var(--progress) 100%); cursor: pointer; }
+.playerProgress input::-webkit-slider-thumb { width: 8px; height: 8px; appearance: none; border: 0; border-radius: 50%; background: var(--coral); }
+.playerProgress input::-moz-range-thumb { width: 8px; height: 8px; border: 0; border-radius: 50%; background: var(--coral); }
+.playerProgress input:disabled { cursor: default; opacity: .65; }
+.timeRow { display: flex; justify-content: space-between; margin-top: .3rem; color: #5b5247; font-size: .86rem; font-variant-numeric: tabular-nums; }
+.playButton { min-width: 106px; min-height: 39px; margin-top: .65rem; padding: .35rem 1rem; border: 1px solid var(--ink); border-radius: 6px; color: var(--ink); background: transparent; font-size: .95rem; cursor: pointer; }
+.playButton:hover { background: var(--acid); }
+.playerBody > small { margin-top: .3rem; color: #a52e2e; }
+
+.contactLinks {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  justify-items: start;
+  gap: 1.8rem .6rem;
+  padding: 1.5rem 0 .25rem;
+}
+
+.contactLinks a {
+  display: inline-flex;
+  align-items: center;
+  gap: .55rem;
+  color: var(--ink);
+  font-family: var(--font-interface);
+  font-size: clamp(1.1rem, 1.5vw, 1.5rem);
+  font-weight: 500;
+  letter-spacing: -.02em;
   transition: transform .18s ease;
 }
 
-.contactLinks a:hover .linkArrow {
-  transform: translate(2px, -2px);
+.contactLinks a:hover { transform: translateY(-2px); text-decoration: underline; text-underline-offset: .25rem; }
+.contactLinks a svg { width: 1.05rem; height: 1.05rem; flex: 0 0 auto; }
+.contactLinks a:focus-visible, .playButton:focus-visible, .playerProgress input:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
+
+@media (max-width: 680px) {
+  .contactSection { min-height: 620px; padding: 0 1.25rem 2rem; }
+  .musicCard { margin-bottom: 2.5rem; }
+  .contactLinks { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem; }
+  .contactLinks a { font-size: 1.1rem; }
 }
 
-.instagramLink {
-  grid-column: 1 / -1;
+@media (max-width: 420px) {
+  .musicCard { gap: .75rem; }
+  .albumArt { width: 92px; height: 154px; flex-basis: 92px; }
+  .playerBody { min-height: 154px; }
+  .playerBody strong { font-size: 1.2rem; }
+  .artist { font-size: .85rem; }
+  .timeRow { font-size: .72rem; }
+  .playButton { min-height: 34px; }
 }
 
-@media (max-width: 1120px) {
-  .contactSection {
-    grid-template-columns: 1fr;
-  }
-
-  .contactCopy {
-    border-right: 0;
-    border-bottom: 3px solid var(--ink);
-  }
-}
-
-@media (max-width: 560px) {
-  .contactCopy {
-    padding: 5rem 1.25rem;
-  }
-
-  .contactCopy h2 {
-    font-size: clamp(2.75rem, 14vw, 4.2rem);
-  }
-
-  .contactCopy h2 em {
-    -webkit-text-stroke-width: 1px;
-    text-shadow: 3px 3px 0 var(--ink);
-  }
-
-  .contactCard {
-    margin: 2.5rem 1.25rem 3.5rem;
-    padding: 1.5rem;
-  }
-
-  .contactLinks {
-    grid-template-columns: 1fr;
-  }
-
-  .instagramLink {
-    grid-column: auto;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .contactLinks a, .linkArrow {
-    transition: none;
-  }
-}
+@media (prefers-reduced-motion: reduce) { .contactLinks a { transition: none; } }

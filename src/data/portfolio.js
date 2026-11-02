@@ -166,6 +166,7 @@ export const skillGroups = [
 export const achievements = [
   {
     mark: '01',
+    category: 'Hackathons',
     title: 'Codex Hackathon: Top Finish',
     text: 'Co-built Dava Compass, an AI-powered workforce planning and staffing decision platform.',
     image: '/achievements/codex-hackathon.png',
@@ -176,6 +177,7 @@ export const achievements = [
   },
   {
     mark: '02',
+    category: 'Hackathons',
     title: 'AI Innovation: 2nd Place',
     text: 'Built AI Evaluator to make code assessment faster, more consistent, and criteria-driven.',
     image: '/achievements/ai-innovation-award.jpg',
@@ -186,6 +188,7 @@ export const achievements = [
   },
   {
     mark: '03',
+    category: 'Certifications',
     title: 'Databricks Certified',
     text: 'Earned the Generative AI Engineer Associate certification for applied enterprise GenAI expertise.',
     image: '/achievements/databricks-genai.jpg',
@@ -196,6 +199,7 @@ export const achievements = [
   },
   {
     mark: '04',
+    category: 'Certifications',
     title: 'AWS Certified',
     text: 'Earned the AWS Certified AI Practitioner credential for cloud AI and responsible-AI foundations.',
     image: '/achievements/aws-ai-practitioner.png',
@@ -206,6 +210,7 @@ export const achievements = [
   },
   {
     mark: '05',
+    category: 'Academics',
     title: 'IIT Madras Foundation Level',
     text: 'Completed the Foundation Level in Programming and Data Science through IIT Madras.',
     image: '/achievements/iit-madras-programming-data-science.jpg',
@@ -213,5 +218,13 @@ export const achievements = [
     detailTitle: 'Programming and Data Science · December 2022',
     detail: 'Successfully completed the IIT Madras Centre for Outreach and Digital Education Foundation Level in Programming and Data Science, strengthening core programming and data-science fundamentals.',
     fit: 'contain',
+  },
+  {
+    mark: '06',
+    category: 'Professional',
+    title: 'Training Top Performer',
+    text: 'Recognized as a top performer during the GalaxE Solutions software-engineering training program.',
+    detailTitle: 'GalaxE Solutions · Software Engineering Training',
+    detail: 'Recognized for strong performance during the software-engineering training program.',
   },
 ];

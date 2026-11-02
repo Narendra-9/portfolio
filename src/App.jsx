@@ -1,4 +1,5 @@
 import Footer from './components/Footer/Footer';
+import { BackgroundMusicProvider } from './components/BackgroundMusic/BackgroundMusic';
 import Header from './components/Header/Header';
 import Hero from './components/Hero/Hero';
 import About from './sections/About/About';
@@ -14,7 +15,8 @@ import styles from './App.module.css';
 
 export default function Home() {
   return (
-    <main className={styles.page}>
+    <BackgroundMusicProvider>
+      <main className={styles.page}>
       <a className={styles.skipLink} href="#main-content">Skip to content</a>
       <Header />
       <div id="main-content">
@@ -30,6 +32,7 @@ export default function Home() {
         <Contact />
       </div>
       <Footer />
-    </main>
+      </main>
+    </BackgroundMusicProvider>
   );
 }
