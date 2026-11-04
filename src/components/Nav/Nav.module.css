@@ -1,13 +1,13 @@
 .nav {
   display: flex;
   align-items: center;
-  gap: .2rem;
+  gap: .1rem;
 }
 
 .nav a {
   position: relative;
   display: grid;
-  width: 38px;
+  width: 36px;
   height: 38px;
   place-items: center;
   border: 2px solid transparent;

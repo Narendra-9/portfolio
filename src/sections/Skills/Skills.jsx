@@ -92,14 +92,11 @@ export default function Skills() {
       <div className={styles.sectionInner}>
         <Reveal className={styles.sectionHeader}>
           <div className={styles.headingBlock}>
-            <div className={styles.kicker}><span>05</span>Toolbox</div>
+            <div className={styles.kicker}><span>06</span>Toolbox</div>
             <h2 id="skills-heading">
               Built with a<br />
               <span className={styles.headingAccent}>
                 practical stack.
-                <svg viewBox="0 0 600 26" preserveAspectRatio="none" aria-hidden="true">
-                  <path d="M 4 20 C 140 5 300 9 586 5 L 410 18 C 238 15 112 23 4 20 Z" />
-                </svg>
               </span>
             </h2>
           </div>

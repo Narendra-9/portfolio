@@ -9,7 +9,10 @@
 .roleTop span, .topPerformer { width: fit-content; padding: .42rem .6rem; border: 2px solid var(--ink); background: var(--coral); font-family: var(--font-geist-mono); font-size: .64rem; font-weight: 900; text-transform: uppercase; box-shadow: 3px 3px 0 var(--ink); }
 .roleTop p { margin: 0; font-size: .74rem; }
 .timelineContent h3 { margin: 1.3rem 0 .3rem; font-size: clamp(2rem, 3.8vw, 4rem); line-height: .95; letter-spacing: -.055em; text-transform: uppercase; }
-.timelineContent h4 { margin: 0 0 1.3rem; font-family: var(--font-geist-mono); font-size: .8rem; text-transform: uppercase; }
+.companyLine { display: flex; flex-wrap: wrap; align-items: center; gap: .85rem; margin-bottom: 1.3rem; }
+.companyLogo { display: grid; width: 150px; height: 44px; flex: 0 0 150px; place-items: center; padding: .45rem; border: 1px solid #c8c4ba; border-radius: 6px; background: #fff; }
+.companyLogo img { display: block; width: 100%; max-height: 100%; object-fit: contain; }
+.timelineContent h4 { margin: 0; font-family: var(--font-geist-mono); font-size: .8rem; text-transform: uppercase; }
 .progression { display: flex; flex-wrap: wrap; gap: .55rem; width: fit-content; margin: 1.5rem 0 2.5rem; padding: .7rem .85rem; border: 2px solid var(--ink); background: var(--acid); font-family: var(--font-geist-mono); font-size: .68rem; font-weight: 900; line-height: 1.4; text-transform: uppercase; box-shadow: 4px 4px 0 var(--ink); }
 .progression b { color: var(--coral); }
 .impactList { display: grid; max-width: 980px; gap: 0; margin: 0; padding: 0; border-top: 3px solid var(--ink); list-style: none; }

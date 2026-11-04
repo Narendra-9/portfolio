@@ -14,7 +14,7 @@ export default function Posts() {
   return (
     <section className={styles.postsSection} id="posts" aria-labelledby="posts-title">
       <SectionHeading
-        number="07"
+        number="08"
         kicker="On LinkedIn"
         headingId="posts-title"
         description="A few selected posts from what I have been building and sharing. Explore them here, or open the conversation on LinkedIn."

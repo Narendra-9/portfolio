@@ -1,16 +1,19 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { TbBriefcase, TbBulb, TbFolder, TbHome, TbMail, TbTools, TbUser } from 'react-icons/tb';
+import { TbAward, TbBrandLinkedin, TbBriefcase, TbBulb, TbFolder, TbHome, TbMail, TbRoute, TbTools, TbUser } from 'react-icons/tb';
 import styles from './Nav.module.css';
 
 const navItems = [
   { id: 'home', label: 'Home', icon: TbHome },
   { id: 'about', label: 'About', icon: TbUser },
+  { id: 'process', label: 'Process', icon: TbRoute },
   { id: 'expertise', label: 'Expertise', icon: TbBulb },
   { id: 'experience', label: 'Experience', icon: TbBriefcase },
   { id: 'projects', label: 'Projects', icon: TbFolder },
   { id: 'skills', label: 'Skills', icon: TbTools },
+  { id: 'achievements', label: 'Recognition', icon: TbAward },
+  { id: 'posts', label: 'LinkedIn posts', icon: TbBrandLinkedin },
   { id: 'contact', label: 'Contact', icon: TbMail },
 ];
 
@@ -21,12 +24,12 @@ export default function Nav() {
     let animationFrame = 0;
 
     const updateActiveSection = () => {
-      const marker = window.scrollY + Math.min(window.innerHeight * 0.34, 320);
+      const marker = window.innerHeight * 0.45;
       let currentSection = 'home';
 
       for (const item of navItems) {
         const section = document.getElementById(item.id);
-        if (section && section.offsetTop <= marker) currentSection = item.id;
+        if (section && section.getBoundingClientRect().top <= marker) currentSection = item.id;
       }
 
       if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 8) {

@@ -23,7 +23,7 @@ const expertiseIcons = {
 export default function Expertise() {
   return (
     <section className={styles.expertiseSection} id="expertise" aria-labelledby="expertise-title">
-      <SectionHeading number="02" kicker="Core expertise" headingId="expertise-title">From intelligence to <em>production.</em></SectionHeading>
+      <SectionHeading number="03" kicker="Core expertise" headingId="expertise-title">From intelligence to <em>production.</em></SectionHeading>
       <div className={styles.expertiseGrid}>
         {expertise.map((item, index) => {
           const Icon = expertiseIcons[item.icon];

@@ -200,7 +200,7 @@ export const achievements = [
   {
     mark: '04',
     category: 'Certifications',
-    title: 'AWS Certified',
+    title: 'AWS AI Practitioner',
     text: 'Earned the AWS Certified AI Practitioner credential for cloud AI and responsible-AI foundations.',
     image: '/achievements/aws-ai-practitioner.png',
     imageAlt: 'AWS Certified AI Practitioner certificate for Narendra Vanapalli',
@@ -210,6 +210,17 @@ export const achievements = [
   },
   {
     mark: '05',
+    category: 'Certifications',
+    title: 'AWS Cloud Practitioner',
+    text: 'Earned the AWS Certified Cloud Practitioner credential, validating foundational AWS Cloud knowledge.',
+    image: '/achievements/aws-cloud-practitioner-certificate.png',
+    imageAlt: 'AWS Certified Cloud Practitioner certificate for Shanmukha Siva Narendra Vanapalli',
+    detailTitle: 'AWS Certified Cloud Practitioner · November 2026',
+    detail: 'Issued November 3, 2026, and valid through November 3, 2029. Validation number: 53d82ecf3d574885896d51ea80c24f9a. Verify at aws.amazon.com/verification.',
+    fit: 'contain',
+  },
+  {
+    mark: '06',
     category: 'Academics',
     title: 'IIT Madras Foundation Level',
     text: 'Completed the Foundation Level in Programming and Data Science through IIT Madras.',
@@ -220,7 +231,7 @@ export const achievements = [
     fit: 'contain',
   },
   {
-    mark: '06',
+    mark: '07',
     category: 'Professional',
     title: 'Training Top Performer',
     text: 'Recognized as a top performer during the GalaxE Solutions software-engineering training program.',

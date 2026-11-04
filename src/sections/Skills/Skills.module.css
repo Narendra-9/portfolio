@@ -51,21 +51,9 @@
 .headingAccent {
   position: relative;
   display: inline-block;
-  color: var(--blue);
-  -webkit-text-stroke: 1px var(--ink);
-  text-shadow: 2px 2px 0 var(--ink);
-}
-
-.headingAccent svg {
-  position: absolute;
-  right: 9%;
-  bottom: -.32em;
-  left: 0;
-  width: 64%;
-  height: .23em;
-  overflow: visible;
-  fill: var(--acid);
-  transform: rotate(-2deg);
+  color: var(--coral);
+  -webkit-text-stroke: 2px var(--ink);
+  text-shadow: 4px 4px 0 var(--ink);
 }
 
 .skillsLayout {
@@ -233,7 +221,7 @@
 @media (max-width: 520px) {
   .skillsSection { padding-top: 4rem; padding-bottom: 4rem; }
   .headingBlock h2 { font-size: clamp(2rem, 8.9vw, 3rem); }
-  .headingAccent { text-shadow: 1px 1px 0 var(--ink); -webkit-text-stroke-width: .5px; }
+  .headingAccent { text-shadow: 3px 3px 0 var(--ink); -webkit-text-stroke-width: 1px; }
   .skillsLayout { grid-template-columns: 1fr; }
   .stackArtwork { width: 145px; }
   .stackSvg { width: 190px; }

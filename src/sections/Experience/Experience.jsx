@@ -32,14 +32,17 @@ const experiencePoints = [
 export default function Experience() {
   return (
     <section className={styles.experienceSection} id="experience">
-      <SectionHeading number="03" kicker="Experience">A fast-moving <em>engineering journey.</em></SectionHeading>
+      <SectionHeading number="04" kicker="Experience">A fast-moving <em>engineering journey.</em></SectionHeading>
       <div className={styles.timeline}>
         <Reveal className={styles.timelineItem}>
           <div className={styles.timelineDate}>Aug 2024 to Present</div>
           <div className={styles.timelineContent}>
             <div className={styles.roleTop}><span>Current</span><p>Bengaluru, India</p></div>
             <h3>Machine Learning Engineer</h3>
-            <h4>Endava Solutions India Private Limited</h4>
+            <div className={styles.companyLine}>
+              <span className={styles.companyLogo}><img src="/endava-logo.png" alt="Endava logo" loading="lazy" /></span>
+              <h4>Endava Solutions India Private Limited</h4>
+            </div>
             <div className={styles.progression}>Associate Developer <b>→</b> Junior ML Engineer <b>→</b> Machine Learning Engineer</div>
             <ul className={styles.impactList}>
               {experiencePoints.map((point, index) => (
@@ -61,7 +64,10 @@ export default function Experience() {
           <div className={styles.timelineContent}>
             <div className={styles.roleTop}><span>Internship</span><p>Bengaluru, India</p></div>
             <h3>Software Engineering Intern</h3>
-            <h4>GalaxE Solutions, Inc.</h4>
+            <div className={styles.companyLine}>
+              <span className={styles.companyLogo}><img src="/galaxe-logo.png" alt="GalaxE Solutions logo" loading="lazy" /></span>
+              <h4>GalaxE Solutions, Inc.</h4>
+            </div>
             <ul className={`${styles.impactList} ${styles.internshipList}`}>
               <li>
                 <span className={styles.pointNumber}>01</span>

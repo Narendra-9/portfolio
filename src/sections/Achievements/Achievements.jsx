@@ -44,7 +44,7 @@ export default function Achievements() {
     <section className={styles.achievementsSection} id="achievements" aria-labelledby="recognition-title">
       <div className={styles.hero}>
         <div className={styles.headingBlock}>
-          <div className={styles.kicker}><span>06</span> Recognition</div>
+          <div className={styles.kicker}><span>07</span> Recognition</div>
           <h2 id="recognition-title">Learning.<br />Building.<br /><em>Winning.</em></h2>
         </div>
         <div className={styles.heroArt} aria-hidden="true">

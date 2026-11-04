@@ -66,7 +66,7 @@ export default function ValueJourney() {
     <section className={styles.section} id="process" aria-labelledby="process-title">
       <div className={styles.inner}>
         <div className={styles.intro}>
-          <div className={styles.eyebrow}><span aria-hidden="true">✦</span> How I create value</div>
+          <div className={styles.eyebrow}><span>02</span> How I create value</div>
           <h2 id="process-title">From idea to <span>impact.</span></h2>
           <p>Every useful AI product needs more than a model. I carry the work from the first question through delivery and measurable outcomes.</p>
         </div>

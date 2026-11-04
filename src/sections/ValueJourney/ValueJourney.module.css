@@ -22,17 +22,17 @@
 .eyebrow {
   display: flex;
   align-items: center;
-  gap: .7rem;
+  gap: .65rem;
   margin-bottom: 1rem;
-  color: var(--coral);
-  font-family: var(--font-interface);
-  font-size: .78rem;
+  color: var(--white);
+  font-family: var(--font-geist-mono);
+  font-size: .72rem;
   font-weight: 900;
-  letter-spacing: .16em;
+  letter-spacing: .1em;
   text-transform: uppercase;
 }
 
-.eyebrow span { color: var(--acid); font-size: 1.2rem; }
+.eyebrow span { display: grid; width: 34px; height: 34px; place-items: center; border: 2px solid var(--white); color: var(--ink); background: var(--acid); box-shadow: 3px 3px 0 var(--coral); }
 
 .intro h2 {
   margin: 0;

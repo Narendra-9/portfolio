@@ -2,12 +2,16 @@
 title: Certifications and Training
 category: certification
 visibility: public
-last_verified: 2026-09-15
+last_verified: 2026-11-04
 ---
 
 # Certifications and training
 
 ## Professional certifications
+
+### AWS Certified Cloud Practitioner
+
+I hold the AWS Certified Cloud Practitioner certification. It validates foundational knowledge of AWS Cloud concepts, services, security, architecture, pricing, and support. My certificate was issued November 3, 2026 and expires November 3, 2029. Its validation number is 53d82ecf3d574885896d51ea80c24f9a, which can be checked at https://aws.amazon.com/verification.
 
 ### AWS Certified AI Practitioner
 
@@ -44,4 +48,4 @@ I have also completed certified training in Generative AI, LangChain and LangGra
 
 ## Credential details boundary
 
-Only describe the certifications and training listed here. Do not invent or state credential IDs, scores, issue dates, expiry dates, or additional certifications unless they are explicitly added to this knowledge base.
+Only describe the certifications and training listed here. Do not invent credential IDs, scores, issue dates, expiry dates, or additional certifications. The AWS Cloud Practitioner validation number and dates above were supplied with the certificate.
